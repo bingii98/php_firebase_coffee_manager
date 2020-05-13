@@ -16,6 +16,11 @@
     <div class="overlay-notify">
         <div class="box">
             <button class="btn-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <ul>
+                <li>Cà phê đam mê</li>
+                <li>Cà phê đam mê</li>
+                <li>Cà phê đam mê</li>
+            </ul>
         </div>
         <div class="bg-overlay"></div>
     </div>
