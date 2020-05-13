@@ -20,7 +20,7 @@ $listCtl = new ListCtl();
         <?php
         $arr = $listCtl->getAll();
         foreach ($arr as $item) { ?>
-            <div class="card_list col-md-6 offset-md-3">
+            <div class="card-list col-md-6 offset-md-3">
                 <h3> <?php echo $item->getName() ?> </h3>
                 <p> <?php echo $item->getId() ?> </p>
             </div>
