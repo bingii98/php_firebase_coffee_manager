@@ -1,0 +1,9 @@
+{
+    "name": "octob/chb_coffee_web",
+    "type": "project",
+    "license": "GNU3",
+    "minimum-stability": "dev",
+    "require": {
+        "kreait/firebase-php": "5.0"
+    }
+}
