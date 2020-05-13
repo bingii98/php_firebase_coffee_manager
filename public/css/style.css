@@ -1,0 +1,155 @@
+/*Use style for all page*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --darkblue: hsl(234, 12%, 34%);
+    --grey: hsl(229, 6%, 66%);
+    --lightgrey: hsl(0, 0%, 98%);
+    --lightblue: rgb(194, 204, 215);
+    --darkblue2: rgb(22, 36, 75);
+    --blurblue : rgb(75, 88, 123);
+}
+
+.-bg-lightgrey{
+    background-color: var(--lightgrey);
+}
+
+.-bg-darkblue{
+    background-color: var(--darkblue2);
+}
+
+.card-list{
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    padding: 1rem;
+    margin: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-list:before{
+    content: '';
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cyan);
+}
+
+.card-list h3{
+    margin: 10px 10px 0px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.card-list p {
+    font-size: 0.85rem;
+    color: var(--grey);
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+}
+
+.navbar-manager{
+    min-height: 50px;
+    padding: 10px;
+    color : var(--blurblue) !important;
+}
+
+.navbar-manager .panel-tab{
+    width: auto;
+    max-width: 300px;
+    line-height: 50px;
+}
+
+.navbar-manager .panel-tab ul{
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+.navbar-manager .panel-tab ul li{
+    justify-content:center;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.navbar-manager .panel-tab ul li:nth-last-child(1){
+    border-right: 2px solid #ffffff50;
+}
+
+.navbar-manager .panel-tab ul li.active{
+    color: #ffffff;
+}
+
+.navbar-manager .panel-tab ul li.active i{
+    color: #ffffff;
+}
+
+.navbar-manager .panel-tab ul li.active .hr-panel-tab{
+    position: absolute;
+    height: 4px;
+    top: 66px;
+    width: 85px;
+    background-color: #ffffff;
+}
+
+.navbar-manager .status-tab{
+    width: auto;
+    line-height: 39px;
+}
+
+.navbar-manager .status-tab ul{
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+.navbar-manager .status-tab ul li{
+    justify-content:center;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--blurblue);
+    letter-spacing: 3px;
+}
+
+.navbar-manager .status-tab ul li label{
+    letter-spacing: 0;
+    font-size: 13px;
+    position: absolute;
+    top: 30px;
+}
+
+.navbar-manager .status-tab ul li p {
+    color: var(--lightblue);
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.navbar-manager .status-tab ul li span {
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}

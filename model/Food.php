@@ -136,6 +136,17 @@ class Food {
     }
 
     /**
+     * @return mixed
+     */
+    public function printIsSale()
+    {
+        if($this->isSale == 1){
+            return "Sealing";
+        }
+        return "Not sale";
+    }
+
+    /**
      * @param mixed $isSale
      */
     public function setIsSale($isSale)
