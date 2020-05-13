@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/asset/js/bootstrap.bundle.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/asset/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/asset/js/jquery-3.5.1.min.js" afterDir="false" />
@@ -45,6 +47,13 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Sass File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,9 +101,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset/js" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="list.type.of.created.stylesheet" value="Sass" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -121,7 +132,7 @@
       <workItem from="1589221562010" duration="154000" />
       <workItem from="1589300919899" duration="157000" />
       <workItem from="1589301098304" duration="11762000" />
-      <workItem from="1589352584344" duration="7566000" />
+      <workItem from="1589352584344" duration="8660000" />
     </task>
     <servers />
   </component>
@@ -149,23 +160,31 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589361031045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361031045" />
     <state x="1056" y="612" key="ComposerInitDialogKey" timestamp="1589301487203">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1056" y="612" key="ComposerInitDialogKey/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589301487203" />
+    <state x="629" y="298" key="EditFileWatcherDialog" timestamp="1589361061458">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361061458" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589353598093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598093" />
-    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589357040103">
+    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589360483682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589357040103" />
+    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589360483682" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589304935179" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1589352788310">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589360902703">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589352788310" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589360902703" />
     <state x="987" y="299" width="585" height="801" key="find.popup" timestamp="1589303017839">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

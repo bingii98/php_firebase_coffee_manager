@@ -13,10 +13,15 @@
     --darkblue: hsl(234, 12%, 34%);
     --grey: hsl(229, 6%, 66%);
     --lightgrey: hsl(0, 0%, 98%);
+    --darkblue2: rgb(22, 36, 75);
 }
 
-.bg-lightgrey{
+.-bg-lightgrey{
     background-color: var(--lightgrey);
+}
+
+.-bg-darkblue{
+    background-color: var(--darkblue2);
 }
 
 .card_list{
@@ -54,4 +59,13 @@
     color: var(--grey);
     margin: 0px;
     padding: 0px 0px 0px 20px;
+}
+
+.navbar-manager{
+    min-height: 50px;
+}
+
+.navbar-manager .panel-tab{
+    border-right: 2px solid var(--lightgrey);
+    min-width: 200px;
 }
