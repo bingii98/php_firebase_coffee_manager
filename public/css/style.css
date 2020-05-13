@@ -1,8 +1,7 @@
 /*Use style for all page*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
-
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     color: var(--darkblue);
 }
 
@@ -16,16 +15,19 @@
     --lightgrey: hsl(0, 0%, 98%);
 }
 
+.bg-lightgrey{
+    background-color: var(--lightgrey);
+}
+
 .card_list{
     border-radius: 8px;
     background-color: #fff;
-    max-width: 350px;
     display: flex;
     flex-direction: column;
     height: auto;
     position: relative;
     padding: 1rem;
-    margin: 20px;
+    margin: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.1);
     overflow: hidden;
     cursor: pointer;
@@ -42,14 +44,14 @@
 }
 
 .card_list h3{
-    margin: 10px;
-    margin-bottom: 0px;
+    margin: 10px 10px 0px;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .card_list p {
     font-size: 0.85rem;
     color: var(--grey);
     margin: 0px;
-    padding: 0px;
-    padding-left: 20px;
+    padding: 0px 0px 0px 20px;
 }

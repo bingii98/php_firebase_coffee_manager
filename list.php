@@ -11,17 +11,20 @@ $listCtl = new ListCtl();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CHB - List</title>
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/asset/css/bootstrap.min.css">
 </head>
-<body>
-<section>
-    <?php
-    $arr = $listCtl->getAll();
-    foreach ($arr as $item) { ?>
-        <div class="card_list">
-            <h3> <?php echo $item->getName() ?> </h3>
-            <p> <?php echo $item->getId() ?> </p>
-        </div>
-    <?php } ?>
-</section>
+<body class="bg-lightgrey">
+<div class="container">
+    <section class="row">
+        <?php
+        $arr = $listCtl->getAll();
+        foreach ($arr as $item) { ?>
+            <div class="card_list col-md-6 offset-md-3">
+                <h3> <?php echo $item->getName() ?> </h3>
+                <p> <?php echo $item->getId() ?> </p>
+            </div>
+        <?php } ?>
+    </section>
+</div>
 </body>
 </html>
