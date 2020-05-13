@@ -1,7 +1,12 @@
 /*Use style for all page*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
-*{
+
+* {
     font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-width: 1000px;
 }
 
 :root {
@@ -14,18 +19,19 @@
     --lightgrey: hsl(0, 0%, 98%);
     --lightblue: rgb(194, 204, 215);
     --darkblue2: rgb(22, 36, 75);
-    --blurblue : rgb(75, 88, 123);
+    --blurblue: rgb(75, 88, 123);
+    --hover-background: #3A3B3C20;
 }
 
-.-bg-lightgrey{
+.-bg-lightgrey {
     background-color: var(--lightgrey);
 }
 
-.-bg-darkblue{
+.-bg-darkblue {
     background-color: var(--darkblue2);
 }
 
-.card-list{
+.card-list {
     border-radius: 8px;
     background-color: #fff;
     display: flex;
@@ -34,12 +40,12 @@
     position: relative;
     padding: 1rem;
     margin: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     cursor: pointer;
 }
 
-.card-list:before{
+.card-list:before {
     content: '';
     height: 5px;
     width: 100%;
@@ -49,7 +55,7 @@
     background-color: var(--cyan);
 }
 
-.card-list h3{
+.card-list h3 {
     margin: 10px 10px 0px;
     font-weight: 700;
     font-size: 18px;
@@ -62,26 +68,26 @@
     padding: 0px 0px 0px 20px;
 }
 
-.navbar-manager{
+.navbar-manager {
     min-height: 50px;
     padding: 10px;
-    color : var(--blurblue) !important;
+    color: var(--blurblue) !important;
 }
 
-.navbar-manager .panel-tab{
+.navbar-manager .panel-tab {
     width: auto;
     max-width: 300px;
     line-height: 50px;
 }
 
-.navbar-manager .panel-tab ul{
+.navbar-manager .panel-tab ul {
     display: flex;
     list-style-type: none;
     margin-bottom: 0px;
 }
 
-.navbar-manager .panel-tab ul li{
-    justify-content:center;
+.navbar-manager .panel-tab ul li {
+    justify-content: center;
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -91,19 +97,19 @@
     cursor: pointer;
 }
 
-.navbar-manager .panel-tab ul li:nth-last-child(1){
+.navbar-manager .panel-tab ul li:nth-last-child(1) {
     border-right: 2px solid #ffffff50;
 }
 
-.navbar-manager .panel-tab ul li.active{
+.navbar-manager .panel-tab ul li.active {
     color: #ffffff;
 }
 
-.navbar-manager .panel-tab ul li.active i{
+.navbar-manager .panel-tab ul li.active i {
     color: #ffffff;
 }
 
-.navbar-manager .panel-tab ul li.active .hr-panel-tab{
+.navbar-manager .panel-tab ul li.active .hr-panel-tab {
     position: absolute;
     height: 4px;
     top: 66px;
@@ -111,19 +117,19 @@
     background-color: #ffffff;
 }
 
-.navbar-manager .status-tab{
+.navbar-manager .status-tab {
     width: auto;
     line-height: 39px;
 }
 
-.navbar-manager .status-tab ul{
+.navbar-manager .status-tab ul {
     display: flex;
     list-style-type: none;
     margin-bottom: 0px;
 }
 
-.navbar-manager .status-tab ul li{
-    justify-content:center;
+.navbar-manager .status-tab ul li {
+    justify-content: center;
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -134,7 +140,7 @@
     letter-spacing: 3px;
 }
 
-.navbar-manager .status-tab ul li label{
+.navbar-manager .status-tab ul li label {
     letter-spacing: 0;
     font-size: 13px;
     position: absolute;
@@ -152,4 +158,125 @@
     font-size: 11px;
     font-weight: 500;
     margin-bottom: 0px;
+}
+
+.manager-desk {
+    padding-top: 50px;
+    min-height: 500px;
+}
+
+.manager-desk .slidebar {
+    color: var(--blurblue);
+    border-right: 2px solid var(--lightblue);
+}
+
+.manager-desk .slidebar h5{
+    margin-left: 25px;
+    opacity: 0.5;
+}
+
+.manager-desk .slidebar .list-desk, .manager-desk .slidebar .list-desk-detail {
+    list-style-type: none;
+    margin: 0px 25px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.manager-desk .slidebar .list-desk-detail {
+    margin: 30px 25px;
+}
+
+.manager-desk .slidebar .list-desk .item, .manager-desk .slidebar .list-desk-detail .item {
+    cursor: pointer;
+    display: flex;
+    padding: 10px 25px;
+    border-bottom: 1px solid var(--lightblue);
+}
+
+.manager-desk .slidebar .list-desk .item i {
+    right: 0;
+    margin-right: 60px;
+    font-size: 22px;
+    transform-origin: center;
+    transition: all 500ms;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.manager-desk .slidebar .list-desk-detail .item i {
+    right: 0;
+    color: #ffffff;
+    height: 20px;
+    width: 20px;
+    font-size: 13px;
+    font-style: normal;
+    border-radius: 20px;
+    background: var(--blurblue);
+    margin-right: 60px;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.manager-desk .slidebar .list-desk .item:hover {
+    background-color: var(--blurblue);
+}
+
+.manager-desk .slidebar .list-desk-detail .item:hover {
+    border-radius: 20px;
+    background-color: var(--hover-background);
+}
+
+.manager-desk .slidebar .list-desk .item:hover i {
+    color: var(--lightgrey);
+    transform-origin: center;
+    transform: scale(1.5) rotate(90deg);
+}
+
+.manager-desk .slidebar .list-desk .item:hover p {
+    color: var(--lightgrey);
+}
+
+.manager-desk .slidebar .list-desk .header, .manager-desk .slidebar .list-desk-detail .header {
+    padding: 10px;
+    cursor: auto;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.manager-desk .slidebar .list-desk .item:nth-last-child(1), .manager-desk .slidebar .list-desk-detail .item:nth-last-child(1) {
+    border-bottom: none;
+}
+
+.manager-desk .slidebar .list-desk p, .manager-desk .slidebar .list-desk-detail p {
+    font-weight: 500;
+    flex: 1;
+    text-align: left;
+    margin: 0;
+}
+
+.manager-desk .content {
+    margin: 0px 40px;
+}
+
+.manager-desk .content .card-box-desk{
+    list-style-type: none;
+    display: block;
+}
+
+.manager-desk .content .card-box-desk .card-list{
+    min-width: 200px;
+    float: left;
+}
+
+.manager-desk .content .card-box-desk .card-list{
+    min-width: 200px;
+    float: left;
+}
+
+.manager-desk .content .card-box-desk .card-list.active::before{
+    background-color: var(--red);
 }

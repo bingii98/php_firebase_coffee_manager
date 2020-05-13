@@ -32,5 +32,38 @@
         </div>
     </div>
 </header>
+<section>
+    <div class="row manager-desk">
+        <div class="slidebar col-3">
+            <h5>CONTROL PANEL</h5>
+            <ul class="list-desk">
+                <li class="header">Loại bàn <i class="fa fa-cubes" aria-hidden="true"></i></li>
+                <li class="item"><p>Bàn trống</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+                <li class="item"><p>Bàn có người</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+            </ul>
+            <ul class="list-desk-detail">
+                <li class="header">Chi tiết <i class="fa fa-coffee" aria-hidden="true"></i></li>
+                <li class="item"><p>Bàn 1</p><i>1</i></li>
+                <li class="item"><p>Bàn 2</p><i>2</i></li>
+                <li class="item"><p>Bàn 3</p><i>4</i></li>
+                <li class="item"><p>Bàn 4</p><i>4</i></li>
+            </ul>
+        </div>
+        <div class="content col-8">
+            <ul class="card-box-desk">
+                <li class="card-list active"><lable>Bàn 1</lable></li>
+                <li class="card-list"><label>Bàn 2</label></li>
+                <li class="card-list"><label>Bàn 3</label></li>
+                <li class="card-list"><label>Bàn 4</label></li>
+                <li class="card-list"><label>Bàn 5</label></li>
+                <li class="card-list"><label>Bàn 6</label></li>
+                <li class="card-list"><label>Bàn 7</label></li>
+                <li class="card-list"><label>Bàn 8</label></li>
+                <li class="card-list"><label>Bàn 9</label></li>
+                <li class="card-list"><label>Bàn 10</label></li>
+            </ul>
+        </div>
+    </div>
+</section>
 </body>
 </html>
