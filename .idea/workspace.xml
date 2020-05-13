@@ -20,25 +20,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/dbConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/ListCtl.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Food.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/List.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CHB_Coffee_Web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CHB_Coffee_Web.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ListCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ListCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Food.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Food.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/List.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/List.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
     </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/vendor/google/crc32" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/kreait/clock" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/rize/uri-template" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-core" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-storage" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1blze1gqG55JQDHSERK4mp2UH83" />
   <component name="ProjectLevelVcsManager">
@@ -53,6 +90,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -67,6 +111,7 @@
       <workItem from="1589221562010" duration="154000" />
       <workItem from="1589300919899" duration="157000" />
       <workItem from="1589301098304" duration="11762000" />
+      <workItem from="1589352584344" duration="6406000" />
     </task>
     <servers />
   </component>
@@ -83,8 +128,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="763" y="309" key="#Web_Browsers" timestamp="1589353598871">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="763" y="309" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598871" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1589305298612">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -93,10 +143,19 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1056" y="612" key="ComposerInitDialogKey/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589301487203" />
-    <state x="1114" y="623" key="NewPhpFileDialog" timestamp="1589304935179">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589353598093">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598093" />
+    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589357040103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589357040103" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589304935179" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589352788310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589352788310" />
     <state x="987" y="299" width="585" height="801" key="find.popup" timestamp="1589303017839">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

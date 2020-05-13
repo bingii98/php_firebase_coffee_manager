@@ -5,6 +5,7 @@ class Lists {
     private $name;
     private $foods;
 
+
     /**
      * Lists constructor.
      * @param $id

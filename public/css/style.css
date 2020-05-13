@@ -1,0 +1,55 @@
+/*Use style for all page*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    color: var(--darkblue);
+}
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --darkblue: hsl(234, 12%, 34%);
+    --grey: hsl(229, 6%, 66%);
+    --lightgrey: hsl(0, 0%, 98%);
+}
+
+.card_list{
+    border-radius: 8px;
+    background-color: #fff;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    padding: 1rem;
+    margin: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card_list:before{
+    content: '';
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cyan);
+}
+
+.card_list h3{
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.card_list p {
+    font-size: 0.85rem;
+    color: var(--grey);
+    margin: 0px;
+    padding: 0px;
+    padding-left: 20px;
+}
