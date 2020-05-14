@@ -13,7 +13,7 @@
 </head>
 <body>
 <header class="navbar-manager -bg-darkblue">
-    <div class="container" style="display: flex;">
+    <div class="container-fluid" style="display: flex;">
         <div class="panel-tab">
             <ul>
                 <li class="active"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;&nbsp;Table
@@ -32,5 +32,13 @@
         </div>
     </div>
 </header>
+<section class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-9">
+
+    </div>
+</section>
 </body>
 </html>
