@@ -28,7 +28,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -54,11 +54,9 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
       <path value="$PROJECT_DIR$/vendor/kreait/clock" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
@@ -74,6 +72,8 @@
       <path value="$PROJECT_DIR$/vendor/google/auth" />
       <path value="$PROJECT_DIR$/vendor/google/cloud-storage" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
     </include_path>
   </component>
   <component name="ProjectId" id="1blze1gqG55JQDHSERK4mp2UH83" />
@@ -89,8 +89,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
@@ -119,6 +120,7 @@
       <workItem from="1589300919899" duration="157000" />
       <workItem from="1589301098304" duration="11762000" />
       <workItem from="1589352584344" duration="13512000" />
+      <workItem from="1589392436310" duration="13976000" />
     </task>
     <servers />
   </component>
@@ -179,5 +181,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="987" y="299" width="585" height="801" key="find.popup/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589303017839" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1589398845163">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589398845163" />
   </component>
 </project>
