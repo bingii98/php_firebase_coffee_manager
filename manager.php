@@ -105,5 +105,27 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
         })
     })
 </script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDf1Xj2VNZKAsoFJR_9cFWGASQejA-DCjQ",
+        authDomain: "chbcoffee-4efec.firebaseapp.com",
+        databaseURL: "https://chbcoffee-4efec.firebaseio.com",
+        projectId: "chbcoffee-4efec",
+        storageBucket: "chbcoffee-4efec.appspot.com",
+        messagingSenderId: "564177388322",
+        appId: "1:564177388322:web:e89372ce3b2a9faca81b7b"
+    };
+    // Initialize Firebase
+    var defaultProject = firebase.initializeApp(firebaseConfig);
+
+    console.log(defaultProject.name);  // "[DEFAULT]"
+</script>
 </body>
 </html>
