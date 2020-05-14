@@ -1,4 +1,16 @@
 <!doctype html>
+<?php
+include __DIR__ . '/controller/TableCtl.php';
+$tableCtl = new TableCtl();
+$arr_table = $tableCtl->getAll_food();
+if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
+    $arr_table_show = $tableCtl->get_not_empty_food();
+} else if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'true') {
+    $arr_table_show = $tableCtl->get_empty_food();
+} else{
+    $arr_table_show = $arr_table;
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,19 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<section>
-    <div class="overlay-notify">
-        <div class="box">
-            <button class="btn-close"><i class="fa fa-times" aria-hidden="true"></i></button>
-            <ul>
-                <li>Cà phê đam mê</li>
-                <li>Cà phê đam mê</li>
-                <li>Cà phê đam mê</li>
-            </ul>
-        </div>
-        <div class="bg-overlay"></div>
-    </div>
-</section>
 <header class="navbar-manager -bg-darkblue">
     <div class="container-fluid" style="display: flex;">
         <div class="panel-tab">
@@ -32,8 +31,9 @@
                 <li class="active"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;&nbsp;Table
                     <div class="hr-panel-tab"></div>
                 </li>
-                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
-                    <div class="hr-panel-tab"></div>
+                <li>
+                    <a href="drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
+                        <div class="hr-panel-tab"></div></a>
                 </li>
             </ul>
         </div>
@@ -52,91 +52,31 @@
             <h5>CONTROL PANEL</h5>
             <ul class="list-desk">
                 <li class="header">Loại bàn <i class="fa fa-cubes" aria-hidden="true"></i></li>
-                <li class="item"><p>Bàn trống</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
-                <li class="item"><p>Bàn có người</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+                <li class="item redirect" dataHref="manager.php"><p>Tất cả</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+                <li class="item redirect" dataHref="manager.php?is_empty=true"><p>Bàn trống</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+                <li class="item redirect" dataHref="manager.php?is_empty=false"><p>Bàn có người</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
             </ul>
             <ul class="list-desk-detail">
                 <li class="header">Chi tiết <i class="fa fa-coffee" aria-hidden="true"></i></li>
-                <li class="item"><p>Bàn 1</p><i>1</i></li>
-                <li class="item"><p>Bàn 2</p><i>2</i></li>
-                <li class="item"><p>Bàn 3</p><i>4</i></li>
-                <li class="item"><p>Bàn 4</p><i>4</i></li>
+                <?php
+                foreach ($arr_table_show as $key => $item){ ?>
+                    <li class="item"><p><?php echo $item->getName(); ?></p><i><?php echo $item->countFood(); ?></i></li>
+                <?php } ?>
             </ul>
         </div>
         <div class="content col-8">
             <ul class="card-box-desk">
-                <li class="card-list active">
-                    <label>Bàn 1</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list">
-                    <label>Bàn 2</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 3</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 4</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list active"><label>Bàn 5</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 6</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list active"><label>Bàn 7</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 8</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 9</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
-                <li class="card-list"><label>Bàn 10</label>
-                    <div class="status">
-                        <p><i class="fa fa-coffee" aria-hidden="true"></i> 6</p>
-                        <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                    </div>
-                    <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                </li>
+                <?php
+                    foreach ($arr_table_show as $key => $item){ ?>
+                        <li class="card-list active">
+                            <label><?php echo $item->getName(); ?></label>
+                            <div class="status">
+                                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countFood(); ?></p>
+                                <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
+                            </div>
+                            <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
+                        </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
@@ -158,6 +98,10 @@
                     $(".card-list").removeClass("disable");
                 }
             }
+        })
+
+        $(".redirect").click(function () {
+            window.location.href = $(this).attr('dataHref');
         })
     })
 </script>

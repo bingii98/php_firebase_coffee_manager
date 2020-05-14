@@ -1,13 +1,12 @@
 <?php
 
-class Lists {
+class Table {
     private $id;
     private $name;
     private $foods = array();
 
-
     /**
-     * Lists constructor.
+     * Table constructor.
      * @param $id
      * @param $name
      * @param $foods
@@ -72,8 +71,8 @@ class Lists {
      */
     public function countFood()
     {
+        if($this->foods == null)
+            return 0;
         return count($this->foods);
     }
-
-
 }

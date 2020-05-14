@@ -9,6 +9,10 @@ body {
     min-width: 1000px;
 }
 
+section {
+    overflow: hidden;
+}
+
 :root {
     --red: hsl(0, 78%, 62%);
     --cyan: hsl(180, 62%, 55%);
@@ -56,13 +60,13 @@ body {
 }
 
 .card-list h3 {
-    margin: 10px 10px 0px;
+    margin: 1px 10px 0px 20px;
     font-weight: 700;
     font-size: 18px;
 }
 
 .card-list p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--grey);
     margin: 0px;
     padding: 0px 0px 0px 20px;
@@ -78,6 +82,11 @@ body {
     width: auto;
     max-width: 300px;
     line-height: 50px;
+}
+
+.navbar-manager .panel-tab a {
+    color: var(--blurblue);
+    text-decoration: none;
 }
 
 .navbar-manager .panel-tab ul {
@@ -330,7 +339,7 @@ body {
     color: var(--lightblue);
 }
 
-.overlay-notify .box ul li{
+.overlay-notify .box ul li {
     padding: 15px;
     border-bottom: 1px solid;
 }
@@ -340,4 +349,41 @@ body {
     z-index: 9998;
     width: 100%;
     height: 100vh;
+}
+
+.card-image img{
+    border-radius: 10px;
+    width: 125px;
+}
+
+.card-image {
+    float: left;
+}
+
+.card-image .sale {
+    position: absolute;
+    top: 23px;
+    background: var(--orange);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.card-detail {
+    float: left;
+    max-width: 220px;
+    margin-left: 10px;
+}
+
+.card-detail .price {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--orange);
+}
+
+.card-detail .sub-price {
+    margin-top: -5px;
+    font-weight: 500;
+    text-decoration: line-through;
 }

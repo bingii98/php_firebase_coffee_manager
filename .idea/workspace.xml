@@ -95,15 +95,16 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -121,6 +122,7 @@
       <workItem from="1589301098304" duration="11762000" />
       <workItem from="1589352584344" duration="13512000" />
       <workItem from="1589392436310" duration="13976000" />
+      <workItem from="1589476021779" duration="11602000" />
     </task>
     <servers />
   </component>
@@ -148,9 +150,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589363279341" />
-    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1589305298612">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1589483490496">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589483490496" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589361031045">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -168,10 +171,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598093" />
-    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589360483682">
+    <state x="748" y="242" key="NewPhpClassDialog" timestamp="1589485009398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589360483682" />
+    <state x="748" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589485009398" />
+    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589485002277">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589485002277" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589304935179" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1589360902703">
       <screen x="0" y="0" width="1920" height="1040" />
