@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+session_start();
 include __DIR__ . '/controller/ListCtl.php';
 $listCtl = new ListCtl();
 ?>
@@ -16,6 +17,9 @@ $listCtl = new ListCtl();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div class="cart">
+    <a href=""><i class="fa fa-opencart" aria-hidden="true"></i> Thanh toán</a>
+</div>
 <header class="navbar-manager -bg-darkblue">
     <div class="container-fluid" style="display: flex;">
         <div class="panel-tab">
@@ -32,8 +36,8 @@ $listCtl = new ListCtl();
         </div>
         <div class="status-tab">
             <ul>
-                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p>09</p> <span>/</span>
-                    <p>34</p><label>Active table</label>
+                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
+                    <p><?php echo $_SESSION['table_count'] ?></p><label>Active table</label>
                 </li>
             </ul>
         </div>
@@ -65,12 +69,15 @@ $listCtl = new ListCtl();
                         </div>
                         <div class="card-detail">
                             <h3> <?php echo $itemFood->getName() ?> </h3>
-                            <?php if($itemFood->getIsSale() == 1) { ?>
-                                <p class="price"> <?php echo number_format($itemFood->getPrice() - $itemFood->getPrice()/100*$itemFood->getSale(), 0, '', '.'); ?> ₫ </p>
-                                <p class="sub-price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?> ₫ </p>
+                            <?php if ($itemFood->getIsSale() == 1) { ?>
+                                <p class="price"> <?php echo number_format($itemFood->getPrice() - $itemFood->getPrice() / 100 * $itemFood->getSale(), 0, '', '.'); ?>
+                                    ₫ </p>
+                                <p class="sub-price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?>
+                                    ₫ </p>
                             <?php } else { ?>
                                 <p class="price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?> ₫ </p>
                             <?php } ?>
+                            <button class="add-cart-btn" food_id="<?php echo $itemFood->getId() ?>"><i class="fa fa-plus" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 <?php } ?>
@@ -94,6 +101,19 @@ $listCtl = new ListCtl();
                 } else {
                     $(".card-list").removeClass("disable");
                 }
+            }
+        })
+    })
+
+    $(".add-cart-btn").click(function () {
+        $.ajax({
+            url : "handle-cart.php",
+            data: {
+                'food_id' : $(this).attr("food_id")
+            },
+            type : "POST",
+            success : function (data) {
+
             }
         })
     })

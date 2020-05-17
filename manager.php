@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+session_start();
 include __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
 $arr_table = $tableCtl->getAll_food();
@@ -9,6 +10,14 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
     $arr_table_show = $tableCtl->get_empty_food();
 } else{
     $arr_table_show = $arr_table;
+    $_SESSION['table_count'] = count($arr_table_show);
+    $count_active = 0;
+    foreach ($arr_table_show as $keyA => $item){
+        if($item->countFood() > 0){
+            $count_active++;
+        }
+    }
+    $_SESSION['table_active'] = $count_active;
 }
 ?>
 <html lang="en">
@@ -39,8 +48,8 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
         </div>
         <div class="status-tab">
             <ul>
-                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p>09</p> <span>/</span>
-                    <p>34</p><label>Active table</label>
+                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
+                    <p><?php echo $_SESSION['table_count'] ?></p><label>Active table</label>
                 </li>
             </ul>
         </div>
