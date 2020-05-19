@@ -190,6 +190,33 @@ $listCtl = new ListCtl();
         });
     }
 </script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDf1Xj2VNZKAsoFJR_9cFWGASQejA-DCjQ",
+        authDomain: "chbcoffee-4efec.firebaseapp.com",
+        databaseURL: "https://chbcoffee-4efec.firebaseio.com",
+        projectId: "chbcoffee-4efec",
+        storageBucket: "chbcoffee-4efec.appspot.com",
+        messagingSenderId: "564177388322",
+        appId: "1:564177388322:web:e68cd9e93cd22751a81b7b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var database = firebase.database();
+
+    var starCountRef = firebase.database().ref('table');
+    starCountRef.on('value', function() {
+        location.reload();
+    });
+</script>
 <script src="public/js/notification.js"></script>
 </body>
 </html>
