@@ -95,22 +95,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/php-shopping-cart-with-jquery-ajax" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -130,6 +130,7 @@
       <workItem from="1589392436310" duration="13976000" />
       <workItem from="1589476021779" duration="14612000" />
       <workItem from="1589729828886" duration="10718000" />
+      <workItem from="1589903076446" duration="7745000" />
     </task>
     <servers />
   </component>

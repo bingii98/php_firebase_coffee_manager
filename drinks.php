@@ -13,10 +13,15 @@ $listCtl = new ListCtl();
     <title>CHB - Coffee Manager</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/notification.css">
     <link rel="stylesheet" href="public/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+<div class="wrapper">
+
+</div>
 <div class="cart">
     <button type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-opencart"
                                                                              aria-hidden="true"></i> Thanh toán
@@ -27,8 +32,7 @@ $listCtl = new ListCtl();
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <div class="modal-header" style="border-bottom: none;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -38,9 +42,8 @@ $listCtl = new ListCtl();
 
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer" style="border-top: none;">
+                <button type="button" class="btn btn-primary" style="width: 100%;">Confirm</button>
             </div>
         </div>
     </div>
@@ -114,11 +117,8 @@ $listCtl = new ListCtl();
                             ?>
                             <button type="button" id="add_<?php echo $itemFood->getId(); ?>"
                                     class="btnAddAction cart-action add-cart-btn"
-                                    onClick="cartAction('add','<?php echo $itemFood->getId(); ?>')"
-                                    <?php if ($in_session != "0") { ?>style="display:none" <?php } ?> ><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            <button type="button" id="added_<?php echo $itemFood->getId();; ?>" value="Added"
-                                    class="btnAdded add-cart-btn"
-                                    <?php if ($in_session != "1") { ?>style="display:none" <?php } ?> ><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                    onClick="cartAction('add','<?php echo $itemFood->getId(); ?>')"><i
+                                        class="fa fa-plus" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 <?php } ?>
@@ -154,7 +154,7 @@ $listCtl = new ListCtl();
         if (action != "") {
             switch (action) {
                 case "add":
-                    queryString = 'action=' + action + '&code=' + product_code + '&quantity=' + $("#qty_" + product_code).val();
+                    queryString = 'action=' + action + '&code=' + product_code;
                     break;
                 case "remove":
                     queryString = 'action=' + action + '&code=' + product_code;
@@ -172,15 +172,16 @@ $listCtl = new ListCtl();
                 $("#cart-item").html(data);
                 if (action != "") {
                     switch (action) {
-                        case "add":
-                            $("#add_" + product_code).hide();
-                            $("#added_" + product_code).show();
+                        case "add" :
+                            createAlert("success","Add success!");
                             break;
                         case "remove":
+                            createAlert("warning","Remove success!");
                             $("#add_" + product_code).show();
                             $("#added_" + product_code).hide();
                             break;
                         case "empty":
+                            createAlert("danger","List is empty!");
                             $(".btnAddAction").show();
                             $(".btnAdded").hide();
                             break;
@@ -192,5 +193,6 @@ $listCtl = new ListCtl();
         });
     }
 </script>
+<script src="public/js/notification.js"></script>
 </body>
 </html>

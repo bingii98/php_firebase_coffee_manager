@@ -46,7 +46,6 @@ section {
     margin: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    cursor: pointer;
 }
 
 .card-list:before {
@@ -379,17 +378,25 @@ section {
     margin: 1px 10px 0px 20px;
     border: none;
     outline: none !important;
-    cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    background: orange;
-    color: #ffffff;
     line-height: 40px;
     text-align: center;
 }
 
-.card-detail button:hover{
+.card-detail .btnAdded{
+    background: none;
+    color: orange;
+}
+
+.card-detail .btnAddAction{
+    cursor: pointer;
+    color: #ffffff;
+    background: orange;
+}
+
+.card-detail .btnAddAction:hover{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -416,7 +423,8 @@ section {
 }
 
 .cart button{
-    color: #ffffff;
+    background: orange;
+    cursor: pointer;
     font-weight: 600;
     line-height: 50px;
     text-align: center;
@@ -424,9 +432,8 @@ section {
     text-decoration: none;
     border: none;
     width: 200px;
-    cursor: pointer;
-    background: orange;
     border-radius: 50px;
+    outline: none !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -436,4 +443,9 @@ section {
     line-height: 50px;
     text-align: center;
     display: block;
+    background: orange;
+}
+
+#cart-item table tbody tr td:nth-last-child(1){
+    text-align: right;
 }

@@ -11,3 +11,5 @@ $foodCtl = new FoodCtl();
 
 $factory = (new Factory)->withServiceAccount(__DIR__ . '/secret/key.json');
 $firebase = $factory->createDatabase();
+
+$firebase->getReference('order')->getChild();
