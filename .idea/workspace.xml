@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/Query.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/FoodCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drinks.php" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handle-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/handle-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,22 +95,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/php-shopping-cart-with-jquery-ajax" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -168,17 +174,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361061458" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589353598093">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="526" y="193" key="FileChooserDialogImpl" timestamp="1589872572076">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589872572076" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598093" />
     <state x="748" y="242" key="NewPhpClassDialog" timestamp="1589485009398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="748" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589485009398" />
-    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1589740457964">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="595" y="324" key="NewPhpFileDialog" timestamp="1589869043388">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="595" y="324" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589869043388" />
     <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589740457964" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589304935179" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1589360902703">
@@ -193,5 +201,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589743820177" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1589871421390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589871421390" />
   </component>
 </project>

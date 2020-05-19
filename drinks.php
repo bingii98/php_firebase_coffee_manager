@@ -18,7 +18,32 @@ $listCtl = new ListCtl();
 </head>
 <body>
 <div class="cart">
-    <a href=""><i class="fa fa-opencart" aria-hidden="true"></i> Thanh toán</a>
+    <button type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-opencart"
+                                                                             aria-hidden="true"></i> Thanh toán
+    </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-item">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 <header class="navbar-manager -bg-darkblue">
     <div class="container-fluid" style="display: flex;">
@@ -36,7 +61,8 @@ $listCtl = new ListCtl();
         </div>
         <div class="status-tab">
             <ul>
-                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
+                <li><i class="fa fa-coffee"
+                       aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
                     <p><?php echo $_SESSION['table_count'] ?></p><label>Active table</label>
                 </li>
             </ul>
@@ -77,7 +103,22 @@ $listCtl = new ListCtl();
                             <?php } else { ?>
                                 <p class="price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?> ₫ </p>
                             <?php } ?>
-                            <button class="add-cart-btn" food_id="<?php echo $itemFood->getId() ?>"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <?php
+                            $in_session = "0";
+                            if (!empty($_SESSION["cart_item"])) {
+                                $session_code_array = array_keys($_SESSION["cart_item"]);
+                                if (in_array($itemFood->getId(), $session_code_array)) {
+                                    $in_session = "1";
+                                }
+                            }
+                            ?>
+                            <button type="button" id="add_<?php echo $itemFood->getId(); ?>"
+                                    class="btnAddAction cart-action add-cart-btn"
+                                    onClick="cartAction('add','<?php echo $itemFood->getId(); ?>')"
+                                    <?php if ($in_session != "0") { ?>style="display:none" <?php } ?> ><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <button type="button" id="added_<?php echo $itemFood->getId();; ?>" value="Added"
+                                    class="btnAdded add-cart-btn"
+                                    <?php if ($in_session != "1") { ?>style="display:none" <?php } ?> ><i class="fa fa-minus" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 <?php } ?>
@@ -86,8 +127,11 @@ $listCtl = new ListCtl();
     </div>
 </section>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
+<script src="public/asset/js/bootstrap.min.js"></script>
 <script !src="">
     $(document).ready(function () {
+        cartAction('', '');
+
         $(".card-list").click(function () {
             console.log($(".card-list .disable").length);
             if ($(this).hasClass("disable")) {
@@ -105,18 +149,48 @@ $listCtl = new ListCtl();
         })
     })
 
-    $(".add-cart-btn").click(function () {
-        $.ajax({
-            url : "handle-cart.php",
-            data: {
-                'food_id' : $(this).attr("food_id")
-            },
-            type : "POST",
-            success : function (data) {
-
+    function cartAction(action, product_code) {
+        var queryString = "";
+        if (action != "") {
+            switch (action) {
+                case "add":
+                    queryString = 'action=' + action + '&code=' + product_code + '&quantity=' + $("#qty_" + product_code).val();
+                    break;
+                case "remove":
+                    queryString = 'action=' + action + '&code=' + product_code;
+                    break;
+                case "empty":
+                    queryString = 'action=' + action;
+                    break;
             }
-        })
-    })
+        }
+        $.ajax({
+            url: "handle-cart.php",
+            data: queryString,
+            type: "POST",
+            success: function (data) {
+                $("#cart-item").html(data);
+                if (action != "") {
+                    switch (action) {
+                        case "add":
+                            $("#add_" + product_code).hide();
+                            $("#added_" + product_code).show();
+                            break;
+                        case "remove":
+                            $("#add_" + product_code).show();
+                            $("#added_" + product_code).hide();
+                            break;
+                        case "empty":
+                            $(".btnAddAction").show();
+                            $(".btnAdded").hide();
+                            break;
+                    }
+                }
+            },
+            error: function () {
+            }
+        });
+    }
 </script>
 </body>
 </html>

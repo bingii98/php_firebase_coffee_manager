@@ -409,26 +409,28 @@ section {
 .cart{
     position: fixed !important;
     z-index: 1000;
-    width: 200px;
-    border-radius: 30px;
     height: 50px;
     margin: 5%;
     right: 0;
     bottom: 0;
-    background: orange;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cart a{
+.cart button{
     color: #ffffff;
     font-weight: 600;
     line-height: 50px;
     text-align: center;
     display: block;
     text-decoration: none;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    background: orange;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cart a:hover{
+.cart button:hover{
     color: #ffffff;
     font-weight: 600;
     line-height: 50px;

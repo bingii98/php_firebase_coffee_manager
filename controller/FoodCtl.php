@@ -4,7 +4,9 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 require './vendor/autoload.php';
-include './model/Food.php';
+include './config/Query.php';
+
+
 class FoodCtl{
 
     protected $firebase;
@@ -29,5 +31,16 @@ class FoodCtl{
             }
         }
         return $arr;
+    }
+
+    public function get($id, $controller){
+        $arr = $controller->getAll_food();
+        foreach ($arr as $item) {
+            foreach ($item->getFoods() as $itemFood) {
+                if($itemFood->getId() == $id)
+                    return $itemFood;
+            }
+        }
+        return null;
     }
 }
