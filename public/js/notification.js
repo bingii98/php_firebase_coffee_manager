@@ -32,6 +32,11 @@ const emptyState = () => {
 };
 
 const createAlert = (type,notification) => {
+
+    if(document.querySelectorAll('.alert ').length > 5){
+        document.querySelector('.wrapper ').firstElementChild.remove();
+    }
+
     const newAlert = document.createElement('div');
     newAlert.classList = `alert alert--${type}`;
     if (type == 'success') {

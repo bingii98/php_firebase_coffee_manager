@@ -42,9 +42,6 @@ $listCtl = new ListCtl();
 
                 </div>
             </div>
-            <div class="modal-footer" style="border-top: none;">
-                <button type="button" class="btn btn-primary" style="width: 100%;">Confirm</button>
-            </div>
         </div>
     </div>
 </div>

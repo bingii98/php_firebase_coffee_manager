@@ -449,3 +449,11 @@ section {
 #cart-item table tbody tr td:nth-last-child(1){
     text-align: right;
 }
+
+#cart-item table tbody tr{
+    border: 1px solid black;
+}
+
+#cart-item table tbody tr:nth-last-child(1){
+    border: none;
+}

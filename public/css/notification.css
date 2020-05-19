@@ -94,29 +94,12 @@
     }
 }
 
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    color: #677b7a;
-    font-family: system-ui;
-}
-
 .wrapper {
     position: fixed;
     left: 0;
     bottom: 0;
     z-index: 1000;
-    max-width: 500px;
+    max-width: 350px;
     width: 100%;
     margin: auto;
     padding-top: 15vh;
