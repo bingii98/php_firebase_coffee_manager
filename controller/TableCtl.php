@@ -4,8 +4,8 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 require './vendor/autoload.php';
-include './model/Table.php';
-include './model/Food.php';
+include_once './model/Table.php';
+include_once './model/Food.php';
 
 class TableCtl
 {
@@ -37,13 +37,13 @@ class TableCtl
         $arr = array();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            $arr_food = array();
-            if(isset($item['foods'])){
-                foreach ($item['foods'] as $keyFood => $itemFood){
-                    array_push($arr_food,new Food($keyFood,$itemFood['name'],$itemFood['description'],$itemFood['price'],$itemFood['image'],$itemFood['sale'],$itemFood['isSale']));
+            $arr_orders = array();
+            if(isset($item['orders'])){
+                foreach ($item['orders'] as $keyOrder => $itemOrder){
+                    array_push($arr_orders,$itemOrder);
                 }
             }
-            array_push($arr,new Table($key,$item['name'],$arr_food));
+            array_push($arr,new Table($key,$item['name'],$arr_orders));
         }
         return $arr;
     }

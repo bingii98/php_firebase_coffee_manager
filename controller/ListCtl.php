@@ -6,8 +6,8 @@ use Kreait\Firebase\ServiceAccount;
 require './vendor/autoload.php';
 
 //Module
-include './model/List.php';
-include './model/Food.php';
+include_once './model/List.php';
+include_once './model/Food.php';
 
 class ListCtl{
 

@@ -1,25 +1,4 @@
 <!doctype html>
-<?php
-session_start();
-include __DIR__ . '/controller/TableCtl.php';
-$tableCtl = new TableCtl();
-$arr_table = $tableCtl->getAll_food();
-if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
-    $arr_table_show = $tableCtl->get_not_empty_food();
-} else if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'true') {
-    $arr_table_show = $tableCtl->get_empty_food();
-} else{
-    $arr_table_show = $arr_table;
-    $_SESSION['table_count'] = count($arr_table_show);
-    $count_active = 0;
-    foreach ($arr_table_show as $keyA => $item){
-        if($item->countFood() > 0){
-            $count_active++;
-        }
-    }
-    $_SESSION['table_active'] = $count_active;
-}
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,9 +26,9 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
             </ul>
         </div>
         <div class="status-tab">
-            <ul>
-                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
-                    <p><?php echo $_SESSION['table_count'] ?></p><label>Active table</label>
+            <ul id="active-status">
+                <li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
+                    <p>0</p><label>Active table</label>
                 </li>
             </ul>
         </div>
@@ -65,27 +44,10 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
                 <li class="item redirect" dataHref="manager.php?is_empty=true"><p>Bàn trống</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
                 <li class="item redirect" dataHref="manager.php?is_empty=false"><p>Bàn có người</p><i class="fa fa-caret-right" aria-hidden="true"></i></li>
             </ul>
-            <ul class="list-desk-detail">
-                <li class="header">Chi tiết <i class="fa fa-coffee" aria-hidden="true"></i></li>
-                <?php
-                foreach ($arr_table_show as $key => $item){ ?>
-                    <li class="item"><p><?php echo $item->getName(); ?></p><i><?php echo $item->countFood(); ?></i></li>
-                <?php } ?>
-            </ul>
         </div>
         <div class="content col-8">
-            <ul class="card-box-desk">
-                <?php
-                    foreach ($arr_table_show as $key => $item){ ?>
-                        <li class="card-list active">
-                            <label><?php echo $item->getName(); ?></label>
-                            <div class="status">
-                                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countFood(); ?></p>
-                                <p><i class="fa fa-user" aria-hidden="true"></i> 6</p>
-                            </div>
-                            <button><i class="fa fa-eye" aria-hidden="true"></i> xem chi tiết</button>
-                        </li>
-                <?php } ?>
+            <ul class="card-box-desk" id="loaded-data-table">
+
             </ul>
         </div>
     </div>
@@ -93,8 +55,7 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script !src="">
     $(document).ready(function () {
-        $(".card-list").click(function () {
-            console.log($(".card-list .disable").length);
+        $(document).on('click',".card-list",function () {
             if($(this).hasClass("disable")){
                 $(".card-list").addClass("disable");
                 $(this).removeClass("disable");
@@ -114,27 +75,19 @@ if(!empty($_GET['is_empty']) && $_GET['is_empty'] == 'false'){
         })
     })
 </script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+<script src="public/js/firebase-reload-data-event.js"></script>
 <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDf1Xj2VNZKAsoFJR_9cFWGASQejA-DCjQ",
-        authDomain: "chbcoffee-4efec.firebaseapp.com",
-        databaseURL: "https://chbcoffee-4efec.firebaseio.com",
-        projectId: "chbcoffee-4efec",
-        storageBucket: "chbcoffee-4efec.appspot.com",
-        messagingSenderId: "564177388322",
-        appId: "1:564177388322:web:e89372ce3b2a9faca81b7b"
-    };
-    // Initialize Firebase
-    var defaultProject = firebase.initializeApp(firebaseConfig);
-
-    console.log(defaultProject.name);  // "[DEFAULT]"
+    loadChange("table", function () {
+        $.ajax({
+            url: "load-table.php",
+            type: "POST",
+            success : function (data) {
+                $('#loaded-data-table').html(data);
+            }
+        })
+    })
 </script>
 </body>
 </html>

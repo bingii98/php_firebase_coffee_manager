@@ -1,9 +1,4 @@
 <!doctype html>
-<?php
-session_start();
-include __DIR__ . '/controller/ListCtl.php';
-$listCtl = new ListCtl();
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,76 +55,31 @@ $listCtl = new ListCtl();
             </ul>
         </div>
         <div class="status-tab">
-            <ul>
+            <ul id="active-status">
                 <li><i class="fa fa-coffee"
-                       aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active'] ?></p> <span>/</span>
-                    <p><?php echo $_SESSION['table_count'] ?></p><label>Active table</label>
+                       aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
+                    <p>0</p><label>Active table</label>
                 </li>
             </ul>
         </div>
     </div>
 </header>
 <section>
-    <div class="row manager-desk">
-        <div class="slidebar col-3">
-            <h5>CONTROL PANEL</h5>
-            <ul class="list-desk-detail">
-                <li class="header">Danh sách <i class="fa fa-coffee" aria-hidden="true"></i></li>
-                <?php
-                $arr = $listCtl->getAll_food();
-                foreach ($arr as $item) { ?>
-                    <li class="item"><p><?php echo $item->getName() ?></p><i><?php echo $item->countFood() ?></i></li>
-                <?php } ?>
-            </ul>
-        </div>
-        <div class="content col-8">
-            <?php
-            foreach ($arr as $item) {
-                foreach ($item->getFoods() as $itemFood) { ?>
-                    <div class="card-list col-md-6 offset-md-3" style="display: block;">
-                        <div class="card-image">
-                            <?php if ($itemFood->getIsSale() == 1) { ?>
-                                <p class="sale"><?php echo $itemFood->getSale() ?>%</p>
-                            <?php } ?>
-                            <img src="<?php echo $itemFood->getImage() ?>" alt="">
-                        </div>
-                        <div class="card-detail">
-                            <h3> <?php echo $itemFood->getName() ?> </h3>
-                            <?php if ($itemFood->getIsSale() == 1) { ?>
-                                <p class="price"> <?php echo number_format($itemFood->getPrice() - $itemFood->getPrice() / 100 * $itemFood->getSale(), 0, '', '.'); ?>
-                                    ₫ </p>
-                                <p class="sub-price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?>
-                                    ₫ </p>
-                            <?php } else { ?>
-                                <p class="price"> <?php echo number_format($itemFood->getPrice(), 0, '', '.'); ?> ₫ </p>
-                            <?php } ?>
-                            <?php
-                            $in_session = "0";
-                            if (!empty($_SESSION["cart_item"])) {
-                                $session_code_array = array_keys($_SESSION["cart_item"]);
-                                if (in_array($itemFood->getId(), $session_code_array)) {
-                                    $in_session = "1";
-                                }
-                            }
-                            ?>
-                            <button type="button" id="add_<?php echo $itemFood->getId(); ?>"
-                                    class="btnAddAction cart-action add-cart-btn"
-                                    onClick="cartAction('add','<?php echo $itemFood->getId(); ?>')"><i
-                                        class="fa fa-plus" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                <?php } ?>
-            <?php } ?>
+    <div class="row manager-desk" id="load-data-drinks">
+
         </div>
     </div>
 </section>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script src="public/asset/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+<script src="public/js/firebase-reload-data-event.js"></script>
 <script !src="">
     $(document).ready(function () {
         cartAction('', '');
 
-        $(".card-list").click(function () {
+        $(document).on('click',".card-list",function () {
             console.log($(".card-list .disable").length);
             if ($(this).hasClass("disable")) {
                 $(".card-list").addClass("disable");
@@ -190,33 +140,17 @@ $listCtl = new ListCtl();
         });
     }
 </script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDf1Xj2VNZKAsoFJR_9cFWGASQejA-DCjQ",
-        authDomain: "chbcoffee-4efec.firebaseapp.com",
-        databaseURL: "https://chbcoffee-4efec.firebaseio.com",
-        projectId: "chbcoffee-4efec",
-        storageBucket: "chbcoffee-4efec.appspot.com",
-        messagingSenderId: "564177388322",
-        appId: "1:564177388322:web:e68cd9e93cd22751a81b7b"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    var database = firebase.database();
-
-    var starCountRef = firebase.database().ref('table');
-    starCountRef.on('value', function() {
-        location.reload();
-    });
-</script>
 <script src="public/js/notification.js"></script>
+<script>
+    loadChange("list", function () {
+        $.ajax({
+            url: "load-drink.php",
+            type: "POST",
+            success : function (data) {
+                $('#load-data-drinks').html(data);
+            }
+        })
+    })
+</script>
 </body>
 </html>
