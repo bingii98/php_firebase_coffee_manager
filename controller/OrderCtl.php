@@ -34,10 +34,6 @@ class OrderCtl{
 
     public function countFood($id){
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
-        $count = 0;
-        foreach ($list as $key => $value){
-            $count++;
-        }
-        return $count;
+        return count($list);
     }
 }

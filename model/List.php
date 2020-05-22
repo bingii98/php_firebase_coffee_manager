@@ -74,6 +74,4 @@ class Lists {
     {
         return count($this->foods);
     }
-
-
 }

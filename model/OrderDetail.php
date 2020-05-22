@@ -64,7 +64,4 @@ class OrderDetail{
     {
         $this->price = $price;
     }
-
-
-
 }

@@ -79,7 +79,7 @@ class Table {
         $food_num = 0;
         foreach ($this->orders as $key => $value){
             if(!empty($value))
-                echo $orderCtl->countFood($value);
+                $food_num += $orderCtl->countFood($value);
         }
         return $food_num;
     }
