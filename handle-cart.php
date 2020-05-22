@@ -47,6 +47,7 @@ if (!empty($_POST["action"])) {
     }
 }
 ?>
+
 <?php
 if (isset($_SESSION["cart_item"])) {
     $item_total = 0;

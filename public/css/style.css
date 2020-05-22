@@ -48,6 +48,15 @@ section {
     overflow: hidden;
 }
 
+.card-list-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card-list-title:not(:first-child) {
+    margin-top: 50px;
+}
+
 .card-list:before {
     content: '';
     height: 5px;
@@ -79,7 +88,8 @@ section {
 
 .navbar-manager .panel-tab {
     width: auto;
-    max-width: 300px;
+    max-width: 335px;
+    width: 335px;
     line-height: 50px;
 }
 
@@ -174,6 +184,7 @@ section {
 }
 
 .manager-desk .slidebar {
+    max-width: 380px;
     color: var(--blurblue);
     border-right: 2px solid var(--lightblue);
 }

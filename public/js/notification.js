@@ -84,6 +84,7 @@ const createAlert = (type,notification) => {
         newAlert.style.transform = 'translateX(0)';
         newAlert.style.opacity = '1';
     }, 100);
+
     closeAlertItem();
     emptyState();
 };

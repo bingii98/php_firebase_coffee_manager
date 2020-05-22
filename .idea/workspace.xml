@@ -20,14 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/Query.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/FoodCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drinks.php" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handle-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/handle-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-drink.php" beforeDir="false" afterPath="$PROJECT_DIR$/load-drink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/load-table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/notification.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +132,7 @@
       <workItem from="1589903076446" duration="11648000" />
       <workItem from="1590062321006" duration="41000" />
       <workItem from="1590062371060" duration="6967000" />
+      <workItem from="1590072239792" duration="8067000" />
     </task>
     <servers />
   </component>
