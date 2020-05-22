@@ -1,5 +1,7 @@
 <?php
 
+include_once './controller/OrderCtl.php';
+
 class Table {
     private $id;
     private $name;
@@ -73,6 +75,12 @@ class Table {
     {
         if($this->orders == null)
             return 0;
-        return count($this->orders);
+        $orderCtl = new OrderCtl();
+        $food_num = 0;
+        foreach ($this->orders as $key => $value){
+            if(!empty($value))
+                echo $orderCtl->countFood($value);
+        }
+        return $food_num;
     }
 }

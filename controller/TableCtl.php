@@ -81,4 +81,10 @@ class TableCtl
         }
         return $arr;
     }
+
+    public function updateStatus($table_id,$orders){
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set([
+           '1' => $orders
+        ]);
+    }
 }

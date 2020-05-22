@@ -1,17 +1,19 @@
 <?php
-session_start();
+if (!isset($_SESSION)) session_start();
 include_once './controller/FoodCtl.php';
 include_once './controller/ListCtl.php';
+include_once './controller/OrderCtl.php';
 $foodCtl = new FoodCtl();
 $listCtl = new ListCtl();
+$orderCtl = new OrderCtl();
 
 if (!empty($_POST["action"])) {
     switch ($_POST["action"]) {
         case "add":
             $productByCode = $foodCtl->get($_POST["code"], $listCtl);
             if ($productByCode->getIsSale() == 'true') {
-                $price = $productByCode->getPrice() - $productByCode->getPrice()/100*$productByCode->getSale();
-            }else{
+                $price = $productByCode->getPrice() - $productByCode->getPrice() / 100 * $productByCode->getSale();
+            } else {
                 $price = $productByCode->getPrice();
             }
             $itemArray = array($productByCode->getId() => array('name' => $productByCode->getName(), 'code' => $productByCode->getId(), 'quantity' => 1, 'price' => $price));
@@ -41,6 +43,10 @@ if (!empty($_POST["action"])) {
                 }
             }
             break;
+        case "payment":
+            $orderCtl->insert($_POST["code"]);
+            unset($_SESSION["cart_item"]);
+            break;
         case "empty":
             unset($_SESSION["cart_item"]);
             break;
@@ -52,7 +58,7 @@ if (!empty($_POST["action"])) {
 if (isset($_SESSION["cart_item"])) {
     $item_total = 0;
     ?>
-    <h4 style="text-align: center;"><strong>Chi tiết hóa đơn</strong></h4>
+    <p class="header">Chi tiết hóa đơn <i class="fa fa-credit-card" aria-hidden="true"></i></p>
     <table cellpadding="10" cellspacing="1" style="width: 100%;">
         <tbody>
         <?php
@@ -75,10 +81,13 @@ if (isset($_SESSION["cart_item"])) {
         </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px; margin-bottom: 30px;">Confirm
+    <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px; margin-bottom: 30px;"
+            data-toggle="modal" data-target="#exampleModalLong">Thanh toán
     </button>
     <?php
 } else {
     echo '<p style="text-align: center;">Nothing to show</p>';
 }
 ?>
+
+

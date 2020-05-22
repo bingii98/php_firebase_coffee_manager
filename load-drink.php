@@ -1,26 +1,26 @@
 <?php
-if (isset($_SESSION)) session_start();
+if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/ListCtl.php';
-include_once __DIR__ . '/controller/TableCtl.php';
 $listCtl = new ListCtl();
-$tableCtl = new TableCtl();
 $arr = $listCtl->getAll_food();
-$arr_table = $tableCtl->getAll_food();
 ?>
 
-<div class="slidebar col-3"><h5>CONTROL PANEL</h5>
+<div class="slidebar col-5"><h5>CONTROL PANEL</h5>
     <ul class="list-desk-detail">
         <li class="header">Danh sách <i class="fa fa-coffee" aria-hidden="true"></i></li>
         <?php foreach ($arr as $item) { ?>
             <li class="item"><p> <?php echo $item->getName() ?> </p><i><?php echo $item->countFood() ?></i></li>
         <?php } ?>
     </ul>
+    <div id="cart-item">
+
+    </div>
 </div>
-<div class="content col-8">
+<div class="content col-6">
     <?php foreach ($arr as $item) { ?>
-        <div class="card-list-title col-md-6 offset-md-3" style="display: block;"><?php echo $item->getName(); ?></div>
+        <div class="card-list cart-title col-md-8 offset-md-2" style="display: block;"><?php echo $item->getName(); ?></div>
         <?php foreach ($item->getFoods() as $itemFood) { ?>
-            <div class="card-list col-md-6 offset-md-3" style="display: block;">
+            <div class="card-list col-md-8 offset-md-2" style="display: block;">
                 <div class="card-image">
                     <?php if ($itemFood->getIsSale() == 1) { ?>
                         <p class="sale"><?php echo $itemFood->getSale() ?>%</p>
@@ -54,14 +54,8 @@ $arr_table = $tableCtl->getAll_food();
                 </div>
             </div>
         <?php }
-    }
-    $count_active = 0;
-    foreach ($arr_table as $key => $item) {
-        if ($item->countOrder() > 0)
-            $count_active++;
     } ?>
-    <script>
-        <?php if(isset($_SESSION['table_active_status']) && isset($_SESSION['table_count_status'])){ ?>
-        $("#active-status").html('<li><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Active table</label></li>');
-        <?php } ?>
-    </script>
+</div>
+<script>
+    cartAction('','');
+</script>

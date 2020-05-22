@@ -36,6 +36,15 @@
 </header>
 <section>
     <div class="row manager-desk">
+        <div id="loaded">
+            <div class="loading">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="loading-overlay"></div>
+        </div>
         <div class="slidebar col-3">
             <h5>CONTROL PANEL</h5>
             <ul class="list-desk">
@@ -84,7 +93,10 @@
             url: "load-table.php",
             type: "POST",
             success : function (data) {
-                $('#loaded-data-table').html(data);
+                $(document).ready(function () {
+                    $('#loaded').hide();
+                    $('#loaded-data-table').html(data);
+                });
             }
         })
     })

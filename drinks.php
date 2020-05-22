@@ -13,32 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
 <div class="wrapper">
 
-</div>
-<div class="cart">
-    <button type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-opencart"
-                                                                             aria-hidden="true"></i> Thanh toán
-    </button>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="border-bottom: none;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="cart-item">
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <header class="navbar-manager -bg-darkblue">
     <div class="container-fluid" style="display: flex;">
@@ -65,11 +41,38 @@
     </div>
 </header>
 <section>
-    <div class="row manager-desk" id="load-data-drinks">
-
+    <div id="loaded">
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        <div class="loading-overlay"></div>
+    </div>
+    <div class="row manager-desk" id="load-data-drinks">
     </div>
 </section>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: none;">
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chọn bàn cho khách hàng</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 50px;">
+                <ul class="card-box-desk" id="loaded-data-table">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="table-event-change">
+
+</div>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script src="public/asset/js/bootstrap.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
@@ -77,10 +80,7 @@
 <script src="public/js/firebase-reload-data-event.js"></script>
 <script !src="">
     $(document).ready(function () {
-        cartAction('', '');
-
-        $(document).on('click',".card-list",function () {
-            console.log($(".card-list .disable").length);
+        $(document).on('click', ".card-list", function () {
             if ($(this).hasClass("disable")) {
                 $(".card-list").addClass("disable");
                 $(this).removeClass("disable");
@@ -93,6 +93,21 @@
                     $(".card-list").removeClass("disable");
                 }
             }
+        })
+
+        $(document).on('click', ".choose-table-cart", function () {
+            $.ajax({
+                url: "handle-cart.php",
+                data: 'action=payment&code=' + $(this).attr("table-id"),
+                type: "POST",
+                success: function (data) {
+                    createAlert("success", "Thanh toán thành công!");
+                    $("#exampleModalLong").modal('toggle');
+                    $("#cart-item").html(data);
+                },
+                error: function () {
+                }
+            });
         })
     })
 
@@ -120,15 +135,15 @@
                 if (action != "") {
                     switch (action) {
                         case "add" :
-                            createAlert("success","Add success!");
+                            createAlert("success", "Đã thêm vào hàng chờ!");
                             break;
                         case "remove":
-                            createAlert("warning","Remove success!");
+                            createAlert("warning", "Đã xóa khỏi hàng chờ!");
                             $("#add_" + product_code).show();
                             $("#added_" + product_code).hide();
                             break;
                         case "empty":
-                            createAlert("danger","List is empty!");
+                            createAlert("danger", "List is empty!");
                             $(".btnAddAction").show();
                             $(".btnAdded").hide();
                             break;
@@ -146,8 +161,21 @@
         $.ajax({
             url: "load-drink.php",
             type: "POST",
-            success : function (data) {
-                $('#load-data-drinks').html(data);
+            success: function (data) {
+                $(document).ready(function () {
+                    $('#loaded').hide();
+                    $('#load-data-drinks').html(data);
+                });
+            }
+        })
+    })
+
+    loadChange("table", function () {
+        $.ajax({
+            url: "load-table-status.php",
+            type: "POST",
+            success: function (data) {
+                $('#table-event-change').html(data);
             }
         })
     })
