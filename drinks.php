@@ -32,8 +32,7 @@
         </div>
         <div class="status-tab">
             <ul id="active-status">
-                <li><i class="fa fa-coffee"
-                       aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
+                <li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
                     <p>0</p><label>Active table</label>
                 </li>
             </ul>

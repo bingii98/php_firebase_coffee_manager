@@ -6,6 +6,8 @@ use Kreait\Firebase\ServiceAccount;
 require './vendor/autoload.php';
 include_once './model/Table.php';
 include_once './model/Food.php';
+include_once './model/Order.php';
+include_once './model/OrderDetail.php';
 
 class TableCtl
 {
@@ -40,7 +42,11 @@ class TableCtl
             $arr_orders = array();
             if(isset($item['orders'])){
                 foreach ($item['orders'] as $keyOrder => $itemOrder){
-                    array_push($arr_orders,$itemOrder);
+                    $arr_orders_detail = array();
+                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
+                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
+                    }
+                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
                 }
             }
             array_push($arr,new Table($key,$item['name'],$arr_orders));
@@ -52,14 +58,18 @@ class TableCtl
         $arr = array();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            $arr_food = array();
-            if(isset($item['foods'])){
-                foreach ($item['foods'] as $keyFood => $itemFood){
-                    array_push($arr_food,new Food($keyFood,$itemFood['name'],$itemFood['description'],$itemFood['price'],$itemFood['image'],$itemFood['sale'],$itemFood['isSale']));
+            $arr_orders = array();
+            if(isset($item['orders'])){
+                foreach ($item['orders'] as $keyOrder => $itemOrder){
+                    $arr_orders_detail = array();
+                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
+                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
+                    }
+                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
                 }
             }
-            if($arr_food == null || count($arr_food) == 0){
-                array_push($arr,new Table($key,$item['name'],$arr_food));
+            if($arr_orders == null || count($arr_orders) == 0) {
+                array_push($arr, new Table($key, $item['name'], $arr_orders));
             }
         }
         return $arr;
@@ -69,22 +79,24 @@ class TableCtl
         $arr = array();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            $arr_food = array();
-            if(isset($item['foods'])){
-                foreach ($item['foods'] as $keyFood => $itemFood){
-                    array_push($arr_food,new Food($keyFood,$itemFood['name'],$itemFood['description'],$itemFood['price'],$itemFood['image'],$itemFood['sale'],$itemFood['isSale']));
+            $arr_orders = array();
+            if(isset($item['orders'])){
+                foreach ($item['orders'] as $keyOrder => $itemOrder){
+                    $arr_orders_detail = array();
+                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
+                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
+                    }
+                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
                 }
             }
-            if($arr_food != null && count($arr_food) != 0){
-                array_push($arr,new Table($key,$item['name'],$arr_food));
+            if($arr_orders != null && count($arr_orders) != 0) {
+                array_push($arr, new Table($key, $item['name'], $arr_orders));
             }
         }
         return $arr;
     }
 
     public function updateStatus($table_id,$orders){
-        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set([
-           '1' => $orders
-        ]);
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->getChild($orders)->set($_SESSION["cart_item"]);
     }
 }

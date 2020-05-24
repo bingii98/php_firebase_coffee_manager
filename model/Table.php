@@ -73,14 +73,29 @@ class Table {
      */
     public function countOrder()
     {
-        if($this->orders == null)
-            return 0;
-        $orderCtl = new OrderCtl();
-        $food_num = 0;
+        $count = 0;
         foreach ($this->orders as $key => $value){
-            if(!empty($value))
-                $food_num += $orderCtl->countFood($value);
+            foreach ($value->getOrderDetails() as $keyDt => $valueDt){
+                $count += $valueDt->getNum();
+            }
         }
-        return $food_num;
+        return $count;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function loadDataFoodDetail()
+    {
+        $string = "";
+        $tolal = 0;
+        foreach ($this->orders as $key => $value){
+            foreach ($value->getOrderDetails() as $keyDt => $valueDt){
+                $string = $string.'<tr><td><strong>'.$valueDt->getFood()->getName().'</strong></td><td>'.$valueDt->getNum().'</td><td align="right">'.$valueDt->getNum().'</td></tr>';
+                $tolal += $valueDt->getNum()*$valueDt->getPrice();
+            }
+        }
+        $string = $string.'<td align="right">'.$tolal.'</td>';
+        return $string;
     }
 }

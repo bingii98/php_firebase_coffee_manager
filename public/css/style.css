@@ -320,12 +320,12 @@ section {
 
 .manager-desk .content .card-box-desk .card-list button, .card-box-desk .card-list button {
     background: var(--blurblue);
+    border-radius: 3px;
     border: none;
     outline: none;
     margin: 10px;
     cursor: pointer;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 10px;
     color: #ffffff;
     font-size: 13px;
 }
