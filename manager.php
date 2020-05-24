@@ -109,6 +109,26 @@
             }
         })
     })
+
+    $(document).on("click",".table-clean",function () {
+        var id = $(this).attr('data');
+        $.ajax({
+            url: "load-clean-table.php",
+            data : {
+              "id" : id
+            },
+            type: "POST",
+            beforeSend : function (){
+                $('#loaded').show();
+            },
+            success: function (data) {
+                $(document).ready(function () {
+                    $('#loaded').hide();
+                    $('#loaded-data-table').html(data);
+                });
+            }
+        })
+    })
 </script>
 </body>
 </html>

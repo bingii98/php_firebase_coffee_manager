@@ -99,4 +99,8 @@ class TableCtl
     public function updateStatus($table_id,$orders){
         $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->getChild($orders)->set($_SESSION["cart_item"]);
     }
+
+    public function clean($table_id){
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set(null);
+    }
 }

@@ -2,6 +2,8 @@
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
+$tableCtl->clean($_POST['id']);
+
 $arr_table = $tableCtl->getAll_food();
 
 $count_active = 0;
@@ -32,7 +34,7 @@ foreach ($arr_table as $key => $item) { ?>
                 <div id="cart-item" class="modal-body" style="padding-bottom: 50px; box-shadow: none; margin-top: 0;">
                     <table cellpadding="10" cellspacing="1" style="width: 100%;">
                         <tbody id="table-detail-load-js">
-                            <?php echo $item->loadDataFoodDetail() ?>
+                        <?php echo $item->loadDataFoodDetail() ?>
                         </tbody>
                     </table>
                 </div>

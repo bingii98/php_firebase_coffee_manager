@@ -99,7 +99,11 @@
                 url: "handle-cart.php",
                 data: 'action=payment&code=' + $(this).attr("table-id"),
                 type: "POST",
+                beforeSend : function (){
+                    $('#loaded').show();
+                },
                 success: function (data) {
+                    $('#loaded').hide();
                     createAlert("success", "Thanh toán thành công!");
                     $("#exampleModalLong").modal('toggle');
                     $("#cart-item").html(data);
@@ -160,6 +164,9 @@
         $.ajax({
             url: "load-drink.php",
             type: "POST",
+            beforeSend : function (){
+                $('#loaded').show();
+            },
             success: function (data) {
                 $(document).ready(function () {
                     $('#loaded').hide();
@@ -173,7 +180,11 @@
         $.ajax({
             url: "load-table-status.php",
             type: "POST",
+            beforeSend : function (){
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 $('#table-event-change').html(data);
             }
         })
