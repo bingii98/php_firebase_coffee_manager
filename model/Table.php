@@ -91,11 +91,11 @@ class Table {
         $tolal = 0;
         foreach ($this->orders as $key => $value){
             foreach ($value->getOrderDetails() as $keyDt => $valueDt){
-                $string = $string.'<tr><td><strong>'.$valueDt->getFood()->getName().'</strong></td><td>'.$valueDt->getNum().'</td><td align="right">'.$valueDt->getNum().'</td></tr>';
+                $string = $string.'<tr><td><strong>'.$valueDt->getFood()->getName().'</strong></td><td>'.$valueDt->getNum().'</td><td align="right">'.number_format($valueDt->getPrice(), 0, "", ".").' ₫</td></tr>';
                 $tolal += $valueDt->getNum()*$valueDt->getPrice();
             }
         }
-        $string = $string.'<td align="right">'.$tolal.'</td>';
+        $string = $string.'<td align="right" colspan="3"><strong>Total</strong> '.number_format($tolal, 0, "", ".").' ₫</td>';
         return $string;
     }
 }

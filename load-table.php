@@ -18,7 +18,7 @@ foreach ($arr_table as $key => $item) { ?>
             <button type="button"><i class="fa fa-refresh" aria-hidden="true"></i> Dọn</button>
         </div>
     </li>
-    <div class="modal fade" id="#model_<?php echo $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal fade" id="model_<?php echo $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
