@@ -330,7 +330,7 @@ section {
     font-size: 13px;
 }
 
-.manager-desk .content .card-box-desk .card-list.active::before {
+.card-box-desk .card-list.active::before {
     background-color: var(--red);
 }
 

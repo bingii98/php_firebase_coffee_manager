@@ -8,6 +8,7 @@ $count_active = 0;
 $count_food = 0;
 
 foreach ($arr_table as $key => $item) { ?>
+    <?php if ($item->countOrder() > 0){  ?>
     <li class="card-list <?php if($item->countOrder() > 0) echo 'active';?>">
         <label><?php echo $item->getName() ?></label>
         <div class="status">
@@ -39,7 +40,18 @@ foreach ($arr_table as $key => $item) { ?>
             </div>
         </div>
     </div>
-    <?php if ($item->countOrder() > 0){
+    <?php } else { ?>
+        <li class="card-list <?php if($item->countOrder() > 0) echo 'active';?>">
+            <label><?php echo $item->getName() ?></label>
+            <div class="status">
+                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countOrder() ?></p>
+            </div>
+            <div style="display: flex;">
+                <button style="width: 100%; cursor: not-allowed;">...</button>
+            </div>
+        </li>
+    <?php }
+    if ($item->countOrder() > 0){
         $count_active++;
         $count_food += $item->countOrder();
     }

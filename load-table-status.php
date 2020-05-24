@@ -19,8 +19,8 @@ $_SESSION['food_active_status'] = $count_food;
 <?php
 $string_temp = '';
 foreach ($arr_table as $key => $item) {
-    if($item->countOrder() == 0)
-        $string_temp = $string_temp.'<li class="card-list"><label>'.$item->getName().'</label><div class="status"><p><i class="fa fa-coffee" aria-hidden="true"></i>'.$item->countOrder().'</p> </div> <button class="choose-table-cart" table-id="'.$item->getId().'"><i class="fa fa-eye" aria-hidden="true"></i>Chọn</button> </li>';
+    if($item->countOrder() == 0) $isEmpty = ""; else $isEmpty = "active";
+        $string_temp = $string_temp.'<li class="card-list '.$isEmpty.'"><label>'.$item->getName().'</label><div class="status"><p><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;'.$item->countOrder().'</p> </div> <button class="choose-table-cart" table-id="'.$item->getId().'"><i class="fa fa-eye" aria-hidden="true"></i>Chọn</button> </li>';
     if ($item->countOrder() > 0)
         $count_active++;
 }
