@@ -1,19 +1,22 @@
 <?php
 class Order{
     private $id;
-    private $table_id;
+    private $date;
+    private $staff;
     private $order_details;
 
     /**
      * Order constructor.
      * @param $id
-     * @param $table_id
+     * @param $date
+     * @param $staff
      * @param $order_details
      */
-    public function __construct($id, $table_id, $order_details)
+    public function __construct($id, $date, $staff, $order_details)
     {
         $this->id = $id;
-        $this->table_id = $table_id;
+        $this->date = $date;
+        $this->staff = $staff;
         $this->order_details = $order_details;
     }
 
@@ -65,5 +68,47 @@ class Order{
         $this->order_details = $order_details;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStaff()
+    {
+        return $this->staff;
+    }
+
+    /**
+     * @param mixed $staff
+     */
+    public function setStaff($staff)
+    {
+        $this->staff = $staff;
+    }
+
+    public function pushFB(){
+        $DATA['date'] = date("h:i A d/m/Y");
+        $DATA['staff'] = '121212';
+        $arr_order_detail = array();
+        foreach ($this->order_details as $key => $item){
+            $arr_ordt = array($key => array('num' => $item->getNum(), 'price' => $item->getPrice(), 'food' => $item->getFood()->getId()));
+            $arr_order_detail = array_merge($arr_order_detail,$arr_ordt);
+        }
+        $DATA['detail'] = $arr_order_detail;
+        return $DATA;
+    }
 }

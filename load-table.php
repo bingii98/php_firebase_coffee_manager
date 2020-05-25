@@ -2,6 +2,7 @@
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
+$orderCtl = new OrderCtl();
 $arr_table = $tableCtl->getAll_food();
 if (!isset($_POST["is_empty"]) || $_POST['is_empty'] == 'null') {
     $arr_table_filter = $arr_table;
@@ -23,10 +24,10 @@ foreach ($arr_table as $key => $item) {
 
 foreach ($arr_table_filter as $key => $item) { ?>
     <?php if ($item->countOrder() > 0) { ?>
-        <li class="card-list <?php if ($item->countOrder() > 0) echo 'active'; ?>">
+        <li class="card-list <?php if ($orderCtl->countFood($item->getId()) > 0) echo 'active'; ?>">
             <label><?php echo $item->getName() ?></label>
             <div class="status">
-                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countOrder() ?></p>
+                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $orderCtl->countFood($item->getId()) ?></p>
             </div>
             <div style="display: flex;">
                 <button type="button" data-toggle="modal" data-target="#model_<?php echo $key ?>"><i class="fa fa-eye"
@@ -64,10 +65,10 @@ foreach ($arr_table_filter as $key => $item) { ?>
             </div>
         </div>
     <?php } else { ?>
-        <li class="card-list <?php if ($item->countOrder() > 0) echo 'active'; ?>">
+        <li class="card-list <?php if ($orderCtl->countFood($item->getId()) > 0) echo 'active'; ?>">
             <label><?php echo $item->getName() ?></label>
             <div class="status">
-                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countOrder() ?></p>
+                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $orderCtl->countFood($item->getId()) ?></p>
             </div>
             <div style="display: flex;">
                 <button style="cursor: not-allowed;">...</button>

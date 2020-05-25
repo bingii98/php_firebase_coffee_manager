@@ -16,10 +16,9 @@ if (!empty($_POST["action"])) {
             } else {
                 $price = $productByCode->getPrice();
             }
-            $itemArray = array($productByCode->getId() => array('name' => $productByCode->getName(), 'code' => $productByCode->getId(), 'quantity' => 1, 'price' => $price));
+            $itemArray = array($productByCode->getId() => array('name' => $productByCode->getName(), 'quantity' => 1, 'price' => $price));
 
             if (!empty($_SESSION["cart_item"])) {
-
                 if (array_key_exists($productByCode->getId(), $_SESSION["cart_item"])) {
                     foreach ($_SESSION["cart_item"] as $k => $v) {
                         if ($productByCode->getId() == $k) {

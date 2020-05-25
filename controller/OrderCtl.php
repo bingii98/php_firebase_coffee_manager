@@ -6,7 +6,12 @@ use Kreait\Firebase\ServiceAccount;
 require './vendor/autoload.php';
 include_once './model/Table.php';
 include_once './model/Food.php';
+include_once './model/Order.php';
+include_once './model/OrderDetail.php';
 include_once './controller/TableCtl.php';
+include_once './controller/ListCtl.php';
+include_once './controller/FoodCtl.php';
+
 
 class OrderCtl{
 
@@ -25,15 +30,35 @@ class OrderCtl{
     }
 
     public function insert($table_id){
+        $listCtl = new ListCtl();
+        $foodCtl = new FoodCtl();
+        $arr_order_detail = array();
+        foreach ($_SESSION["cart_item"] as $key => $item){
+            array_push($arr_order_detail, new OrderDetail($foodCtl->get($key,$listCtl),$item['quantity'],$item['price']));
+        }
+        $order = new Order(null,date("h:i A d/m/Y"),23,$arr_order_detail);
         if(isset($_SESSION["cart_item"])){
-            $result = $this->firebase->getReference('orders')->push($_SESSION["cart_item"]);
+            $result = $this->firebase->getReference('orders')->push($order->pushFB());
             $this->tableCtl = new TableCtl();
             $this->tableCtl->updateStatus($table_id,$result->getSnapshot()->getKey());
         }
     }
 
+    public function get($id){
+        $listCrl = new ListCtl();
+        $foodCtl = new FoodCtl();
+        $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
+        $arr = array();
+        foreach ($list['detail'] as $value){
+            array_push($arr, new OrderDetail($foodCtl->get($value['food'],$listCrl),$value['num'],$value['price']));
+        }
+        return new Order($id,$list['date'],$list['staff'],$arr);
+    }
+
     public function countFood($id){
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
-        return count($list);
+        if($list != null)
+            return $list['detail'];
+        return 0;
     }
 }

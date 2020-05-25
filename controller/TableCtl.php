@@ -8,7 +8,8 @@ include_once './model/Table.php';
 include_once './model/Food.php';
 include_once './model/Order.php';
 include_once './model/OrderDetail.php';
-
+include_once './controller/OrderCtl.php';
+date_default_timezone_set('asia/ho_chi_minh');
 class TableCtl
 {
 
@@ -37,16 +38,13 @@ class TableCtl
 
     public function getAll_food(){
         $arr = array();
+        $orderCtl = new OrderCtl();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                foreach ($item['orders'] as $keyOrder => $itemOrder){
-                    $arr_orders_detail = array();
-                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
-                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
-                    }
-                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
+                foreach ($item['orders'] as $value){
+                    array_push($arr_orders,$orderCtl->get($value));
                 }
             }
             array_push($arr,new Table($key,$item['name'],$arr_orders));
@@ -65,7 +63,7 @@ class TableCtl
                     foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
                         array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
                     }
-                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
+                    array_push($arr_orders,new Order($keyOrder,date("h:i A d/m/yy"),null,$arr_orders_detail));
                 }
             }
             if($arr_orders == null || count($arr_orders) == 0) {
@@ -86,7 +84,7 @@ class TableCtl
                     foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
                         array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
                     }
-                    array_push($arr_orders,new Order($keyOrder,$key,$arr_orders_detail));
+                    array_push($arr_orders,new Order($keyOrder,date("h:i A d/m/yy"),null,$arr_orders_detail));
                 }
             }
             if($arr_orders != null && count($arr_orders) != 0) {
@@ -96,8 +94,9 @@ class TableCtl
         return $arr;
     }
 
-    public function updateStatus($table_id,$orders){
-        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->getChild($orders)->set($_SESSION["cart_item"]);
+    public function  updateStatus($table_id,$order_id){
+        unset($_SESSION["cart_item"]['code']);
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->push($order_id);
     }
 
     public function clean($table_id){
