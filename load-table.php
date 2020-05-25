@@ -23,7 +23,7 @@ foreach ($arr_table as $key => $item) {
 }
 
 foreach ($arr_table_filter as $key => $item) { ?>
-    <?php if ($item->countOrder() > 0) { ?>
+    <?php if ($orderCtl->countFood($item->getId()) > 0) { ?>
         <li class="card-list <?php if ($orderCtl->countFood($item->getId()) > 0) echo 'active'; ?>">
             <label><?php echo $item->getName() ?></label>
             <div class="status">
