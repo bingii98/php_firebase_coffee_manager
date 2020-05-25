@@ -82,7 +82,7 @@ if (isset($_SESSION["cart_item"])) {
         </tbody>
     </table>
     <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px; margin-bottom: 30px;"
-            data-toggle="modal" data-target="#exampleModalLong">Thanh toán
+            data-toggle="modal" data-target="#exampleModalLong"> Đặt chỗ
     </button>
     <?php
 } else {

@@ -196,9 +196,13 @@ section {
 }
 
 .manager-desk .slidebar {
-    max-width: 500px;
+    width: 450px;
+    max-width: 450px;
     color: var(--blurblue);
     border-right: 2px solid var(--lightblue);
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
 }
 
 .manager-desk .slidebar h5 {
@@ -215,7 +219,7 @@ section {
 }
 
 .manager-desk .slidebar .list-desk-detail {
-    margin: 30px 25px;
+    margin: 30px 5px 30px 25px;
 }
 
 .manager-desk .slidebar .list-desk .item, .manager-desk .slidebar .list-desk-detail .item {
@@ -328,6 +332,7 @@ section {
     padding: 5px 10px;
     color: #ffffff;
     font-size: 13px;
+    width: 100%;
 }
 
 .card-box-desk .card-list.active::before {
@@ -472,7 +477,7 @@ section {
 }
 
 #cart-item{
-    margin: 30px 25px;
+    margin: 30px 5px 30px 25px;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -480,6 +485,10 @@ section {
 
 #cart-item table tbody tr td:nth-last-child(1) {
     text-align: right;
+}
+
+#cart-item table tbody tr td:nth-last-child(2) {
+    min-width: 100px;
 }
 
 #cart-item table tbody tr {

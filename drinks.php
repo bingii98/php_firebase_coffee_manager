@@ -16,7 +16,7 @@
 <div class="wrapper">
 
 </div>
-<header class="navbar-manager -bg-darkblue">
+<header class="navbar-manager -bg-darkblue fixed-top">
     <div class="container-fluid" style="display: flex;">
         <div class="panel-tab">
             <ul>
@@ -39,7 +39,7 @@
         </div>
     </div>
 </header>
-<section>
+<section style="margin-top: 70px;">
     <div id="loaded">
         <div class="loading">
             <span></span>
@@ -112,6 +112,12 @@
                 }
             });
         })
+        $(document).on("click", ".scrool-list", function () {
+            $('html, body').animate({
+                scrollTop: $("#" + $(this).attr("data")).offset().top - 75
+            }, 500);
+        })
+
     })
 
     function cartAction(action, product_code) {

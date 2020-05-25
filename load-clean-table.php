@@ -16,8 +16,7 @@ foreach ($arr_table as $key => $item) { ?>
             <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countOrder() ?></p>
         </div>
         <div style="display: flex;">
-            <button type="button"  data-toggle="modal" data-target="#model_<?php echo $key ?>"><i class="fa fa-eye" aria-hidden="true"></i> Xem</button>
-            <button type="button" class="table-clean" data="<?php echo $item->getId() ?>"><i class="fa fa-refresh" aria-hidden="true"></i> Dọn</button>
+            <button type="button"  data-toggle="modal" data-target="#model_<?php echo $key ?>">...</button>
         </div>
     </li>
     <div class="modal fade" id="model_<?php echo $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
