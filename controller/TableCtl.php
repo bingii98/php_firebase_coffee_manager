@@ -32,7 +32,6 @@ class TableCtl
         foreach ($list as $key => $item) {
             array_push($arr,new Table($key,$item['name'],null));
         }
-
         return $arr;
     }
 

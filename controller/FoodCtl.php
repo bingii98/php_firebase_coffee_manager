@@ -33,6 +33,15 @@ class FoodCtl{
         return $arr;
     }
 
+    public function get_from_list_id($id){
+        $arr = array();
+        $list = $this->firebase->getReference('food')->orderByChild('list')->equalTo($id)->getSnapshot()->getValue();
+        foreach ($list as $key => $item){
+            array_push($arr,new Food($key,$item['name'],$item['description'],$item['price'],$item['image'],$item['sale'],$item['isSale']));
+        }
+        return $arr;
+    }
+
     public function get($id, $controller){
         $arr = $controller->getAll_food();
         foreach ($arr as $item) {

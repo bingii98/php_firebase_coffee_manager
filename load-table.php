@@ -3,7 +3,9 @@ if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
 $orderCtl = new OrderCtl();
+$time_start = microtime(true);
 $arr_table = $tableCtl->getAll_food();
+echo 'Total execution time in seconds: ' . (microtime(true) - $time_start);
 if (!isset($_POST["is_empty"]) || $_POST['is_empty'] == 'null') {
     $arr_table_filter = $arr_table;
 } else if ($_POST['is_empty'] == 'true') {
@@ -30,8 +32,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
                 <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $orderCtl->countFood($item->getId()) ?></p>
             </div>
             <div style="display: flex;">
-                <button type="button" data-toggle="modal" data-target="#model_<?php echo $key ?>"><i class="fa fa-eye"
-                                                                                                     aria-hidden="true"></i>
+                <button type="button" data-toggle="modal" data-target="#model_<?php echo $key ?>"><i class="fa fa-eye" aria-hidden="true"></i>
                     Xem
                 </button>
             </div>
@@ -43,8 +44,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
                 <div class="modal-content">
                     <div class="modal-header" style="border-bottom: none;">
                         <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">
-                            Tình
-                            trạng bàn</h4>
+                            Tình trạng bàn</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

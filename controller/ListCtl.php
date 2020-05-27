@@ -12,6 +12,7 @@ include_once './model/Food.php';
 class ListCtl{
 
     protected $firebase;
+    protected $food_ctl;
 
     /**
      * UserCtl constructor.
@@ -22,12 +23,13 @@ class ListCtl{
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
         $firebase = $factory->createDatabase();
         $this->firebase = $firebase;
+        $this->food_ctl = new FoodCtl();
     }
 
 
     public function getAll(){
         $arr_list = array();
-        $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('list')->orderByChild('food')->getSnapshot()->getValue();
         foreach ($list as $keyList => $itemList) {
             array_push($arr_list,new Lists($keyList,$itemList['name'],null));
         }
@@ -38,12 +40,9 @@ class ListCtl{
     public function getAll_food(){
         $arr_list = array();
         $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
-        foreach ($list as $keyList => $itemList){
-            $arr_food = array();
-            foreach ($itemList['food'] as $keyFood => $itemFood){
-                array_push($arr_food,new Food($keyFood,$itemFood['name'],$itemFood['description'],$itemFood['price'],$itemFood['image'],$itemFood['sale'],$itemFood['isSale']));
-            }
-            array_push($arr_list,new Lists($keyList,$itemList['name'],$arr_food));
+        foreach ($list as $key => $item){
+            $arr_food = $this->food_ctl->get_from_list_id($key);
+            array_push($arr_list,new Lists($key,$item['name'],$arr_food));
         }
         return $arr_list;
     }
