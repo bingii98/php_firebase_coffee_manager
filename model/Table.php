@@ -74,11 +74,9 @@ class Table {
     public function countOrder()
     {
         $count = 0;
-        foreach ($this->orders as $key => $value){
-            foreach ($value->getOrderDetails() as $keyDt => $valueDt){
-                $count += $valueDt->getNum();
-            }
-        }
+        foreach ($this->orders as $item)
+            if(count($item->getOrderDetails()) > 0)
+                $count += count($item->getOrderDetails());
         return $count;
     }
 

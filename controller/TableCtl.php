@@ -35,7 +35,7 @@ class TableCtl
         return $arr;
     }
 
-    public function getAll_food(){
+    public function get_is_food(){
         $arr = array();
         $orderCtl = new OrderCtl();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();

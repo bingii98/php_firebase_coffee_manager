@@ -4,7 +4,7 @@ include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
 $tableCtl->clean($_POST['id']);
 
-$arr_table = $tableCtl->getAll_food();
+$arr_table = $tableCtl->get_is_food();
 
 $count_active = 0;
 $count_food = 0;

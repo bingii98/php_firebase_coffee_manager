@@ -8,6 +8,7 @@ require './vendor/autoload.php';
 //Module
 include_once './model/List.php';
 include_once './model/Food.php';
+include_once './controller/FoodCtl.php';
 
 class ListCtl{
 

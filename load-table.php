@@ -3,9 +3,7 @@ if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
 $orderCtl = new OrderCtl();
-$time_start = microtime(true);
-$arr_table = $tableCtl->getAll_food();
-echo 'Total execution time in seconds: ' . (microtime(true) - $time_start);
+$arr_table = $tableCtl->get_is_food();
 if (!isset($_POST["is_empty"]) || $_POST['is_empty'] == 'null') {
     $arr_table_filter = $arr_table;
 } else if ($_POST['is_empty'] == 'true') {
@@ -23,13 +21,12 @@ foreach ($arr_table as $key => $item) {
         $count_food += $item->countOrder();
     }
 }
-
 foreach ($arr_table_filter as $key => $item) { ?>
-    <?php if ($orderCtl->countFood($item->getId()) > 0) { ?>
-        <li class="card-list <?php if ($orderCtl->countFood($item->getId()) > 0) echo 'active'; ?>">
+    <?php if ($item->countOrder() > 0) { ?>
+        <li class="card-list <?php if ($item->countOrder() > 0) echo 'active'; ?>">
             <label><?php echo $item->getName() ?></label>
             <div class="status">
-                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $orderCtl->countFood($item->getId()) ?></p>
+                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $item->countOrder() ?></p>
             </div>
             <div style="display: flex;">
                 <button type="button" data-toggle="modal" data-target="#model_<?php echo $key ?>"><i class="fa fa-eye" aria-hidden="true"></i>
@@ -65,10 +62,10 @@ foreach ($arr_table_filter as $key => $item) { ?>
             </div>
         </div>
     <?php } else { ?>
-        <li class="card-list <?php if ($orderCtl->countFood($item->getId()) > 0) echo 'active'; ?>">
+        <li class="card-list">
             <label><?php echo $item->getName() ?></label>
             <div class="status">
-                <p><i class="fa fa-coffee" aria-hidden="true"></i> <?php echo $orderCtl->countFood($item->getId()) ?></p>
+                <p><i class="fa fa-coffee" aria-hidden="true"></i> 0</p>
             </div>
             <div style="display: flex;">
                 <button style="cursor: not-allowed;">...</button>
