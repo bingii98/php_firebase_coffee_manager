@@ -73,6 +73,14 @@ class Table {
      */
     public function countOrder()
     {
+        return count($this->orders);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function countFood()
+    {
         $count = 0;
         foreach ($this->orders as $item)
             if(count($item->getOrderDetails()) > 0)

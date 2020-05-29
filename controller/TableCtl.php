@@ -14,6 +14,7 @@ class TableCtl
 {
 
     protected $firebase;
+    protected $order_ctl;
 
     /**
      * UserCtl constructor.
@@ -24,6 +25,7 @@ class TableCtl
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
         $firebase = $factory->createDatabase();
         $this->firebase = $firebase;
+        $this->order_ctl = new OrderCtl();
     }
 
     public function getAll(){
@@ -35,16 +37,18 @@ class TableCtl
         return $arr;
     }
 
+    public function get($id){
+        $list = $id;
+        echo print_r($list);
+    }
+
     public function get_is_food(){
         $arr = array();
-        $orderCtl = new OrderCtl();
         $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                foreach ($item['orders'] as $value){
-                    array_push($arr_orders,$orderCtl->get($value));
-                }
+                array_push($arr_orders,new Order(null,null,null,null));
             }
             array_push($arr,new Table($key,$item['name'],$arr_orders));
         }
@@ -57,13 +61,7 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                foreach ($item['orders'] as $keyOrder => $itemOrder){
-                    $arr_orders_detail = array();
-                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
-                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
-                    }
-                    array_push($arr_orders,new Order($keyOrder,date("h:i A d/m/yy"),null,$arr_orders_detail));
-                }
+                array_push($arr_orders,new Order(null,null,null,null));
             }
             if($arr_orders == null || count($arr_orders) == 0) {
                 array_push($arr, new Table($key, $item['name'], $arr_orders));
@@ -78,13 +76,7 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                foreach ($item['orders'] as $keyOrder => $itemOrder){
-                    $arr_orders_detail = array();
-                    foreach ($itemOrder as $keyOrderDetail => $itemOrderDetail){
-                        array_push($arr_orders_detail, new OrderDetail(new Food($itemOrderDetail['code'],$itemOrderDetail['name'],null,null,null,null,null),$itemOrderDetail['quantity'],$itemOrderDetail['price']));
-                    }
-                    array_push($arr_orders,new Order($keyOrder,date("h:i A d/m/yy"),null,$arr_orders_detail));
-                }
+                array_push($arr_orders,new Order(null,null,null,null));
             }
             if($arr_orders != null && count($arr_orders) != 0) {
                 array_push($arr, new Table($key, $item['name'], $arr_orders));

@@ -119,6 +119,27 @@
     $(document).on("click",".redirect",function () {
         window.location.replace($(this).attr("datahref"));
     })
+
+    $(document).on("click",".load-table-detail",function () {
+        var id = $(this).attr('data');
+        $.ajax({
+            url: "load-table-detail.php",
+            data: {
+                "id": id
+            },
+            type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
+            success: function (data) {
+                $(document).ready(function () {
+                    $('.modal-backdrop').remove();
+                    $('#loaded').hide();
+                    $('#loaded-data-table').html(data);
+                });
+            }
+        })
+    })
 </script>
 </body>
 </html>

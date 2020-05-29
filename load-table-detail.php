@@ -2,15 +2,9 @@
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
-$arr_table = $tableCtl->get_is_food();
 if (!isset($_POST["is_empty"]) || $_POST['is_empty'] == 'null') {
     $arr_table_filter = $arr_table;
-} else if ($_POST['is_empty'] == 'true') {
-    $arr_table_filter = $tableCtl->get_empty_food();
-} else {
-    $arr_table_filter = $tableCtl->get_not_empty_food();
 }
-
 $count_active = 0;
 $count_food = 0;
 
