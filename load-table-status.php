@@ -32,10 +32,8 @@ foreach ($arr_table as $key => $item) {
 
 <script>
     $("#loaded-data-table").html('<?php echo $string_temp ?>');
-</script>
-<script>
     <?php if(isset($_SESSION['table_active_status']) && isset($_SESSION['table_count_status'])){ ?>
-        $("#active-status").html('<li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Active table</label></li>');
-        <?php } ?>
+    $("#active-status").html('<li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Active table</label></li>');
+    <?php } ?>
 </script>
 
