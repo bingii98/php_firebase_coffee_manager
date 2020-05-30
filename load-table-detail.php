@@ -2,50 +2,29 @@
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
-if (!isset($_POST["is_empty"]) || $_POST['is_empty'] == 'null') {
-    $arr_table_filter = $arr_table;
-}
-$count_active = 0;
-$count_food = 0;
-
-foreach ($arr_table as $key => $item) {
-    if ($item->countOrder() > 0) {
-        $count_active++;
-        $count_food += $item->countOrder();
-    }
-}
-
-foreach ($arr_table_filter as $key => $item) { ?>
-    <?php if ($item->countOrder() > 0){ ?>
-        <li class="card-list active">
-            <label><?php echo $item->getName() ?></label>
-            <div class="status">
-                <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ</p>
-            </div>
-            <div style="display: flex;">
-                <button class="load-table-detail" type="button" data-toggle="modal" data="<?php echo $item->getId() ?>" data-target=""><i class="fa fa-eye"aria-hidden="true"></i>
-                    Thanh toán
-                </button>
-            </div>
-        </li>
-    <?php }else{ ?>
-        <li class="card-list">
-            <label><?php echo $item->getName() ?></label>
-            <div class="status">
-                <p><i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;Bàn trống</p>
-            </div>
-            <div style="display: flex;">
-                <button style="cursor: not-allowed;">...</button>
-            </div>
-        </li>
-    <?php }
-}
-$_SESSION['table_count_status'] = count($arr_table);
-$_SESSION['table_active_status'] = $count_active;
-$_SESSION['food_active_status'] = $count_food;
+$table = $tableCtl->get($_POST['id']);
+$item_total = 0;
 ?>
-<script>
-    <?php if(isset($_SESSION['table_active_status']) && isset($_SESSION['table_count_status'])){ ?>
-    $("#active-status").html('<li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Active table</label></li>');
-    <?php } ?>
-</script>
+<table cellpadding="10" cellspacing="1" style="width: 100%;">
+    <tbody>
+    <?php
+    foreach ($table->getOrders() as $key => $item) {
+        foreach ($item->getOrderDetails() as $key1 => $item1) {
+            ?>
+            <tr>
+                <td><strong><?php echo $item1->getFood()->getName(); ?></strong></td>
+                <td><?php echo $item1->getNum(); ?></td>
+                <td align=right><?php echo number_format($item1->getPrice(), 0, '', '.'); ?> ₫</td>
+            </tr>
+            <?php
+            $item_total += ($item1->getPrice() * $item1->getNum());
+        }
+    }
+    ?>
+    <tr>
+        <td colspan="5" align=right><strong>Total:</strong> <?php echo number_format($item_total, 0, '', '.'); ?> ₫
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary table-clean" data="<?php echo $_POST['id']?>" style="width: 100%; margin-top: 20px; margin-bottom: 30px;"> Thanh toán </button>

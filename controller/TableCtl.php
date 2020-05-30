@@ -20,12 +20,12 @@ class TableCtl
      * UserCtl constructor.
      * @param $firebase
      */
-    public function __construct()
-    {
+    public function __construct(){
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
         $firebase = $factory->createDatabase();
         $this->firebase = $firebase;
-        $this->order_ctl = new OrderCtl();
+        if (!class_exists('OrderCtl'))
+            $this->order_ctl = new OrderCtl();
     }
 
     public function getAll(){
@@ -38,8 +38,18 @@ class TableCtl
     }
 
     public function get($id){
-        $list = $id;
-        echo print_r($list);
+        $this->order_ctl = new OrderCtl();
+        $list = $this->firebase->getReference('table')->orderByKey()->equalTo($id)->getSnapshot()->getValue();
+        foreach ($list as $key => $item) {
+            $arr_orders = array();
+            if(isset($item['orders'])){
+                foreach ($item['orders'] as $key_or => $item_or){
+                    array_push($arr_orders,$this->order_ctl->get($item_or));
+                }
+            }
+            return new Table($key,$item['name'],$arr_orders);
+        }
+        return null;
     }
 
     public function get_is_food(){

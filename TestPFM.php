@@ -1,4 +1,6 @@
 <?php
-include_once __DIR__ . '/controller/TableCtl.php';
-$tableCtl = new TableCtl();
-$arr_table = $tableCtl->get("-M7Jg1YCRkn9J7wez9oR");
+include_once __DIR__ . '/controller/FoodCtl.php';
+$foodCtl = new FoodCtl();
+$arr_table = $foodCtl->get("-M6nnNMSU6lZP0ycE5L3");
+
+echo print_r($arr_table);

@@ -1,4 +1,4 @@
-<!doctype html>
+<?php ini_set('memory_limit', '-1'); ?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,6 +65,22 @@
         </div>
     </div>
 </section>
+<!-- Modal -->
+<div class="modal fade" id="table-detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: none;">
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Thông tin thanh toán</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-item" style="margin: 0;box-shadow: none;padding: 0 21px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script src="public/asset/js/bootstrap.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
@@ -108,9 +124,9 @@
             },
             success: function (data) {
                 $(document).ready(function () {
-                    $('.modal-backdrop').remove();
                     $('#loaded').hide();
-                    $('#loaded-data-table').html(data);
+                    $('#cart-item').html("");
+                    $("#table-detail-modal").modal('toggle');
                 });
             }
         })
@@ -133,9 +149,9 @@
             },
             success: function (data) {
                 $(document).ready(function () {
-                    $('.modal-backdrop').remove();
                     $('#loaded').hide();
-                    $('#loaded-data-table').html(data);
+                    $('#cart-item').html(data);
+                    $("#table-detail-modal").modal('toggle');
                 });
             }
         })

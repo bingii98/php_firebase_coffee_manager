@@ -13,7 +13,8 @@ include_once './controller/ListCtl.php';
 include_once './controller/FoodCtl.php';
 
 
-class OrderCtl{
+class OrderCtl
+{
 
     protected $firebase;
     protected $table_ctl;
@@ -28,35 +29,38 @@ class OrderCtl{
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
         $firebase = $factory->createDatabase();
         $this->firebase = $firebase;
-        $this->table_ctl = new TableCtl();
+    }
+
+    public function insert($table_id)
+    {
         $this->food_ctl = new FoodCtl();
-    }
-
-    public function insert($table_id){
+        $this->table_ctl = new TableCtl();
         $arr_order_detail = array();
-        foreach ($_SESSION["cart_item"] as $key => $item){
-            array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key),$item['quantity'],$item['price']));
+        foreach ($_SESSION["cart_item"] as $key => $item) {
+            array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
         }
-        $order = new Order(null,date("h:i A d/m/Y"),23,$arr_order_detail);
-        if(isset($_SESSION["cart_item"])){
+        $order = new Order(null, date("h:i A d/m/Y"), 23, $arr_order_detail);
+        if (isset($_SESSION["cart_item"])) {
             $result = $this->firebase->getReference('orders')->push($order->pushFB());
-            $this->tableCtl = new TableCtl();
-            $this->tableCtl->updateStatus($table_id,$result->getSnapshot()->getKey());
+            $this->table_ctl->updateStatus($table_id, $result->getSnapshot()->getKey());
         }
     }
 
-    public function get($id){
+    public function get($id)
+    {
+        $this->food_ctl = new FoodCtl();
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
         $arr = array();
-        foreach ($list['detail'] as $value){
-            array_push($arr, new OrderDetail($this->food_ctl->get($value['food']),$value['num'],$value['price']));
+        foreach ($list['detail'] as $value) {
+            array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
-        return new Order($id,$list['date'],$list['staff'],$arr);
+        return new Order($id, $list['date'], $list['staff'], $arr);
     }
 
-    public function countFood($id){
+    public function countFood($id)
+    {
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
-        if($list != null)
+        if ($list != null)
             return $list['detail'];
         return 0;
     }

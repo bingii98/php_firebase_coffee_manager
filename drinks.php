@@ -186,12 +186,10 @@
         $.ajax({
             url: "load-table-status.php",
             type: "POST",
-            beforeSend : function (){
-                $('#loaded').show();
-            },
             success: function (data) {
-                $('#loaded').hide();
-                $('#table-event-change').html(data);
+                $(document).ready(function () {
+                    $('#loaded-data-table').html(data);
+                });
             }
         })
     })

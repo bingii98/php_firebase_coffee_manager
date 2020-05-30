@@ -29,7 +29,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
                 <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ</p>
             </div>
             <div style="display: flex;">
-                <button class="load-table-detail" type="button" data-toggle="modal" data="<?php echo $item->getId() ?>" data-target=""><i class="fa fa-eye"aria-hidden="true"></i>
+                <button class="load-table-detail" type="button" data="<?php echo $item->getId() ?>"><i class="fa fa-eye"aria-hidden="true"></i>
                     Thanh toán
                 </button>
             </div>
