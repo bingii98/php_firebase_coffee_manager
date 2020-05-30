@@ -104,7 +104,7 @@
                 },
                 success: function (data) {
                     $('#loaded').hide();
-                    createAlert("success", "Thanh toán thành công!");
+                    createAlert("success", "Thêm đơn thành công!");
                     $("#exampleModalLong").modal('toggle');
                     $("#cart-item").html(data);
                 },
