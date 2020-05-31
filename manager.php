@@ -66,11 +66,13 @@
     </div>
 </section>
 <!-- Modal -->
-<div class="modal fade" id="table-detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 70px;">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="table-detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="margin-top: 70px;">
+        <div class="modal-dialog" role="document" id="print-order">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: none;">
-                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Thông tin thanh toán</h4>
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Thông
+                    tin thanh toán</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -125,6 +127,7 @@
             success: function (data) {
                 $(document).ready(function () {
                     $('#loaded').hide();
+                    PrintElem("print-order");
                     $('#cart-item').html("");
                     $("#table-detail-modal").modal('toggle');
                 });
@@ -132,11 +135,11 @@
         })
     })
 
-    $(document).on("click",".redirect",function () {
+    $(document).on("click", ".redirect", function () {
         window.location.replace($(this).attr("datahref"));
     })
 
-    $(document).on("click",".load-table-detail",function () {
+    $(document).on("click", ".load-table-detail", function () {
         var id = $(this).attr('data');
         $.ajax({
             url: "load-table-detail.php",
@@ -156,6 +159,19 @@
             }
         })
     })
+
+    function PrintElem(elem) {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>CHB Coffe</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById(elem).innerHTML);
+        mywindow.document.write('<style>button{visibility: hidden;}</style>');
+        mywindow.document.write('</body></html>');
+        mywindow.document.close();
+        mywindow.focus();
+        mywindow.print();
+        return true;
+    }
 </script>
 </body>
 </html>

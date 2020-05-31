@@ -5,7 +5,8 @@ $tableCtl = new TableCtl();
 $table = $tableCtl->get($_POST['id']);
 $item_total = 0;
 ?>
-<table cellpadding="10" cellspacing="1" style="width: 100%;">
+<table cellpadding="10" cellspacing="1" style="width: 100%; text-align: left; font-size: 14 px;">
+    <thead><tr><th>Thức uống</th><th>Số lượng</th><th>Giá</th></tr></thead>
     <tbody>
     <?php
     foreach ($table->getOrders() as $key => $item) {
@@ -22,7 +23,7 @@ $item_total = 0;
     }
     ?>
     <tr>
-        <td colspan="5" align=right><strong>Total:</strong> <?php echo number_format($item_total, 0, '', '.'); ?> ₫
+        <td colspan="5" align=right><strong>Tổng tiền: </strong> <?php echo number_format($item_total, 0, '', '.'); ?> ₫
         </td>
     </tr>
     </tbody>
