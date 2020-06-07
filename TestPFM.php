@@ -1,6 +1,11 @@
 <?php
-include_once __DIR__ . '/controller/FoodCtl.php';
-$foodCtl = new FoodCtl();
-$arr_table = $foodCtl->get("-M6nnNMSU6lZP0ycE5L3");
+include_once __DIR__ . '/controller/Authentication.php';
+$controller = new MyService();
 
-echo print_r($arr_table);
+$result = $controller->login("bingii901@gmail.com","123456");
+
+if($result){
+    echo "TC";
+}else{
+    echo "TB";
+}
