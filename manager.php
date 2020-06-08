@@ -1,4 +1,8 @@
-<?php ini_set('memory_limit', '-1'); ?><!doctype html>
+<?php ini_set('memory_limit', '-1');
+include_once __DIR__ . '/model/User.php';?>
+<?php if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<script>alert("Chào <?php echo $_SESSION['_userSignedIn']->getEmail() ?>")</script>
 <header class="navbar-manager -bg-darkblue fixed-top">
     <div class="container-fluid" style="display: flex;">
         <div class="panel-tab">
@@ -68,7 +73,7 @@
 <!-- Modal -->
 <div class="modal fade" id="table-detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style="margin-top: 70px;">
-        <div class="modal-dialog" role="document" id="print-order">
+    <div class="modal-dialog" role="document" id="print-order">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: none;">
                 <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Thông

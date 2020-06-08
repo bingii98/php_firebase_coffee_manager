@@ -61,13 +61,13 @@ if (isset($_SESSION["cart_item"])) {
     <table cellpadding="10" cellspacing="1" style="width: 100%;">
         <tbody>
         <?php
-        foreach ($_SESSION["cart_item"] as $item) {
+        foreach ($_SESSION["cart_item"] as $code => $item) {
             ?>
             <tr>
                 <td><strong><?php echo $item["name"]; ?></strong></td>
                 <td><?php echo $item["quantity"]; ?></td>
                 <td align=right><?php echo number_format($item["price"], 0, '', '.'); ?> ₫</td>
-                <td><a onClick="cartAction('remove','<?php echo $item["code"]; ?>')" class="btnRemoveAction cart-action"
+                <td><a onClick="cartAction('remove','<?php echo $code ?>')" class="btnRemoveAction cart-action"
                        style="cursor: pointer;"><i class="fa fa-window-close" aria-hidden="true"></i></a></td>
             </tr>
             <?php

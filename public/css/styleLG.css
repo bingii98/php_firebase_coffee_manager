@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700,900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px !important;
+}
+
+.loginWrapper {
+  background: #f5f5f5;
+  position: relative;
+  height: 100vh;
+}
+.loginWrapper .logincard {
+  max-width: 970px;
+  width: 100%;
+  overflow: hidden;
+  height: 545px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.09);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loginWrapper .logincard .leftbox {
+  position: relative;
+  z-index: 0;
+  height: 545px;
+}
+.loginWrapper .logincard .leftbox .circle {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  background: #FFAE5C;
+  top: 42%;
+  left: -55%;
+  transform: translatey(-50%) rotate(48deg);
+  border-radius: 300px;
+  box-shadow: inset 52px 49px 57px #ff7467;
+  border: 2px solid #f5f5f5;
+  z-index: -1;
+}
+.loginWrapper .logincard .leftbox .leftboxContent {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+}
+.loginWrapper .logincard .leftbox .leftboxContent img.bgimg {
+  width: 500px;
+  position: absolute;
+  opacity: 0.2;
+  top: -18%;
+  left: -73%;
+}
+.loginWrapper .logincard .leftbox .leftboxContent h4 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.loginWrapper .logincard .leftbox .leftboxContent h4 img {
+  width: 25px;
+  margin-top: -5px;
+}
+.loginWrapper .logincard .leftbox .leftboxContent h1 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 25px;
+}
+.loginWrapper .logincard .rightbox {
+  position: relative;
+  height: 545px;
+  padding: 50px;
+}
+.loginWrapper .logincard .rightbox img {
+  width: 120px;
+  height: 120px;
+}
+.loginWrapper .logincard .rightbox p {
+  font-weight: 600;
+  color: #777777;
+  margin: 15px 0;
+}
+.loginWrapper .logincard .rightbox p a {
+  color: #ff7467;
+}
+.loginWrapper .logincard .rightbox p input[type="checkbox"] {
+  width: 0px;
+  height: 0px;
+}
+.loginWrapper .logincard .rightbox p input[type="checkbox"]:checked ~ label:after {
+  display: block;
+}
+.loginWrapper .logincard .rightbox p label {
+  width: 18px;
+  height: 18px;
+  background: #F3F6FB;
+  border-radius: 2px;
+  border: 2px solid #ebf0f7;
+  position: relative;
+  margin: 0 10px 0 0;
+}
+.loginWrapper .logincard .rightbox p label:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #ff7467;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.loginWrapper .logincard .rightbox input[type="email"],
+.loginWrapper .logincard .rightbox input[type="password"] {
+  border-radius: 25px;
+  background: #F3F6FB;
+  border: 1px solid #ebf0f7;
+  height: 47px;
+  margin-bottom: 25px;
+}
+.loginWrapper .logincard .rightbox input[type="email"]:focus,
+.loginWrapper .logincard .rightbox input[type="password"]:focus {
+  border-color: #ff7467;
+  box-shadow: none;
+}
+.loginWrapper .logincard .rightbox button {
+  background: linear-gradient(15deg, #ff7467, #FFAE5C);
+  border: 2px solid #fff;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.37);
+  display: block;
+  width: 100%;
+  height: 47px;
+  font-weight: 600;
+  border-radius: 30px;
+}
+.loginWrapper .logincard .rightbox button:hover, .loginWrapper .logincard .rightbox button:focus, .loginWrapper .logincard .rightbox button:active {
+  background: linear-gradient(15deg, #FFAE5C, #ff7467);
+  border: 2px solid #fff;
+  outline: 0 none;
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .loginWrapper .logincard {
+    position: relative;
+    transform: inherit;
+    top: inherit;
+    left: inherit;
+    height: auto;
+  }
+
+  .loginWrapper .logincard .leftbox {
+    height: auto;
+  }
+
+  .loginWrapper .logincard .leftbox .circle {
+    transform: inherit;
+    border-radius: inherit;
+    top: inherit;
+    left: inherit;
+    border: 0 none;
+    width: 100%;
+  }
+
+  .loginWrapper .logincard .leftbox .leftboxContent {
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    transform: inherit;
+    width: 100%;
+    padding: 40px 40px 0;
+    text-align: center;
+  }
+
+  .loginWrapper .logincard .rightbox input[type="email"],
+  .loginWrapper .logincard .rightbox input[type="password"] {
+    background: #fff;
+  }
+
+  .loginWrapper .logincard .rightbox p {
+    color: #fff;
+  }
+
+  .loginWrapper .logincard .leftbox .leftboxContent img.bgimg {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -46,7 +46,7 @@ $arr = $listCtl->getAll_food();
                         }
                     } ?>
 
-                    <button type="button" id="add_'.$itemFood->getId().'"
+                    <button type="button" id="add_<?php echo $itemFood->getId()?>"
                             class="btnAddAction cart-action add-cart-btn"
                             onClick="cartAction('add', '<?php echo $itemFood->getId() ?>')"><i class="fa fa-plus"
                                                                                                aria-hidden="true"></i>

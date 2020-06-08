@@ -20,7 +20,8 @@ class MyService
     public function login($username, $password)
     {
         try {
-            return $this->auth->signInWithEmailAndPassword($username,$password);
+            $this->auth->signInWithEmailAndPassword($username,$password);
+            return $this->auth->getUserByEmail($username);
         }catch (Exception $e){
             return false;
         }
