@@ -5,7 +5,7 @@ $tableCtl = new TableCtl();
 $table = $tableCtl->get($_POST['id']);
 $item_total = 0;
 ?>
-<table cellpadding="10" cellspacing="1" style="width: 100%; text-align: left; font-size: 14 px;">
+<table cellpadding="10" cellspacing="1" style="width: 100%; text-align: left; font-size: 14px;">
     <thead><tr><th>Thức uống</th><th>Số lượng</th><th>Giá</th></tr></thead>
     <tbody>
     <?php

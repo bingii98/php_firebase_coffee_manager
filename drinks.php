@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/model/User.php';
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,29 +20,8 @@
 <div class="wrapper">
 
 </div>
-<header class="navbar-manager -bg-darkblue fixed-top">
-    <div class="container-fluid" style="display: flex;">
-        <div class="panel-tab">
-            <ul>
-                <li>
-                    <a href="manager.php"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;&nbsp;Table
-                        <div class="hr-panel-tab"></div>
-                    </a>
-                </li>
-                <li class="active"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
-                    <div class="hr-panel-tab"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="status-tab">
-            <ul id="active-status">
-                <li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
-                    <p>0</p><label>Active table</label>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
+<?php include 'component/header.php'?>
+<script> document.getElementById('header-drink').classList.add("active"); </script>
 <section style="margin-top: 70px;">
     <div id="loaded">
         <div class="loading">
@@ -73,10 +56,11 @@
 
 </div>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
-<script src="public/asset/js/bootstrap.min.js"></script>
+<script src="public/asset/js/bootstrap.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 <script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/header.js"></script>
 <script !src="">
     $(document).ready(function () {
         $(document).on('click', ".card-list", function () {

@@ -1,6 +1,6 @@
-<?php ini_set('memory_limit', '-1');
-include_once __DIR__ . '/model/User.php';?>
-<?php if (!isset($_SESSION)) session_start();
+<?php
+include_once __DIR__ . '/model/User.php';
+if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <!doctype html>
 <html lang="en">
@@ -16,30 +16,8 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<script>alert("Chào <?php echo $_SESSION['_userSignedIn']->getEmail() ?>")</script>
-<header class="navbar-manager -bg-darkblue fixed-top">
-    <div class="container-fluid" style="display: flex;">
-        <div class="panel-tab">
-            <ul>
-                <li class="active"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;&nbsp;Table
-                    <div class="hr-panel-tab"></div>
-                </li>
-                <li>
-                    <a href="drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
-                        <div class="hr-panel-tab"></div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="status-tab">
-            <ul id="active-status">
-                <li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
-                    <p>0</p><label>Active table</label>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
+<?php include 'component/header.php'?>
+<script> document.getElementById('header-table').classList.add("active"); </script>
 <section style="margin-top: 70px;">
     <div class="row manager-desk">
         <div id="loaded">
@@ -52,7 +30,6 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
             <div class="loading-overlay"></div>
         </div>
         <div class="slidebar col-3">
-            <h5>CONTROL PANEL</h5>
             <ul class="list-desk">
                 <li class="header">Loại bàn <i class="fa fa-cubes" aria-hidden="true"></i></li>
                 <li class="item redirect" dataHref="manager.php"><p>Tất cả</p><i class="fa fa-caret-right"
@@ -89,10 +66,11 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     </div>
 </div>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
-<script src="public/asset/js/bootstrap.min.js"></script>
+<script src="public/asset/js/bootstrap.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 <script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/header.js"></script>
 <script>
     loadChange("table", function () {
         $.ajax({

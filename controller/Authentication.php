@@ -27,4 +27,14 @@ class MyService
         }
     }
 
+    public function forgot_password($username)
+    {
+        try {
+            $this->auth->sendPasswordResetLink($username);
+            return true;
+        }catch (Exception $e){
+            return false;
+        }
+    }
+
 }
