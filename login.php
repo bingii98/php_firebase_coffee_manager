@@ -6,9 +6,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link rel="stylesheet" href="public/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/styleLG.css">
+    <link rel="stylesheet" href="public/css/notification.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
+<div class="wrapper">
+</div>
 <div class="loginWrapper">
     <div class="logincard bg-white">
         <div class="row">
@@ -36,7 +38,7 @@
                            placeholder=""
                            aria-describedby="prefixId">
                     <button type="submit" id="btn-submit" class="btn btn-primary">Đăng nhập</button>
-                    <p><a href="#">Quên mật khẩu</a></p>
+                    <p><a href="#" id="btn-reset-password">Quên mật khẩu</a></p>
                 </div>
             </div>
         </div>
@@ -46,6 +48,7 @@
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src="public/js/notification.js"></script>
 <script>
     $("#btn-submit").click(function () {
         $.ajax({
@@ -63,6 +66,19 @@
                 }
             }
         });
+    })
+
+    $("#btn-reset-password").click(function () {
+        $.ajax({
+            url: "reset-password.php",
+            data: {
+                'email' : $("#username").val()
+            },
+            type: "POST",
+            success: function (data) {
+                createAlert("success", "Đường dẫn đổi mật khẩu đã được gửi đến email của bạn!");
+            }
+        })
     })
 </script>
 </body>

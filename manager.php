@@ -12,11 +12,14 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     <title>CHB - Coffee Manager</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/notification.css">
     <link rel="stylesheet" href="public/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<?php include 'component/header.php'?>
+<div class="wrapper">
+</div>
+<?php include 'component/header.php' ?>
 <script> document.getElementById('header-table').classList.add("active"); </script>
 <section style="margin-top: 70px;">
     <div class="row manager-desk">
@@ -70,6 +73,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 <script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/notification.js"></script>
 <script src="public/js/header.js"></script>
 <script>
     loadChange("table", function () {

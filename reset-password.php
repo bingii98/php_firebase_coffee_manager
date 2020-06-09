@@ -5,4 +5,10 @@ $account = new MyService();
 
 if (!isset($_SESSION)) session_start();
 
-$result = $account->forgot_password($_SESSION['_userSignedIn']->getEmail());
+if(!isset($_SESSION['_userSignedIn']) && isset($_POST['email'])){
+    $email = $_POST['email'];
+}else{
+    $email = $_SESSION['_userSignedIn']->getEmail();
+}
+
+$result = $account->forgot_password($email);

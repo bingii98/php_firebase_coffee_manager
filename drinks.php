@@ -18,9 +18,8 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 </head>
 <body>
 <div class="wrapper">
-
 </div>
-<?php include 'component/header.php'?>
+<?php include 'component/header.php' ?>
 <script> document.getElementById('header-drink').classList.add("active"); </script>
 <section style="margin-top: 70px;">
     <div id="loaded">
@@ -35,11 +34,13 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     <div class="row manager-desk" id="load-data-drinks">
     </div>
 </section>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="margin-top: 70px;">
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true" style="margin-top: 70px;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: none;">
-                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chọn bàn cho khách hàng</h4>
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chọn
+                    bàn cho khách hàng</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -60,50 +61,10 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 <script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/notification.js"></script>
 <script src="public/js/header.js"></script>
 <script !src="">
-    $(document).ready(function () {
-        $(document).on('click', ".card-list", function () {
-            if ($(this).hasClass("disable")) {
-                $(".card-list").addClass("disable");
-                $(this).removeClass("disable");
-                $(this).removeClass("disable");
-            } else {
-                if ($(".card-list.disable").length == 0) {
-                    $(".card-list").addClass("disable");
-                    $(this).removeClass("disable");
-                } else {
-                    $(".card-list").removeClass("disable");
-                }
-            }
-        })
-
-        $(document).on('click', ".choose-table-cart", function () {
-            $.ajax({
-                url: "handle-cart.php",
-                data: 'action=payment&code=' + $(this).attr("table-id"),
-                type: "POST",
-                beforeSend : function (){
-                    $('#loaded').show();
-                },
-                success: function (data) {
-                    $('#loaded').hide();
-                    createAlert("success", "Thêm đơn thành công!");
-                    $("#exampleModalLong").modal('toggle');
-                    $("#cart-item").html(data);
-                },
-                error: function () {
-                }
-            });
-        })
-        $(document).on("click", ".scrool-list", function () {
-            $('html, body').animate({
-                scrollTop: $("#" + $(this).attr("data")).offset().top - 75
-            }, 500);
-        })
-
-    })
-
+    //Card acction
     function cartAction(action, product_code) {
         var queryString = "";
         if (action != "") {
@@ -147,14 +108,13 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
             }
         });
     }
-</script>
-<script src="public/js/notification.js"></script>
-<script>
+
+    //Load change list drinks
     loadChange("list", function () {
         $.ajax({
             url: "load-drink.php",
             type: "POST",
-            beforeSend : function (){
+            beforeSend: function () {
                 $('#loaded').show();
             },
             success: function (data) {
@@ -166,6 +126,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
         })
     })
 
+    //Load change list Table
     loadChange("table", function () {
         $.ajax({
             url: "load-table-status.php",
@@ -175,6 +136,51 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
                     $('#loaded-data-table').html(data);
                 });
             }
+        })
+    })
+
+    $(document).ready(function () {
+        //Handle when choose over valid number
+        $(document).on('click', ".card-list", function () {
+            if ($(this).hasClass("disable")) {
+                $(".card-list").addClass("disable");
+                $(this).removeClass("disable");
+                $(this).removeClass("disable");
+            } else {
+                if ($(".card-list.disable").length == 0) {
+                    $(".card-list").addClass("disable");
+                    $(this).removeClass("disable");
+                } else {
+                    $(".card-list").removeClass("disable");
+                }
+            }
+        })
+
+        //Load table status for choose
+        $(document).on('click', ".choose-table-cart", function () {
+            $.ajax({
+                url: "handle-cart.php",
+                data: 'action=payment&code=' + $(this).attr("table-id"),
+                type: "POST",
+                beforeSend: function () {
+                    $('#loaded').show();
+                },
+                success: function (data) {
+                    $('#loaded').hide();
+                    createAlert("success", "Thêm đơn thành công!");
+                    $("#exampleModalLong").modal('toggle');
+                    $("#cart-item").html(data);
+                },
+                error: function () {
+                }
+            });
+        })
+
+        //Event scroll list card
+        $(document).on("click", ".scrool-list", function () {
+            $('html, body').animate({
+                scrollTop: $("#" + $(this).attr("data")).offset().top - 75
+            }, 500);
         })
     })
 </script>

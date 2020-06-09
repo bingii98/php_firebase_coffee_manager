@@ -27,7 +27,7 @@ $("#btn-reset-password").click(function () {
         url: "reset-password.php",
         type: "POST",
         success: function (data) {
-            alert("Một đường dẫn đã được gửi đến email của bạn!")
+            createAlert("success", "Đường dẫn đổi mật khẩu đã được gửi đến email của bạn!");
         }
     })
 })

@@ -105,16 +105,16 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -156,6 +156,7 @@
       <workItem from="1591624406011" duration="5983000" />
       <workItem from="1591642111233" duration="12249000" />
       <workItem from="1591694501205" duration="3869000" />
+      <workItem from="1591715523377" duration="5995000" />
     </task>
     <servers />
   </component>
@@ -179,10 +180,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="763" y="309" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598871" />
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589363279341">
+    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591717949219">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589363279341" />
+    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
     <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1591630634173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

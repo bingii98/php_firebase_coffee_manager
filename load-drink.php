@@ -4,7 +4,6 @@ include_once __DIR__ . '/controller/ListCtl.php';
 $listCtl = new ListCtl();
 $arr = $listCtl->getAll_food();
 ?>
-
 <div class="slidebar col-5 fixed-top" style="margin-top: 150px;">
     <ul class="list-desk-detail">
         <li class="header">Danh sách <i class="fa fa-coffee" aria-hidden="true"></i></li>
