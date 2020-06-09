@@ -43,20 +43,3 @@
         </div>
     </div>
 </header>
-<!-- Modal -->
-<div class="modal fade" id="user-change-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true" style="margin-top: 70px;">
-    <div class="modal-dialog" role="document" id="print-order">
-        <div class="modal-content">
-            <div class="modal-header" style="border-bottom: none;">
-                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Thông tin tài khoản</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="cart-item" style="margin: 0;box-shadow: none;padding: 0 21px;"></div>
-            </div>
-        </div>
-    </div>
-</div>

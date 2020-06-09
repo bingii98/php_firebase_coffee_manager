@@ -80,6 +80,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
                     break;
             }
         }
+
         $.ajax({
             url: "handle-cart.php",
             data: queryString,
