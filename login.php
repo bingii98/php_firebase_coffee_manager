@@ -59,7 +59,9 @@
             },
             type : 'POST',
             success : function (data) {
-                if(data == 'true'){
+                if(data == 'invalid-email-verified'){
+                    alert("Vui lòng xác thực email để thực hiện đăng nhập!")
+                }else if(data == 'true'){
                     window.location = "manager.php";
                 }else{
                     alert("Đăng nhập không thành công!");

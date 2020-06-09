@@ -42,10 +42,12 @@ section {
 
 :root {
     --bg-dark: #18191a;
+    --bg-dark-full: #000;
     --bg-dark-hover: #303031;
     --bg-dark-slidebar: #303031;
     --bg-dark-text: #e4e3eb;
     --bg-dark-title: #E4E6EB;
+    --bg-dark-description: rgb(99, 99, 99);
     --bg-dark-menu: #242526;
     --bg-dark-menu-dropdown: #242526;
     --bg-dark-card: #242526;
@@ -67,10 +69,12 @@ section {
 
 [data-theme="__light-mode"] {
     --bg-dark: #ffffff;
+    --bg-dark-full: #ffffff;
     --bg-dark-hover: #f2f2f2;
     --bg-dark-slidebar: #ffffff;
     --bg-dark-text: #050505;
-    --bg-dark-title: #212529;
+    --bg-dark-title: #212529;;
+    --bg-dark-description: rgb(144, 148, 156);
     --bg-dark-menu: rgb(22, 36, 75);
     --bg-dark-menu-dropdown: #ffffff;
     --bg-dark-card: #fff;
@@ -122,6 +126,102 @@ section {
     color: var(--bg-dark-icon-bg);
 }
 
+.form.user-info{
+    padding: 20px;
+    background: var(--bg-dark-full);
+    border-radius: 10px;
+}
+
+.form.user-info p{
+    margin-bottom: 0;
+    color: var(--bg-dark-text);
+}
+
+.form-title{
+    color: var(--bg-dark-title);
+    font-weight: 600;
+}
+
+.form-text{
+    color: var(--bg-dark-title);
+}
+
+.form-button.edit{
+    background: none;
+    color: #2d88ff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.form-button.edit:hover{
+    text-decoration: underline;
+}
+
+.form-line{
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--bg-dark-hr);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-line .description{
+    color: var(--bg-dark-description) !important;
+    font-size: 14px;
+}
+
+.form-line .form-line-hidden{
+    display: none;
+}
+
+.form-line.active{
+    background: var(--bg-dark-hover);
+}
+
+.form-line .hide{
+    display: none;
+}
+
+.form-line.active .form-line-hidden{
+    display: block;
+}
+
+.form-line.active .text-data{
+    display: none;
+}
+
+.form-line.active .text-edit{
+    display: none;
+}
+
+.form-line .form-line-hidden .ticket{
+    background: var(--blue);
+    height: 5px;
+    width: 5px;
+    display: inline-block;
+    margin: 0 5px 3px 0;
+}
+
+.form-line .form-line-hidden input{
+    background: var(--bg-dark-full);
+    outline: none;
+    border: 1px solid var(--bg-dark-hr);
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: var(--bg-dark-text);
+}
+
+.form-line .form-line-hidden button{
+    margin-right: 10px;
+}
+
+.form-line .form-line-hidden .edit{
+    padding: 20px 0 0 50px;
+}
+
+.form .form-line:hover{
+    background: var(--bg-dark-hover);
+}
 
 .card-list {
     min-width: 200px;
