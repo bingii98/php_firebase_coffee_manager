@@ -1,12 +1,15 @@
 <?php
 include_once __DIR__ . '/model/User.php';
 include_once __DIR__ . '/controller/FoodCtl.php';
+include_once __DIR__ . '/controller/ListCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 $foodCtl = new FoodCtl();
+$listCtl = new ListCtl();
+$arr_list = $listCtl->getAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,20 +55,57 @@ $foodCtl = new FoodCtl();
                         <h6 class="m-0 font-weight-bold text-primary">Thêm sản phẩm</h6>
                     </div>
                     <div class="card-body">
-                        <form class="user">
-                            <div class="form-group">
-                                <input type="name" class="form-control form-control-user" id="exampleInputEmail" placeholder="Tên sản phẩm">
+                        <form>
+                            <div class="form-group row">
+                                <label for="txt-name" class="col-sm-2 col-form-label">Tên sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="txt-name">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mô tả sản phẩm">
+                            <div class="form-group row">
+                                <label for="txt-danhmuc" class="col-sm-2 col-form-label">Danh mục</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="txt-list">
+                                        <?php foreach ($arr_list as $item){ ?>
+                                            <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="file" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mô tả sản phẩm">
+                            <div class="form-group row">
+                                <label for="txt-description" class="col-sm-2 col-form-label">Mô tả</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="txt-description" rows="3"></textarea>
+                                </div>
                             </div>
-                            <button class="btn btn-primary btn-user btn-block">
-                                Xác nhận
-                            </button>
-                            <hr>
+                            <div class="form-group row">
+                                <div class="custom-control custom-switch col-sm-10 offset-sm-2"
+                                     style="padding-left: 3.25rem;">
+                                    <input type="checkbox" class="custom-control-input" id="switch1">
+                                    <label class="custom-control-label" for="switch1">Giảm giá</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txt-range-sale" class="col-sm-2 col-form-label">Phần trăm</label>
+                                <div class="col-sm-10">
+                                    <input type="range" class="custom-range" id="txt-range-sale" name="points1">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txt-file" class="col-sm-2 col-form-label">Hình ảnh</label>
+                                <div class="col-sm-10">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="txt-file">
+                                        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txt-file" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <button class="btn btn-primary form-control"><strong>Xác nhận</strong></button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

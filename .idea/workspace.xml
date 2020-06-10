@@ -166,7 +166,7 @@
       <workItem from="1591742044093" duration="6122000" />
       <workItem from="1591782744238" duration="44000" />
       <workItem from="1591784115565" duration="334000" />
-      <workItem from="1591802940346" duration="21890000" />
+      <workItem from="1591802940346" duration="23317000" />
     </task>
     <servers />
   </component>
@@ -212,11 +212,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361061458" />
-    <state x="986" y="371" key="FileChooserDialogImpl" timestamp="1591649580740">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591825674420">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589872572076" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589353598093" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591825674420" />
     <state x="986" y="371" key="FileChooserDialogImpl/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591649580740" />
     <state x="748" y="242" key="NewPhpClassDialog" timestamp="1591630489419">
       <screen x="0" y="0" width="1920" height="1040" />
