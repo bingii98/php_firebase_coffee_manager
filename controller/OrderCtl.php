@@ -31,7 +31,7 @@ class OrderCtl
         $this->firebase = $firebase;
     }
 
-    public function insert($table_id)
+    public function insert($table_id, $uid)
     {
         $this->food_ctl = new FoodCtl();
         $this->table_ctl = new TableCtl();
@@ -39,7 +39,7 @@ class OrderCtl
         foreach ($_SESSION["cart_item"] as $key => $item) {
             array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
         }
-        $order = new Order(null, date("h:i A d/m/Y"), 23, $arr_order_detail);
+        $order = new Order(null, date("h:i A d/m/Y"), $uid, $arr_order_detail);
         if (isset($_SESSION["cart_item"])) {
             $result = $this->firebase->getReference('orders')->push($order->pushFB());
             $this->table_ctl->updateStatus($table_id, $result->getSnapshot()->getKey());

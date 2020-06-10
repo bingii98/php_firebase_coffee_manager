@@ -1,8 +1,9 @@
 <?php
-if (!isset($_SESSION)) session_start();
 include_once './controller/FoodCtl.php';
 include_once './controller/ListCtl.php';
 include_once './controller/OrderCtl.php';
+include_once __DIR__ . '/model/User.php';
+if (!isset($_SESSION)) session_start();
 $foodCtl = new FoodCtl();
 $listCtl = new ListCtl();
 $orderCtl = new OrderCtl();
@@ -43,7 +44,7 @@ if (!empty($_POST["action"])) {
             }
             break;
         case "payment":
-            $orderCtl->insert($_POST["code"]);
+            $orderCtl->insert($_POST["code"],$_SESSION['_userSignedIn']->getId());
             unset($_SESSION["cart_item"]);
             break;
         case "empty":

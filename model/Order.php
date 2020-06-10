@@ -102,7 +102,7 @@ class Order{
 
     public function pushFB(){
         $DATA['date'] = date("h:i A d/m/Y");
-        $DATA['staff'] = '121212';
+        $DATA['staff'] = $this->staff;
         $arr_order_detail = array();
         foreach ($this->order_details as $key => $item){
             $arr_ordt = array($key => array('num' => $item->getNum(), 'price' => $item->getPrice(), 'food' => $item->getFood()->getId()));

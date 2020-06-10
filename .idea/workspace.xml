@@ -20,17 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reset-password.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/change-user-info.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestPFM.php" beforeDir="false" afterPath="$PROJECT_DIR$/TestPFM.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/access-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/access-login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check-email-exist.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Authentication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drinks.php" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-drink.php" beforeDir="false" afterPath="$PROJECT_DIR$/load-drink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-table-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/load-table-detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/OrderCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handle-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/handle-cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-info.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +161,8 @@
       <workItem from="1591694501205" duration="3869000" />
       <workItem from="1591715523377" duration="5995000" />
       <workItem from="1591724223855" duration="15025000" />
+      <workItem from="1591742044093" duration="6122000" />
+      <workItem from="1591782744238" duration="44000" />
     </task>
     <servers />
   </component>
@@ -185,10 +190,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1591630634173">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1591746718740">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591630634173" />
+    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591746718740" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589361031045">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -152,6 +152,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
         mywindow.document.write('<html><head><title>CHB Coffe</title>');
         mywindow.document.write('</head><body >');
         mywindow.document.write(document.getElementById(elem).innerHTML);
+        mywindow.document.write('<p style="text-align: center;">Nhân viên thanh toán: <?php echo $_SESSION['_userSignedIn']->getName() ?> </p>')
         mywindow.document.write('<style>button{visibility: hidden;}</style>');
         mywindow.document.write('</body></html>');
         mywindow.document.close();

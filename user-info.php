@@ -28,16 +28,16 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
                 <div class="col-md-8">
                     <p class="form-text text-data"><?php if($_SESSION['_userSignedIn']->getName() == null) echo "Chưa đặt"; else echo $_SESSION['_userSignedIn']->getName() ?></p>
                     <div class="form-line-hidden">
-                        <p class="description">Tên của bạn sẻ hiển thị trên màn hình và hóa đơn thanh toán</p>
+                        <p class="description">Tên hiển thị trên màn hình và hóa đơn thanh toán</p>
                         <p><i class="ticket"></i><?php if($_SESSION['_userSignedIn']->getName() == null) echo "Chưa đặt"; else echo $_SESSION['_userSignedIn']->getName() ?></p>
                         <p class="edit">
                             <span style="margin-right: 10px;">Tên </span>
-                            <input type="text" value="<?php if($_SESSION['_userSignedIn']->getName() == null) echo ""; else echo $_SESSION['_userSignedIn']->getName() ?>">
+                            <input type="text" id="txt-name" value="<?php if($_SESSION['_userSignedIn']->getName() == null) echo ""; else echo $_SESSION['_userSignedIn']->getName() ?>">
                         </p>
                         <p class="description">Lưu ý: tên nên trùng với chứng minh nhân dân để dể xử lý khi xảy ra tranh chấp</p>
                         <hr style="border-bottom: 1px solid var(--bg-dark-hr);">
                         <div style="display: flex">
-                            <button class="btn btn-sm btn-primary" type="button">Xác nhận</button>
+                            <button class="btn btn-sm btn-primary" id="btn-change-name" type="button">Xác nhận</button>
                             <button class="btn btn-sm btn-close" type="button">Hủy</button>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
                             <input type="text" id="txt-email" value="<?php if($_SESSION['_userSignedIn']->getEmail() == null) echo "Chưa đặt"; else echo $_SESSION['_userSignedIn']->getEmail() ?>">
                             <span id="status-check"></span>
                         </p>
-                        <p class="description">Lưu ý: các vấn đề về nhân viên thường được thông báo qua email này.</p>
+                        <p class="description">Lưu ý: phải xác thực email cho lần đăng nhập tiếp theo. Hãy chắc chắn địa chỉ email là chính xác</p>
                         <hr style="border-bottom: 1px solid var(--bg-dark-hr);">
                         <div style="display: flex">
                             <button class="btn btn-sm btn-primary" id="btn-change-email" type="button">Xác nhận</button>
@@ -89,7 +89,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     $(document).on('input propertychange','#txt-email',function () {
         var email = $('#txt-email').val();
         $.ajax({
-            url : 'check-email-exist.php',
+            url : 'change-user-info.php',
             data : {
                 'action' : 'check',
                 'email' : email
@@ -111,7 +111,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     $(document).on('click','#btn-change-email',function () {
         var email = $('#txt-email').val();
         $.ajax({
-            url : 'check-email-exist.php',
+            url : 'change-user-info.php',
             data : {
                 'action' : 'change',
                 'email' : email
@@ -123,12 +123,39 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
             success : function (data) {
                 if(data == 'true'){
                     alert("Vui lòng xác nhận qua hộp thư trong email mới của bạn!");
-                    $('#status-check').html('<i class="fa fa-check" aria-hidden="true"></i>');
+                    location.reload();
                 }else if(data == 'double'){
                     alert("Email không thay đổi!");
                     $('#status-check').html('<i class="fa fa-times" aria-hidden="true"></i>');
                 }else{
                     alert("Email!");
+                    $('#status-check').html('<i class="fa fa-times" aria-hidden="true"></i>');
+                }
+            }
+        })
+    })
+
+    $(document).on('click','#btn-change-name',function () {
+        var name = $('#txt-name').val();
+        $.ajax({
+            url : 'change-user-info.php',
+            data : {
+                'action' : 'change',
+                'name' : name
+            },
+            type : 'POST',
+            beforeSend: function () {
+                $('#status-check').html("<img src='https://i.ya-webdesign.com/images/loading-gif-png-5.gif' width='15px' height='15px'>");
+            },
+            success : function (data) {
+                if(data == 'true'){
+                    $('#status-check').html('<i class="fa fa-check" aria-hidden="true"></i>');
+                    location.reload();
+                }else if(data == 'double'){
+                    alert("Tên không thay đổi!");
+                    $('#status-check').html('<i class="fa fa-times" aria-hidden="true"></i>');
+                }else{
+                    alert("Xử lý lỗi!");
                     $('#status-check').html('<i class="fa fa-times" aria-hidden="true"></i>');
                 }
             }

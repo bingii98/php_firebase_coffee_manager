@@ -21,12 +21,14 @@ class MyService
     {
         try {
             $user_rs = $this->auth->getUserByEmail($username);
-            $this->auth->signInWithEmailAndPassword($username,$password);
+            $this->auth->signInWithEmailAndPassword($username, $password);
             return $user_rs;
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return false;
         } catch (\Kreait\Firebase\Exception\AuthException $e) {
+            return false;
         } catch (\Kreait\Firebase\Exception\FirebaseException $e) {
+            return false;
         }
     }
 
@@ -35,7 +37,7 @@ class MyService
         try {
             $this->auth->sendPasswordResetLink($username);
             return true;
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return false;
         }
     }
@@ -46,23 +48,48 @@ class MyService
         try {
             $this->auth->getUserByEmail($username);
             return true;
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return false;
         } catch (\Kreait\Firebase\Exception\AuthException $e) {
+            return false;
         } catch (\Kreait\Firebase\Exception\FirebaseException $e) {
+            return false;
         }
     }
 
     public function change_email_verification($uid, $username)
     {
         try {
-            $this->auth->changeUserEmail($uid,$username);
+            $properties = [
+                'emailVerified' => false
+            ];
+            $this->auth->changeUserEmail($uid, $username);
+            $this->auth->updateUser($uid,$properties);
             $this->auth->sendEmailVerificationLink($username);
             return true;
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return false;
         } catch (\Kreait\Firebase\Exception\AuthException $e) {
+            return false;
         } catch (\Kreait\Firebase\Exception\FirebaseException $e) {
+            return false;
+        }
+    }
+
+    public function change_name_display($uid, $name)
+    {
+        try {
+            $properties = [
+                'displayName' => $name
+            ];
+            $this->auth->updateUser($uid,$properties);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        } catch (\Kreait\Firebase\Exception\AuthException $e) {
+            return false;
+        } catch (\Kreait\Firebase\Exception\FirebaseException $e) {
+            return false;
         }
     }
 
@@ -71,7 +98,21 @@ class MyService
         try {
             $this->auth->sendEmailVerificationLink($username);
             return true;
-        }catch (Exception $e){
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function set_admin($uid,$value)
+    {
+        try {
+            $this->auth->setCustomUserAttributes($uid, ['admin' => $value]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        } catch (\Kreait\Firebase\Exception\AuthException $e) {
+            return false;
+        } catch (\Kreait\Firebase\Exception\FirebaseException $e) {
             return false;
         }
     }

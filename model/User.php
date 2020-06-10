@@ -7,6 +7,7 @@ class User
     private $name;
     private $email;
     private $photo;
+    private $isAdmin;
     private $lastSignedIn;
     private $isActive;
 
@@ -16,15 +17,18 @@ class User
      * @param $name
      * @param $email
      * @param $photo
+     * @param $isAdmin
      * @param $lastSignedIn
      * @param $isActive
      */
-    public function __construct($id, $name, $email, $photo, $isActive)
+    public function __construct($id, $name, $email, $photo, $isAdmin, $lastSignedIn, $isActive)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->photo = $photo;
+        $this->isAdmin = $isAdmin;
+        $this->lastSignedIn = $lastSignedIn;
         $this->isActive = $isActive;
     }
 
@@ -95,6 +99,38 @@ class User
     /**
      * @return mixed
      */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param mixed $isAdmin
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastSignedIn()
+    {
+        return $this->lastSignedIn;
+    }
+
+    /**
+     * @param mixed $lastSignedIn
+     */
+    public function setLastSignedIn($lastSignedIn)
+    {
+        $this->lastSignedIn = $lastSignedIn;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getIsActive()
     {
         return $this->isActive;
@@ -107,4 +143,7 @@ class User
     {
         $this->isActive = $isActive;
     }
+
+
+
 }

@@ -29,6 +29,10 @@
                     <a class="dropdown-item" href="user-info.php"><i class="fa fa-user" aria-hidden="true"></i><span>Đổi thông tin</span></a>
                     <button class="dropdown-item" type="button" id="btn-reset-password"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Đổi mật khẩu</span></button>
                     <div class="dropdown-divider"></div>
+                    <?php if($_SESSION['_userSignedIn']->getIsAdmin()){ ?>
+                        <a class="dropdown-item" href="user-info.php"><i class="fa fa-cog" aria-hidden="true"></i><span>Giao diện quản lý</span></a>
+                        <div class="dropdown-divider"></div>
+                    <?php } ?>
                     <div class="dropdown-item theme-switch-wrapper" id="switch-dark-mode">
                         <i class="fa fa-star-half-o" aria-hidden="true"></i><span>Chế độ ban đêm</span>
                         <label class="theme-switch" for="checkbox">

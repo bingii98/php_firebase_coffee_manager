@@ -216,7 +216,7 @@ section {
 }
 
 .form-line .form-line-hidden .edit{
-    padding: 20px 0 0 50px;
+    padding: 20px 0 10px 50px;
 }
 
 .form .form-line:hover{

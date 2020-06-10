@@ -2,7 +2,7 @@
 include_once __DIR__ . '/controller/Authentication.php';
 $controller = new MyService();
 
-$result = $controller->login("bingii901@gmail.com","123456");
+$result = $controller->set_admin("n6hJBcQWpIURKDihJk1Q429429C2","false");
 
 if($result){
     echo "TC";
