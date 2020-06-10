@@ -28,7 +28,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tùy chọn:</h6>
                 <a class="collapse-item" href="san-pham.php">Danh sách</a>
-                <a class="collapse-item" href="san-pham.php">Thêm sản phẩm</a>
+                <a class="collapse-item" href="them-san-pham.php">Thêm sản phẩm</a>
                 <a class="collapse-item" href="buttons.html">Buttons</a>
                 <a class="collapse-item" href="cards.html">Cards</a>
             </div>

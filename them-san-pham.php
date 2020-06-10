@@ -4,7 +4,6 @@ include_once __DIR__ . '/controller/FoodCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 $foodCtl = new FoodCtl();
-$arr_food = $foodCtl->getAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,37 +49,24 @@ $arr_food = $foodCtl->getAll();
             <div class="container-fluid">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh sách danh mục</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Thêm sản phẩm</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size: 14px;">
-                                <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Tên</th>
-                                    <th>Mô tả</th>
-                                    <th style="min-width: 100px;">Giá</th>
-                                    <th>Giảm giá</th>
-                                    <th>Hành động</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach ($arr_food as $i => $item){ ?>
-                                    <tr>
-                                        <th><?php echo $i ?></th>
-                                        <td><img src="<?php echo $item->getImage() ?>" style="width: 80px; border-radius: 10px;" </td>
-                                        <th><?php echo $item->getName() ?></th>
-                                        <td><?php echo $item->getDiscription() ?></td>
-                                        <td><?php echo number_format($item->getPrice() , 0, "", ".")?> ₫</td>
-                                        <td><?php if($item->getIsSale()) echo $item->getSale()."%"; else echo '0%'; ?></td>
-                                        <td></td>
-                                    </tr>
-                                <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+                        <form class="user">
+                            <div class="form-group">
+                                <input type="name" class="form-control form-control-user" id="exampleInputEmail" placeholder="Tên sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mô tả sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mô tả sản phẩm">
+                            </div>
+                            <button class="btn btn-primary btn-user btn-block">
+                                Xác nhận
+                            </button>
+                            <hr>
+                        </form>
                     </div>
                 </div>
             </div>

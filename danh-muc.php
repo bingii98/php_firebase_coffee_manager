@@ -1,13 +1,9 @@
 <?php
 include_once __DIR__ . '/model/User.php';
 include_once __DIR__ . '/controller/ListCtl.php';
-include_once __DIR__ . '/controller/FoodCtl.php';
-include_once __DIR__ . '/controller/TableCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
-
 $listCtl = new ListCtl();
-
 $arr_list = $listCtl->getAll();
 ?>
 <!DOCTYPE html>
@@ -18,7 +14,8 @@ $arr_list = $listCtl->getAll();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin 2 - Tables</title>
+    <title>CHB Coffee - Danh mục</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
