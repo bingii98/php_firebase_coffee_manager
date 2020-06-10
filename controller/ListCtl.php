@@ -30,9 +30,10 @@ class ListCtl{
 
     public function getAll(){
         $arr_list = array();
-        $list = $this->firebase->getReference('list')->orderByChild('food')->getSnapshot()->getValue();
-        foreach ($list as $keyList => $itemList) {
-            array_push($arr_list,new Lists($keyList,$itemList['name'],null));
+        $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
+        foreach ($list as $key => $item){
+            $arr_food = array();
+            array_push($arr_list,new Lists($key,$item['name'],$item['description'],$arr_food));
         }
         return $arr_list;
     }
@@ -43,7 +44,7 @@ class ListCtl{
         $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
         foreach ($list as $key => $item){
             $arr_food = $this->food_ctl->get_from_list_id($key);
-            array_push($arr_list,new Lists($key,$item['name'],$arr_food));
+            array_push($arr_list,new Lists($key,$item['name'],$item['description'],$arr_food));
         }
         return $arr_list;
     }

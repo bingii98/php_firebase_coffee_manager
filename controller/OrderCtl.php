@@ -80,4 +80,15 @@ class OrderCtl
             return $list['detail'];
         return 0;
     }
+
+    public function count_sales_week($array, $beforeDate){
+        $a = array_reduce($array, function ($carry, $value) use ($beforeDate) {
+            $matchDateWeek = $d = DateTime::createFromFormat('d-m-Y H:i:s', ''. date("d-m-yy", strtotime('-'.$beforeDate.' days')) . ' 00:00:00', new DateTimeZone('UTC'));
+            if (date('d-m-yy',$value->getDate()) == date('d-m-yy',$matchDateWeek->getTimestamp())) return $carry + $value->revenueCount();
+            return $carry;
+        });
+        if($a == null)
+            return 0;
+        return $a;
+    }
 }

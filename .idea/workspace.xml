@@ -109,17 +109,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -166,7 +166,7 @@
       <workItem from="1591742044093" duration="6122000" />
       <workItem from="1591782744238" duration="44000" />
       <workItem from="1591784115565" duration="334000" />
-      <workItem from="1591802940346" duration="12325000" />
+      <workItem from="1591802940346" duration="20937000" />
     </task>
     <servers />
   </component>
@@ -194,10 +194,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
-    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1591746718740">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1591823673880">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591630634173" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591823673880" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591746718740" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591808373874">
@@ -238,10 +238,10 @@
     </state>
     <state x="740" y="222" width="555" height="596" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590865577030" />
     <state x="987" y="299" width="585" height="801" key="find.popup/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589303017839" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1591738397744">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1591819422127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591738397744" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591819422127" />
     <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1589871421390">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

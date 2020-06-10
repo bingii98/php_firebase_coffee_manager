@@ -3,19 +3,21 @@
 class Lists {
     private $id;
     private $name;
+    private $description;
     private $foods = array();
-
 
     /**
      * Lists constructor.
      * @param $id
      * @param $name
-     * @param $foods
+     * @param $description
+     * @param array $foods
      */
-    public function __construct($id, $name, $foods)
+    public function __construct($id, $name, $description, array $foods)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->description = $description;
         $this->foods = $foods;
     }
 
@@ -74,4 +76,22 @@ class Lists {
     {
         return count($this->foods);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
 }
