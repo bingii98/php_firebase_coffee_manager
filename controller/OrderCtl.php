@@ -36,10 +36,11 @@ class OrderCtl
         $this->food_ctl = new FoodCtl();
         $this->table_ctl = new TableCtl();
         $arr_order_detail = array();
+        $date = new DateTime();
         foreach ($_SESSION["cart_item"] as $key => $item) {
             array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
         }
-        $order = new Order(null, date("h:i A d/m/Y"), $uid, $arr_order_detail);
+        $order = new Order(null, $date->getTimestamp(), $uid, $arr_order_detail);
         if (isset($_SESSION["cart_item"])) {
             $result = $this->firebase->getReference('orders')->push($order->pushFB());
             $this->table_ctl->updateStatus($table_id, $result->getSnapshot()->getKey());
@@ -55,6 +56,21 @@ class OrderCtl
             array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
         return new Order($id, $list['date'], $list['staff'], $arr);
+    }
+
+    public function get_range_date($dstart,$dstop)
+    {
+        $this->food_ctl = new FoodCtl();
+        $list = $this->firebase->getReference('orders')->orderByChild('date')->startAt($dstart)->endAt($dstop)->getSnapshot()->getValue();
+        $arr = array();
+        foreach ($list as $key => $item){
+            $arr_detail = array();
+            foreach ($item['detail'] as $value) {
+                array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
+            }
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
+        }
+        return $arr;
     }
 
     public function countFood($id)

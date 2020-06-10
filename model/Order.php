@@ -100,8 +100,21 @@ class Order{
         $this->staff = $staff;
     }
 
+    /**
+     * @param mixed $staff
+     */
+    public function revenueCount()
+    {
+       return array_reduce($this->getOrderDetails(), function ($carry, $value) {
+               return $carry + $value->getPrice()*$value->getNum();
+           return $carry;
+       });
+    }
+
+
     public function pushFB(){
-        $DATA['date'] = date("h:i A d/m/Y");
+        $date = new DateTime();
+        $DATA['date'] = $date->getTimestamp();
         $DATA['staff'] = $this->staff;
         $arr_order_detail = array();
         foreach ($this->order_details as $key => $item){

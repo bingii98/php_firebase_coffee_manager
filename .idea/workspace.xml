@@ -71,7 +71,6 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
       <path value="$PROJECT_DIR$/vendor/kreait/clock" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
@@ -88,6 +87,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
     </include_path>
   </component>
   <component name="ProjectId" id="1blze1gqG55JQDHSERK4mp2UH83" />
@@ -106,7 +106,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -166,6 +166,7 @@
       <workItem from="1591742044093" duration="6122000" />
       <workItem from="1591782744238" duration="44000" />
       <workItem from="1591784115565" duration="334000" />
+      <workItem from="1591802940346" duration="12325000" />
     </task>
     <servers />
   </component>
@@ -199,10 +200,10 @@
     <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591630634173" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591746718740" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589361031045">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591808373874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361031045" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591808373874" />
     <state x="1056" y="612" key="ComposerInitDialogKey" timestamp="1589301487203">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -221,17 +222,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="748" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591630489419" />
-    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1591735970001">
+    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1591804650591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="595" y="324" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589869043388" />
-    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591735970001" />
+    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591804650591" />
     <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591698414047" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591653634256" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1589360902703">
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1591814747260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589360902703" />
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591814747260" />
     <state x="740" y="222" width="555" height="596" key="find.popup" timestamp="1590865577030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
