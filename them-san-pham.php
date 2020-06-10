@@ -55,7 +55,7 @@ $arr_list = $listCtl->getAll();
                         <h6 class="m-0 font-weight-bold text-primary">Thêm sản phẩm</h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label for="txt-name" class="col-sm-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-10">
@@ -67,7 +67,7 @@ $arr_list = $listCtl->getAll();
                                 <div class="col-sm-10">
                                     <select class="form-control" id="txt-list">
                                         <?php foreach ($arr_list as $item){ ?>
-                                            <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
+                                            <option value="<?php echo $item->getId() ?>"><?php echo $item->getName  () ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -103,7 +103,7 @@ $arr_list = $listCtl->getAll();
                             <div class="form-group row">
                                 <label for="txt-file" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <button class="btn btn-primary form-control"><strong>Xác nhận</strong></button>
+                                    <button class="btn btn-primary form-control" id="btn-add-product" type="button"><strong>Xác nhận</strong></button>
                                 </div>
                             </div>
                         </form>
@@ -134,26 +134,6 @@ $arr_list = $listCtl->getAll();
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Bootstrap core JavaScript-->
 <script src="public/vendor/jquery/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -162,7 +142,27 @@ $arr_list = $listCtl->getAll();
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
+<script>
+    var data = new FormData();
+    data.append('file', $('#txt-file').files[0]);
+    data.append('name',$('#txt-name').val());
+    data.append('list',$('#txt-list').val());
+    data.append('description',$('#txt-description').val());
+    data.append('isSale',$('#switch1').val());
+    data.append('rangeSale',$('#txt-range-sale').val());
+    $("#btn-add-product").click(function () {
+        $.ajax({
+            url : 'check-add-product.php',
+            data : data,
+            type: "POST",
+            contentType: 'multipart/form-data',
+            processData: false,
+            cache: false,
+            success : function () {
+            }
+        })
+    })
+</script>
 </body>
 
 </html>
