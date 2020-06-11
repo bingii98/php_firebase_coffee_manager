@@ -21,7 +21,7 @@ $arr_list = $listCtl->getAll();
     <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
     <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="page-top">
@@ -30,10 +30,8 @@ $arr_list = $listCtl->getAll();
     <?php include 'component/admin-slidebar.php' ?>
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-            <nav class="navbar navbar-expand topbar mb-4 static-top shadow navbar-manager -bg-darkblue">
-                <!-- Topbar Navbar -->
-                <?php include 'component/admin-header.php' ?>
-            </nav>
+            <!-- Topbar Navbar -->
+            <?php include 'component/admin-header.php' ?>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -44,45 +42,54 @@ $arr_list = $listCtl->getAll();
                             <div class="card-body">
                                 <form method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="txt-name">Tên sản phẩm</label>
-                                        <input type="text" class="form-control" id="txt-name">
+                                        <label class="form-label" for="txt-name">Tên sản phẩm</label>
+                                        <input type="text" class="form-input form-control" id="txt-name">
+                                        <label class="form-error" id="error-name"></label>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-price">Giá</label>
-                                        <input type="text" class="form-control" id="txt-price">
+                                        <label class="form-label" for="txt-price">Giá</label>
+                                        <input type="text" class="form-input form-control" id="txt-price">
+                                        <label class="form-error" id="error-price"></label>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-danhmuc">Danh mục</label>
-                                        <select class="form-control" id="txt-list">
-                                            <?php foreach ($arr_list as $item){ ?>
-                                                <option value="<?php echo $item->getId() ?>"><?php echo $item->getName  () ?></option>
+                                        <label class="form-label" for="txt-danhmuc">Danh mục</label>
+                                        <select class="form-control form-input" id="txt-list">
+                                            <?php foreach ($arr_list as $item) { ?>
+                                                <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-description">Mô tả</label>
-                                        <textarea class="form-control" id="txt-description" rows="3"></textarea>
+                                        <label class="form-label" for="txt-description">Mô tả</label>
+                                        <textarea class="form-control form-input" id="txt-description"
+                                                  rows="3"></textarea>
+                                        <label class="form-error" id="error-description"></label>
                                     </div>
                                     <div class="form-group">
-                                        <label>Giảm giá</label>
+                                        <label class="form-label">Giảm giá</label>
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="switch1">
+                                            <input type="checkbox" class="custom-control-input form-input" id="switch1">
                                             <label class="custom-control-label" for="switch1"></label>
+                                            <label class="form-error" id="error-issale"></label>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-range-sale">Phần trăm</label> <span class="font-weight-bold text-primary ml-2 valueSpan2" id="show-range-percent"></span>
+                                        <label class="form-label" for="txt-range-sale">Phần trăm</label> <span
+                                                class="font-weight-bold text-primary ml-2 valueSpan2"
+                                                id="show-range-percent"></span>
                                         <input type="range" class="custom-range" id="txt-range-sale" name="points1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-file">Hình ảnh</label>
+                                        <label class="form-label" for="txt-file">Hình ảnh</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="txt-file">
-                                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                            <input type="file" class="custom-file-input form-input" id="txt-file">
+                                            <label class="custom-file-label form-input" for="customFile" id="lb-txt-file"></label>
+                                            <label class="form-error" id="error-image"></label>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary form-control" id="btn-add-product" type="button"><strong>Xác nhận</strong></button>
+                                        <button class="btn btn-primary form-control" id="btn-add-product" type="button">
+                                            <strong>Xác nhận</strong></button>
                                     </div>
                                 </form>
                             </div>
@@ -96,15 +103,15 @@ $arr_list = $listCtl->getAll();
                             <div class="card-body">
                                 <div class="card-list col-md-12" style="display: block;">
                                     <div class="card-image">
-                                        <p class="sale">50%</p>
-                                        <img src="https://firebasestorage.googleapis.com/v0/b/chbcoffee-4efec.appspot.com/o/white_vnese_coffee_9968c1184d7f4634a9bb9fce7b5ff313_master.webp?alt=media&amp;token=6d1b19a2-e1b2-4ccf-a64d-6c96ab3b8a25" alt="">
+                                        <p id="sale-preview" class="sale">_</p>
+                                        <img id="img-preview" src="https://www.centrum2play.nl/wp-content/plugins/lifterlms/assets/images/placeholder.png">
                                     </div>
                                     <div class="card-detail">
-                                        <h3> BẠC SỈU</h3>
-                                        <p class="price"> 14.500                            ₫ </p>
-                                        <p class="sub-price"> 29.000                            ₫ </p>
-
-                                        <button type="button" id="add_-M6ojDWDZRLq-TF-JevR" class="btnAddAction cart-action add-cart-btn" onclick="cartAction('add', '-M6ojDWDZRLq-TF-JevR')"><i class="fa fa-plus" aria-hidden="true"></i>
+                                        <h3 id="name-preview"_></h3>
+                                        <p id="price-preview" class="price">_</p>
+                                        <p id="price-sale-preview" class="sub-price">_</p>
+                                        <button type="button" class="btnAddAction cart-action add-cart-btn"><i
+                                                class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -141,31 +148,91 @@ $arr_list = $listCtl->getAll();
         const file = $('#txt-file')[0].files[0];
         const isSale = ($('#switch1').is(":checked")) ? true : false;
         data.append('file', file);
-        data.append('name',$('#txt-name').val());
-        data.append('list',$('#txt-list').val());
-        data.append('description',$('#txt-description').val());
-        data.append('isSale',isSale);
-        data.append('price',$('#txt-price').val());
-        data.append('rangeSale',$('#txt-range-sale').val());
+        data.append('name', $('#txt-name').val());
+        data.append('list', $('#txt-list').val());
+        data.append('description', $('#txt-description').val());
+        data.append('isSale', isSale);
+        data.append('price', $('#txt-price').val());
+        data.append('rangeSale', $('#txt-range-sale').val());
         $.ajax({
-            url : 'check-add-product.php',
-            data : data,
+            url: 'check-add-product.php',
+            data: data,
             type: "POST",
             contentType: false,
             processData: false,
-            success : function () {
+            success: function () {
             }
         })
     })
 
-    $(document).ready(function() {
-        const $valueSpan = $('#show-range-percent');
-        const $value = $('#txt-range-sale');
-        $valueSpan.html($value.val());
+    $(document).ready(function () {
+        const $valueSpan = $('#show-range-percent')
+        const $value = $('#txt-range-sale')
+        const $pr_name = $('#txt-name')
+        const $pr_price = $('#txt-price')
+        const $pr_isSale = $('#switch1')
+        const $pr_sale = $('#txt-range-sale')
+        const $pr_image = $('#txt-file')
+        $valueSpan.html($value.val())
         $value.on('input change', () => {
             $valueSpan.html($value.val());
-        });
+        })
+        $pr_name.on('input change', () => {
+            $('#name-preview').html($pr_name.val());
+        })
+        $pr_price.on('input change', () => {
+            changePrice()
+        })
+        $pr_sale.on('input change', () => {
+            changePrice()
+        })
+        $pr_isSale.on('input change', () => {
+            changePrice()
+        })
+        $pr_image.change(function() {
+            readURL(this)
+        })
+
+        function changePrice() {
+            if($('#switch1').is(":checked")){
+                if($pr_sale.val() != 0 && $pr_price.val() != ''){
+                    $('#price-sale-preview').html(formatNumber($pr_price.val()) + "  ₫")
+                    $('#price-preview').html(formatNumber($pr_price.val() - $pr_price.val()/100*$pr_sale.val()) + "  ₫")
+                    $('#sale-preview').show()
+                    $('#sale-preview').html($pr_sale.val() + "%")
+                }else{
+                    $('#price-preview').html(formatNumber($pr_price.val()) + "  ₫")
+                    $('#price-sale-preview').html('')
+                    $('#sale-preview').hide()
+                }
+            }else{
+                $('#price-preview').html(formatNumber($pr_price.val()) + "  ₫")
+                $('#price-sale-preview').html('')
+                $('#sale-preview').hide()
+            }
+        }
     });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            var filename = $('#txt-file')[0].files[0]['name'];
+            reader.onload = function(e) {
+                $('#img-preview').attr('src', e.target.result);
+                $('#lb-txt-file').text('Đã chọn');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function formatNumber(n) {
+        n = Number(n)
+        return n.toFixed(0).replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "." + c : c;
+        });
+    }
+
+
 </script>
 </body>
 

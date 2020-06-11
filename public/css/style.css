@@ -42,18 +42,28 @@ section {
 
 :root {
     --bg-dark: #18191a;
+    --bg-dark-normal: #18191a;
     --bg-dark-full: #000;
     --bg-dark-hover: #303031;
     --bg-dark-slidebar: #303031;
+    --bg-dark-header-admin: #242526;
     --bg-dark-text: #e4e3eb;
+    --bg-dark-text-submenu: #e4e3eb;
     --bg-dark-title: #E4E6EB;
     --bg-dark-description: rgb(99, 99, 99);
     --bg-dark-menu: #242526;
     --bg-dark-menu-dropdown: #242526;
     --bg-dark-card: #242526;
+    --bg-dark-card-border: #242526;
+    --bg-dark-card-hover: #242526;
     --bg-dark-icon-bg: #a8abaf;
     --bg-dark-icon-color: #3a3b3c;
     --bg-dark-hr: #ffffff50;
+    --bg-dark-input-bg: #3a3b3c;
+    --shadow-1: rgba(0, 0, 0, 0.1);
+    --shadow-2: rgba(0, 0, 0, 0.2);
+    --shadow-5: rgba(0, 0, 0, 0.5);
+    --shadow-inset: rgba(255, 255, 255, 0.5);
     --red: hsl(0, 78%, 62%);
     --cyan: hsl(180, 62%, 55%);
     --orange: hsl(34, 97%, 64%);
@@ -69,18 +79,28 @@ section {
 
 [data-theme="__light-mode"] {
     --bg-dark: #ffffff;
+    --bg-dark-normal: #f0f2f5;
     --bg-dark-full: #ffffff;
     --bg-dark-hover: #f2f2f2;
     --bg-dark-slidebar: #ffffff;
+    --bg-dark-header-admin: #ffffff;
     --bg-dark-text: #050505;
     --bg-dark-title: #212529;;
+    --bg-dark-text-submenu: #050505;
     --bg-dark-description: rgb(144, 148, 156);
     --bg-dark-menu: rgb(22, 36, 75);
     --bg-dark-menu-dropdown: #ffffff;
     --bg-dark-card: #fff;
+    --bg-dark-card-border: #e3e6f0;
+    --bg-dark-card-hover: #e4e6eb;
     --bg-dark-icon-bg: #5b626a;
     --bg-dark-icon-color: #e4e6eb;
     --bg-dark-hr: #00000050;
+    --bg-dark-input-bg: #f0f2f5;
+    --shadow-1: rgba(0, 0, 0, 0.1);
+    --shadow-2: rgba(0, 0, 0, 0.2);
+    --shadow-5: rgba(0, 0, 0, 0.5);
+    --shadow-inset: rgba(255, 255, 255, 0.5);
     --red: hsl(0, 78%, 62%);
     --cyan: hsl(180, 62%, 55%);
     --orange: hsl(34, 97%, 64%);
@@ -108,6 +128,14 @@ section {
 
 .-bg-darkblue {
     background-color: var(--bg-dark-menu);
+}
+
+.-bg-header-admin {
+    background-color: var(--bg-dark-header-admin);
+}
+
+.-bg-br {
+    background-color: var(--bg-dark-header-admin);
 }
 
 .modal-content{
@@ -146,6 +174,29 @@ section {
     color: var(--bg-dark-title);
 }
 
+.form-label{
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--bg-dark-title);
+}
+
+.form-error {
+    color: red;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.form-error:empty {
+    display: none;
+}
+
+.form-input, .form-input:hover, .form-input:focus{
+    background: var(--bg-dark-input-bg);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none;
+    color: var(--bg-dark-text);
+}
 .form-button.edit{
     background: none;
     color: #2d88ff;
@@ -605,6 +656,26 @@ section {
     flex: 1;
     text-align: left;
     margin: 0;
+}
+
+.navbar-nav.sidebar {
+    color: #fff;
+}
+
+.navbar-nav.sidebar a{
+    color: #fff !important;
+}
+
+.navbar-nav.sidebar .nav-link{
+    color: #fff !important;
+}
+
+.navbar-nav.sidebar .collapse-item{
+    color: var(--bg-dark-text-submenu) !important;
+}
+
+#content-wrapper {
+    background: var(--bg-dark-normal);
 }
 
 .manager-desk .content {

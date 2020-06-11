@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-dark accordion -bg-darkblue" id="accordionSidebar">
+<ul class="navbar-nav sidebar accordion -bg-darkblue" id="accordionSidebar" style="border-right: 1px solid var(--bg-dark-hr);">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
         <div class="sidebar-brand-text mx-3">Administrator</div>
@@ -25,7 +25,7 @@
             <span>Sản phẩm</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
                 <h6 class="collapse-header">Tùy chọn:</h6>
                 <a class="collapse-item" href="san-pham.php">Danh sách</a>
                 <a class="collapse-item" href="them-san-pham.php">Thêm sản phẩm</a>
@@ -42,7 +42,7 @@
             <span>Danh mục</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
                 <h6 class="collapse-header">Tùy chọn:</h6>
                 <a class="collapse-item" href="danh-muc.php">Danh sách</a>
                 <a class="collapse-item" href="utilities-color.html">Colors</a>
