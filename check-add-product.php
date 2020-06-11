@@ -12,7 +12,7 @@ $fileCtl = new FileCtl();
 $foodCtl = new FoodCtl();
 $description = $_POST['description'];
 $isActive = true;
-$isSale = (($_POST['isSale'] == 'on') ? true : false);
+$isSale = $_POST['isSale'];
 $list = $_POST['list'];
 $name = $_POST['name'];
 $price = $_POST['price'];
@@ -34,8 +34,6 @@ if(in_array($response->getStatusCode(), [200, 201])) {
     $arr_body = json_decode($body);
     $image = $arr_body->link;
 }
-
-echo $image;
 $food = new Food(null,$name,$description,$price,$image,$sale,$isSale);
 if($foodCtl->insert($food,$_POST['list']))
     echo 'true';

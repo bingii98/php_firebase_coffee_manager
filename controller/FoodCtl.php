@@ -5,6 +5,7 @@ use Kreait\Firebase\ServiceAccount;
 
 require_once './vendor/autoload.php';
 require_once './config/Query.php';
+require_once './model/Food.php';
 
 
 class FoodCtl
@@ -59,7 +60,7 @@ class FoodCtl
                 'description' => $food->getDiscription(),
                 'image' => $food->getImage(),
                 'isActive'=> true,
-                'isSale'=> $food->getIsSale(),
+                'isSale'=> (($food->getIsSale()) == 'true' ? true : false),
                 'list'=> $list,
                 'name'=> $food->getName(),
                 'price'=> $food->getPrice(),
