@@ -157,6 +157,8 @@ $(document).ready(function () {
                     if(data == 'true'){
                         alert("Thêm sản phẩm thành công!");
                         location.reload();
+                    }else if(data == 'double'){
+                        $('#error-name').html('Tên đã tồn tại')
                     }else{
                         alert("Xử lý lỗi!");
                         checkForm();

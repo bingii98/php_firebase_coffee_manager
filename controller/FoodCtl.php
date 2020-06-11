@@ -44,6 +44,17 @@ class FoodCtl
         return $arr;
     }
 
+
+    public function get_by_name($name)
+    {
+        $list = $this->firebase->getReference('food')->orderByChild('name')->equalTo($name)->getSnapshot()->getValue();
+        foreach ($list as $key => $item) {
+            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale']);
+        }
+        return null;
+    }
+
+
     public function get($id)
     {
         $list = $this->firebase->getReference('food')->orderByKey()->equalTo($id)->getSnapshot()->getValue();
