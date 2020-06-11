@@ -83,7 +83,8 @@ $arr_list = $listCtl->getAll();
                                         <label class="form-label" for="txt-file">Hình ảnh</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input form-input" id="txt-file">
-                                            <label class="custom-file-label form-input" for="customFile" id="lb-txt-file"></label>
+                                            <label class="custom-file-label form-input" for="customFile"
+                                                   id="lb-txt-file"></label>
                                             <label class="form-error" id="error-image"></label>
                                         </div>
                                     </div>
@@ -104,14 +105,15 @@ $arr_list = $listCtl->getAll();
                                 <div class="card-list col-md-12" style="display: block;">
                                     <div class="card-image">
                                         <p id="sale-preview" class="sale">_</p>
-                                        <img id="img-preview" src="https://www.centrum2play.nl/wp-content/plugins/lifterlms/assets/images/placeholder.png">
+                                        <img id="img-preview"
+                                             src="https://www.centrum2play.nl/wp-content/plugins/lifterlms/assets/images/placeholder.png">
                                     </div>
                                     <div class="card-detail">
-                                        <h3 id="name-preview"_></h3>
+                                        <h3 id="name-preview" _></h3>
                                         <p id="price-preview" class="price">_</p>
                                         <p id="price-sale-preview" class="sub-price">_</p>
                                         <button type="button" class="btnAddAction cart-action add-cart-btn"><i
-                                                class="fa fa-plus" aria-hidden="true"></i>
+                                                    class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -142,29 +144,8 @@ $arr_list = $listCtl->getAll();
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
 <script src="public/js/header.js"></script>
+<script src="public/js/regex.js"></script>
 <script>
-    $("#btn-add-product").click(function () {
-        const data = new FormData();
-        const file = $('#txt-file')[0].files[0];
-        const isSale = ($('#switch1').is(":checked")) ? true : false;
-        data.append('file', file);
-        data.append('name', $('#txt-name').val());
-        data.append('list', $('#txt-list').val());
-        data.append('description', $('#txt-description').val());
-        data.append('isSale', isSale);
-        data.append('price', $('#txt-price').val());
-        data.append('rangeSale', $('#txt-range-sale').val());
-        $.ajax({
-            url: 'check-add-product.php',
-            data: data,
-            type: "POST",
-            contentType: false,
-            processData: false,
-            success: function () {
-            }
-        })
-    })
-
     $(document).ready(function () {
         const $valueSpan = $('#show-range-percent')
         const $value = $('#txt-range-sale')
@@ -178,46 +159,114 @@ $arr_list = $listCtl->getAll();
             $valueSpan.html($value.val());
         })
         $pr_name.on('input change', () => {
-            $('#name-preview').html($pr_name.val());
+            if (isValidName($pr_name.val())) {
+                $('#name-preview').html($pr_name.val())
+                $('#error-name').html('')
+            } else {
+                $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 50 ký tự')
+            }
         })
         $pr_price.on('input change', () => {
-            changePrice()
+            if (checkForm()) changePrice()
         })
         $pr_sale.on('input change', () => {
-            changePrice()
-        })
+            if (checkForm()) changePrice()
         $pr_isSale.on('input change', () => {
             changePrice()
         })
-        $pr_image.change(function() {
+        $pr_image.change(function () {
             readURL(this)
         })
 
         function changePrice() {
-            if($('#switch1').is(":checked")){
-                if($pr_sale.val() != 0 && $pr_price.val() != ''){
+            if ($('#switch1').is(":checked")) {
+                if ($pr_sale.val() != 0 && $pr_price.val() != '') {
                     $('#price-sale-preview').html(formatNumber($pr_price.val()) + "  ₫")
-                    $('#price-preview').html(formatNumber($pr_price.val() - $pr_price.val()/100*$pr_sale.val()) + "  ₫")
+                    $('#price-preview').html(formatNumber($pr_price.val() - $pr_price.val() / 100 * $pr_sale.val()) + "  ₫")
                     $('#sale-preview').show()
                     $('#sale-preview').html($pr_sale.val() + "%")
-                }else{
+                } else {
                     $('#price-preview').html(formatNumber($pr_price.val()) + "  ₫")
                     $('#price-sale-preview').html('')
                     $('#sale-preview').hide()
                 }
-            }else{
+            } else {
                 $('#price-preview').html(formatNumber($pr_price.val()) + "  ₫")
                 $('#price-sale-preview').html('')
                 $('#sale-preview').hide()
             }
         }
+
+        function emptyError() {
+            $('#error-image').html('')
+            $('#error-price').html('')
+            $('#error-name').html('')
+            $('#error-description').html('')
+            $('#error-issale').html('')
+        }
+
+        function checkForm() {
+            var a = true
+            if (isNaturalNumber($pr_price.val())) {
+                if (Number($pr_price.val()) > 500000) {
+                    $('#error-price').html('Tiền có giá trị 0 - 500.000')
+                    a = false
+                } else {
+                    $('#error-price').html('')
+                }
+            } else {
+                $('#error-price').html('Tiền là giá trị số dương')
+                a = false
+            }
+
+            if (isValidName($pr_name.val())) {
+                $('#error-name').html('')
+            } else {
+                $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 50 ký tự')
+                a = false
+            }
+
+            if($('#txt-file')[0].files[0] == null){
+                $('#error-image').html('Chưa chọn hình ảnh!')
+                a = false
+            }else{
+                $('#error-image').html('')
+            }
+            if(a) emptyError()
+            return a;
+        }
+
+        $("#btn-add-product").click(function () {
+            if (checkForm()) {
+                const data = new FormData();
+                const file = $('#txt-file')[0].files[0];
+                const isSale = ($('#switch1').is(":checked")) ? true : false;
+                data.append('file', file);
+                data.append('name', $('#txt-name').val());
+                data.append('list', $('#txt-list').val());
+                data.append('description', $('#txt-description').val());
+                data.append('isSale', isSale);
+                data.append('price', $('#txt-price').val());
+                data.append('rangeSale', $('#txt-range-sale').val());
+
+                $.ajax({
+                    url: 'check-add-product.php',
+                    data: data,
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                    }
+                })
+            }
+        })
     });
 
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             var filename = $('#txt-file')[0].files[0]['name'];
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 $('#img-preview').attr('src', e.target.result);
                 $('#lb-txt-file').text('Đã chọn');
             }
@@ -227,11 +276,10 @@ $arr_list = $listCtl->getAll();
 
     function formatNumber(n) {
         n = Number(n)
-        return n.toFixed(0).replace(/./g, function(c, i, a) {
+        return n.toFixed(0).replace(/./g, function (c, i, a) {
             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "." + c : c;
         });
     }
-
 
 </script>
 </body>
