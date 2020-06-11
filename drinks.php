@@ -111,7 +111,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     }
 
     //Load change list drinks
-    loadChange("list", function () {
+    loadChange("food", function () {
         $.ajax({
             url: "load-drink.php",
             type: "POST",

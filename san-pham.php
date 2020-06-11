@@ -1,10 +1,7 @@
 <?php
 include_once __DIR__ . '/model/User.php';
-include_once __DIR__ . '/controller/FoodCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
-$foodCtl = new FoodCtl();
-$arr_food = $foodCtl->getAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,19 +46,8 @@ $arr_food = $foodCtl->getAll();
                                     <th>Hành động</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <?php foreach ($arr_food as $i => $item) { ?>
-                                    <tr>
-                                        <th><?php echo $i ?></th>
-                                        <td><img src="<?php echo $item->getImage() ?>"
-                                                 style="width: 80px; border-radius: 10px;"</td>
-                                        <th><?php echo $item->getName() ?></th>
-                                        <td><?php echo $item->getDiscription() ?></td>
-                                        <td><?php echo number_format($item->getPrice(), 0, "", ".") ?> ₫</td>
-                                        <td><?php if ($item->getIsSale()) echo $item->getSale() . "%"; else echo '0%'; ?></td>
-                                        <td></td>
-                                    </tr>
-                                <?php } ?>
+                                <tbody id="data-food-table">
+
                                 </tbody>
                             </table>
                         </div>
@@ -71,20 +57,8 @@ $arr_food = $foodCtl->getAll();
             <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
 </div>
 <!-- End of Page Wrapper -->
 
@@ -92,26 +66,6 @@ $arr_food = $foodCtl->getAll();
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Bootstrap core JavaScript-->
 <script src="public/vendor/jquery/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -121,6 +75,29 @@ $arr_food = $foodCtl->getAll();
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="public/js/header.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+<script src="public/js/firebase-reload-data-event.js"></script>
+<script>
+    $(document).ready(function () {
+        /*Load change list drinks*/
+        loadChange("food", function () {
+            $.ajax({
+                url: "load-product-admin.php",
+                type: "POST",
+                beforeSend: function () {
+                    $('#loaded').show();
+                },
+                success: function (data) {
+                    $(document).ready(function () {
+                        $('#loaded').hide();
+                        $('#data-food-table').html(data);
+                    });
+                }
+            })
+        })
+    })
+</script>
 
 </body>
 
