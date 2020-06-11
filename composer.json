@@ -4,6 +4,7 @@
     "license": "GNU3",
     "minimum-stability": "dev",
     "require": {
-        "kreait/firebase-php": "5.0"
+        "kreait/firebase-php": "5.0",
+        "guzzlehttp/guzzle": "~6.0"
     }
 }

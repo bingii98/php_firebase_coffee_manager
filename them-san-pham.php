@@ -1,7 +1,7 @@
 <?php
-include_once __DIR__ . '/model/User.php';
-include_once __DIR__ . '/controller/FoodCtl.php';
-include_once __DIR__ . '/controller/ListCtl.php';
+require_once __DIR__ . '/model/User.php';
+require_once __DIR__ . '/controller/FoodCtl.php';
+require_once __DIR__ . '/controller/ListCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 $foodCtl = new FoodCtl();
@@ -60,6 +60,12 @@ $arr_list = $listCtl->getAll();
                                 <label for="txt-name" class="col-sm-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="txt-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txt-price" class="col-sm-2 col-form-label">Giá</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="txt-price">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -141,23 +147,25 @@ $arr_list = $listCtl->getAll();
 <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
-<script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
 <script>
-    var data = new FormData();
-    data.append('file', $('#txt-file').files[0]);
-    data.append('name',$('#txt-name').val());
-    data.append('list',$('#txt-list').val());
-    data.append('description',$('#txt-description').val());
-    data.append('isSale',$('#switch1').val());
-    data.append('rangeSale',$('#txt-range-sale').val());
     $("#btn-add-product").click(function () {
+        const data = new FormData();
+        const file = $('#txt-file')[0].files[0];
+        data.append('file', file);
+        data.append('name',$('#txt-name').val());
+        data.append('list',$('#txt-list').val());
+        data.append('description',$('#txt-description').val());
+        data.append('isSale',$('#switch1').val());
+        data.append('price',$('#txt-price').val());
+        data.append('rangeSale',$('#txt-range-sale').val());
         $.ajax({
             url : 'check-add-product.php',
             data : data,
             type: "POST",
-            contentType: 'multipart/form-data',
+            contentType: false,
             processData: false,
-            cache: false,
             success : function () {
             }
         })
