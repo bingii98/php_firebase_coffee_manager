@@ -107,4 +107,20 @@ class FoodCtl
             return false;
         }
     }
+
+    public function update($food)
+    {
+        try {
+            $this->firebase->getReference('food/' . $food->getId())->update([
+                'description' => $food->getDiscription(),
+                'isSale' => (($food->getIsSale()) == 'true' ? true : false),
+                'name' => $food->getName(),
+                'price' => $food->getPrice(),
+                'sale' => $food->getSale()
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

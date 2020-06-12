@@ -52,7 +52,7 @@
 <script>
     $("#btn-submit").click(function () {
         $.ajax({
-            url : 'access-login.php',
+            url : 'a-access-login.php',
             data : {
                 'username' : $("#username").val(),
                 'password' : $("#password").val()
@@ -62,7 +62,7 @@
                 if(data == 'invalid-email-verified'){
                     alert("Vui lòng xác thực email để thực hiện đăng nhập!")
                 }else if(data == 'true'){
-                    window.location = "manager.php";
+                    window.location = "staff-manager.php";
                 }else{
                     alert("Đăng nhập không thành công!");
                 }
@@ -72,7 +72,7 @@
 
     $("#btn-reset-password").click(function () {
         $.ajax({
-            url: "reset-password.php",
+            url: "a-reset-password.php",
             data: {
                 'email' : $("#username").val()
             },
