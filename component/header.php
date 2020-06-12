@@ -3,11 +3,11 @@
         <div class="panel-tab">
             <ul>
                 <li id="header-table">
-                    <a href="manager.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Table
+                    <a href="staff-manager.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Table
                         <div class="hr-panel-tab"></div>
                     </a>
                 <li id="header-drink">
-                    <a href="drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
+                    <a href="staff-drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
                         <div class="hr-panel-tab"></div>
                     </a>
                 </li>
@@ -26,7 +26,7 @@
                     <?php if($_SESSION['_userSignedIn']->getName() != null) echo $_SESSION['_userSignedIn']->getName(); else echo $_SESSION['_userSignedIn']->getEmail() ?>
                 </button>
                 <div class="dropdown-menu bg-menu-dropdown" aria-labelledby="dropdownMenu">
-                    <a class="dropdown-item" href="user-info.php"><i class="fa fa-user" aria-hidden="true"></i><span>Đổi thông tin</span></a>
+                    <a class="dropdown-item" href="staff-user-info.php"><i class="fa fa-user" aria-hidden="true"></i><span>Đổi thông tin</span></a>
                     <button class="dropdown-item" type="button" id="btn-reset-password"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Đổi mật khẩu</span></button>
                     <div class="dropdown-divider"></div>
                     <?php if($_SESSION['_userSignedIn']->getIsAdmin()){ ?>

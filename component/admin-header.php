@@ -17,7 +17,7 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu bg-menu-dropdown" aria-labelledby="dropdownMenu">
-                <a class="dropdown-item" href="user-info.php"><i class="fa fa-user" aria-hidden="true"></i><span>Đổi thông tin</span></a>
+                <a class="dropdown-item" href="staff-user-info.php"><i class="fa fa-user" aria-hidden="true"></i><span>Đổi thông tin</span></a>
                 <button class="dropdown-item" type="button" id="btn-reset-password"><i class="fa fa-unlock-alt"
                                                                                        aria-hidden="true"></i><span>Đổi mật khẩu</span>
                 </button>

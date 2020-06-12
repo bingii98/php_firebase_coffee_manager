@@ -2,9 +2,9 @@
 
 use GuzzleHttp\Client;
 
-require_once __DIR__ . '/controller/FileCtl.php';
-require_once __DIR__ . '/controller/FoodCtl.php';
-require_once __DIR__ . '/model/Food.php';
+require_once __DIR__.'/controller/FileCtl.php';
+require_once __DIR__.'/controller/FoodCtl.php';
+require_once __DIR__.'/model/Food.php';
 $client = new Client([
     'base_uri' => 'https://api-ssl.bitly.com/',
 ]);
@@ -21,31 +21,9 @@ $price = $_POST['price'];
 $sale = $_POST['rangeSale'];
 
 /*  CHECK DATA FORM */
-function removeAscent($str)
-{
-    if ($str == null || isset($str))
-        return $str;
-    $str = strtolower($str);
-    $a = array('à', 'á', 'ạ', 'ả', 'ã', 'â', 'ầ', 'ấ', 'ậ', 'ẩ', 'ẫ', 'ă', 'ằ', 'ắ', 'ặ', 'ẳ', 'ẵ');
-    $e = array('è', 'é', 'ẹ', 'ẻ', 'ẽ', 'ê', 'ề', 'ế', 'ệ', 'ể', 'ễ');
-    $i = array('ì', 'í', 'ị', 'ỉ', 'ĩ');
-    $o = array('ò', 'ó', 'ọ', 'ỏ', 'õ', 'ô', 'ồ', 'ố', 'ộ', 'ổ', 'ỗ', 'ơ', 'ờ', 'ớ', 'ợ', 'ở', 'ỡ');
-    $u = array('ù', 'ú', 'ụ', 'ủ', 'ũ', 'ư', 'ừ', 'ứ', 'ự', 'ử', 'ữ');
-    $y = array('ỳ', 'ý', 'ỵ', 'ỷ', 'ỹ');
-    $d = array('đ');
-    $str = str_replace($a, "a", $str);
-    $str = str_replace($e, "e", $str);
-    $str = str_replace($i, "i", $str);
-    $str = str_replace($o, "o", $str);
-    $str = str_replace($u, "u", $str);
-    $str = str_replace($y, "y", $str);
-    $str = str_replace($d, "d", $str);
-    return $str;
-}
-
 function isValidName($string)
 {
-    $re = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]){2,50}$/";
+    $re = "/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+){2,200}$/";
     return preg_match($re, $string);
 }
 
@@ -59,18 +37,21 @@ function isNaturalNumber($n)
 
 $a = true;
 if (isNaturalNumber($price)) {
-    if ($price > 500000)
+    if ($price > 500000) {
         $a = false;
+    }
 } else {
     $a = false;
 }
 
-if (!isValidName($name))
+if (!isValidName($name)) {
     $a = false;
+}
 
 
-if ($_FILES["file"] == null)
+if ($_FILES["file"] == null) {
     $a = false;
+}
 /* IF FORM VALID */
 if ($a) {
     /*  CHECK EXIST NAME */
@@ -95,7 +76,7 @@ if ($a) {
         }
 
         /*  INSERT FOOD TO FIREBASE */
-        $food = new Food(null, $name, $description, $price, $image, $sale, $isSale);
+        $food = new Food(null, $name, $description, $price, $image, $sale, $isSale, true);
         if ($foodCtl->insert($food, $_POST['list']))
             echo 'true';
         else

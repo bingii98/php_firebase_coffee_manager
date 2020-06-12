@@ -130,7 +130,5 @@ $arr_list = $listCtl->getAll();
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
 </body>
-
 </html>

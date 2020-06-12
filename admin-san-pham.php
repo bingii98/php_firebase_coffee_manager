@@ -47,7 +47,9 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
                                 </tr>
                                 </thead>
                                 <tbody id="data-food-table">
-
+                                <tr>
+                                    <td colspan="7"><img src="https://i.ya-webdesign.com/images/loading-png-gif.gif" width="50px" style="margin-left: 45%;"></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -77,27 +79,8 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 <script src="public/js/header.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
-<script src="public/js/firebase-reload-data-event.js"></script>
-<script>
-    $(document).ready(function () {
-        /*Load change list drinks*/
-        loadChange("food", function () {
-            $.ajax({
-                url: "load-product-admin.php",
-                type: "POST",
-                beforeSend: function () {
-                    $('#loaded').show();
-                },
-                success: function (data) {
-                    $(document).ready(function () {
-                        $('#loaded').hide();
-                        $('#data-food-table').html(data);
-                    });
-                }
-            })
-        })
-    })
-</script>
+<script src="public/js/ajax/firebase-reload-data-event.js"></script>
+<script src="public/js/ajax/product-list.js"></script>
 
 </body>
 

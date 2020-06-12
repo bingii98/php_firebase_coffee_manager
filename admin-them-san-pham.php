@@ -145,7 +145,7 @@ $arr_list = $listCtl->getAll();
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
 <script src="public/js/header.js"></script>
 <script src="public/js/regex.js"></script>
-<script src="public/js/add-product.js"></script>
+<script src="public/js/ajax/add-product.js"></script>
 </body>
 
 </html>

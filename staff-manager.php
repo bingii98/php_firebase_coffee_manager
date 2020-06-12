@@ -72,94 +72,13 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <script src="public/asset/js/bootstrap.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
-<script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/ajax/firebase-reload-data-event.js"></script>
 <script src="public/js/notification.js"></script>
 <script src="public/js/header.js"></script>
 <script>
-    loadChange("table", function () {
-        $.ajax({
-            url: "load-table.php",
-            data: {
-                <?php
-                if (!isset($_GET['is_empty'])) {
-                    echo '"is_empty" : "null"';
-                } else if ($_GET['is_empty'] == 'true') {
-                    echo '"is_empty" : "true"';
-                } else if ($_GET['is_empty'] == 'false') {
-                    echo '"is_empty" : "false"';
-                }
-                ?>
-            },
-            type: "POST",
-            success: function (data) {
-                $(document).ready(function () {
-                    $('#loaded').hide();
-                    $('#loaded-data-table').html(data);
-                });
-            }
-        })
-    })
-
-    $(document).on("click", ".table-clean", function () {
-        var id = $(this).attr('data');
-        $.ajax({
-            url: "load-clean-table.php",
-            data: {
-                "id": id
-            },
-            type: "POST",
-            beforeSend: function () {
-                $('#loaded').show();
-            },
-            success: function (data) {
-                $(document).ready(function () {
-                    $('#loaded').hide();
-                    PrintElem("print-order");
-                    $('#cart-item').html("");
-                    $("#table-detail-modal").modal('toggle');
-                });
-            }
-        })
-    })
-
-    $(document).on("click", ".redirect", function () {
-        window.location.replace($(this).attr("datahref"));
-    })
-
-    $(document).on("click", ".load-table-detail", function () {
-        var id = $(this).attr('data');
-        $.ajax({
-            url: "load-table-detail.php",
-            data: {
-                "id": id
-            },
-            type: "POST",
-            beforeSend: function () {
-                $('#loaded').show();
-            },
-            success: function (data) {
-                $(document).ready(function () {
-                    $('#loaded').hide();
-                    $('#cart-item').html(data);
-                    $("#table-detail-modal").modal('toggle');
-                });
-            }
-        })
-    })
-
-    function PrintElem(elem) {
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>CHB Coffe</title>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(document.getElementById(elem).innerHTML);
-        mywindow.document.write('<p style="text-align: center;">Nhân viên thanh toán: <?php echo $_SESSION['_userSignedIn']->getName() ?> </p>')
-        mywindow.document.write('<style>button{visibility: hidden;}</style>');
-        mywindow.document.write('</body></html>');
-        mywindow.document.close();
-        mywindow.focus();
-        mywindow.print();
-        return true;
-    }
+    let a = '<?php if (!isset($_GET['is_empty'])) { echo 'null'; } else if ($_GET['is_empty'] == 'true') { echo 'true'; } else if ($_GET['is_empty'] == 'false') { echo 'false'; } ?>';
+    let b = '<?php echo $_SESSION['_userSignedIn']->getName() ?>';
 </script>
+<script src="public/js/ajax/staff-manager.js"></script>
 </body>
 </html>

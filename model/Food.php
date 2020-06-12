@@ -8,6 +8,7 @@ class Food {
     private $image;
     private $sale;
     private $isSale;
+    private $isActive;
 
     /**
      * Food constructor.
@@ -18,8 +19,9 @@ class Food {
      * @param $image
      * @param $sale
      * @param $isSale
+     * @param $isActive
      */
-    public function __construct($id, $name, $discription, $price, $image, $sale, $isSale)
+    public function __construct($id, $name, $discription, $price, $image, $sale, $isSale, $isActive)
     {
         $this->id = $id;
         $this->name = $name;
@@ -28,6 +30,7 @@ class Food {
         $this->image = $image;
         $this->sale = $sale;
         $this->isSale = $isSale;
+        $this->isActive = $isActive;
     }
 
 
@@ -133,6 +136,22 @@ class Food {
     public function getIsSale()
     {
         return $this->isSale;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
     }
 
     /**

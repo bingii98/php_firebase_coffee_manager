@@ -29,7 +29,7 @@ class FoodCtl
         $arr = array();
         $list = $this->firebase->getReference('food')->orderByChild('list')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale']));
+            array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
         }
         return $arr;
     }
@@ -39,7 +39,7 @@ class FoodCtl
         $arr = array();
         $list = $this->firebase->getReference('food')->orderByChild('list')->equalTo($id)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale']));
+                array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
         }
         return $arr;
     }
@@ -49,7 +49,7 @@ class FoodCtl
     {
         $list = $this->firebase->getReference('food')->orderByChild('name')->equalTo($name)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale']);
+            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
         }
         return null;
     }
@@ -59,26 +59,51 @@ class FoodCtl
     {
         $list = $this->firebase->getReference('food')->orderByKey()->equalTo($id)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale']);
+            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
         }
         return null;
     }
 
-    public function insert($food,$list)
+
+    public function delete($id)
+    {
+        try {
+            $this->firebase->getReference('food/' . $id)->update([
+                'isActive' => false
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function reactive($id)
+    {
+        try {
+            $this->firebase->getReference('food/' . $id)->update([
+                'isActive' => true
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insert($food, $list)
     {
         try {
             $this->firebase->getReference('food')->push([
                 'description' => $food->getDiscription(),
                 'image' => $food->getImage(),
-                'isActive'=> true,
-                'isSale'=> (($food->getIsSale()) == 'true' ? true : false),
-                'list'=> $list,
-                'name'=> $food->getName(),
-                'price'=> $food->getPrice(),
-                'sale'=> $food->getSale()
+                'isActive' => true,
+                'isSale' => (($food->getIsSale()) == 'true' ? true : false),
+                'list' => $list,
+                'name' => $food->getName(),
+                'price' => $food->getPrice(),
+                'sale' => $food->getSale()
             ]);
             return true;
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return false;
         }
     }

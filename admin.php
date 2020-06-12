@@ -255,21 +255,12 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-<!-- Bootstrap core JavaScript-->
 <script src="public/vendor/jquery/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
 <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
 <script src="public/vendor/chart.js/Chart.min.js"></script>
 <script src="public/js/header.js"></script>
-
-<!-- Pie Chart scripts -->
 <script>
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -424,7 +415,6 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
             }
         }
     });
-
 </script>
 </body>
 

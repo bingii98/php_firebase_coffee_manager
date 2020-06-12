@@ -73,7 +73,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
 <script src="public/asset/js/bootstrap.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
-<script src="public/js/firebase-reload-data-event.js"></script>
+<script src="public/js/ajax/firebase-reload-data-event.js"></script>
 <script src="public/js/notification.js"></script>
 <script src="public/js/header.js"></script>
 <script>

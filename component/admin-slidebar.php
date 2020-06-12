@@ -27,8 +27,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
                 <h6 class="collapse-header">Tùy chọn:</h6>
-                <a class="collapse-item" href="san-pham.php">Danh sách</a>
-                <a class="collapse-item" href="them-san-pham.php">Thêm sản phẩm</a>
+                <a class="collapse-item" href="admin-san-pham.php">Danh sách</a>
+                <a class="collapse-item" href="admin-them-san-pham.php">Thêm sản phẩm</a>
                 <a class="collapse-item" href="buttons.html">Buttons</a>
                 <a class="collapse-item" href="cards.html">Cards</a>
             </div>
@@ -44,7 +44,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
                 <h6 class="collapse-header">Tùy chọn:</h6>
-                <a class="collapse-item" href="danh-muc.php">Danh sách</a>
+                <a class="collapse-item" href="admin-danh-muc.php">Danh sách</a>
                 <a class="collapse-item" href="utilities-color.html">Colors</a>
                 <a class="collapse-item" href="utilities-border.html">Borders</a>
                 <a class="collapse-item" href="utilities-animation.html">Animations</a>

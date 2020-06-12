@@ -20,14 +20,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/a-delete-product-admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a-load-drink.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a-load-product-admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a-reactive-product-admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/ajax/product-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/ajax/staff-drinks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/ajax/staff-manager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check-add-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/check-add-product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PushData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/access-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-access-login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/buttons.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change-user-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-change-user-info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check-add-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/admin-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/admin-header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/admin-slidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/admin-slidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.phar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/FoodCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sb-admin-2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/sb-admin-2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sb-admin-2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/them-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/them-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-danh-muc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drinks.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-drinks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgot-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handle-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-handle-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-clean-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-clean-table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-drink.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-product-admin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-table-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-table-status.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Food.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Food.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/add-product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/firebase-reload-data-event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/firebase-reload-data-event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/regex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reset-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reset-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/them-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-user-info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities-animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-animation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-border.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities-color.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-color.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities-other.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-other.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,22 +140,34 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
-    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -164,23 +217,31 @@
       <workItem from="1591832998980" duration="20338000" />
       <workItem from="1591880915780" duration="1248000" />
       <workItem from="1591889457084" duration="18955000" />
+      <workItem from="1591911416925" duration="37000" />
+      <workItem from="1591911518182" duration="1470000" />
+      <workItem from="1591913404799" duration="22000" />
+      <workItem from="1591914464673" duration="37000" />
+      <workItem from="1591914737949" duration="69000" />
+      <workItem from="1591915056805" duration="26000" />
+      <workItem from="1591915129346" duration="8341000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="763" y="309" key="#Web_Browsers" timestamp="1589353598871">
@@ -191,16 +252,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1591823673880">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1591918825605">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591823673880" />
-    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591746718740" />
+    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591918825605" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591808373874">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="960" y="435" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591915071700">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="960" y="435" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591915071700" />
+    <state x="920" y="359" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591958554927">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591808373874" />
+    <state x="920" y="359" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591958554927" />
     <state x="1056" y="612" key="ComposerInitDialogKey" timestamp="1589301487203">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -227,10 +293,15 @@
     <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591908529802" />
     <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591698414047" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591653634256" />
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1591814747260">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1067" y="413" width="1681" height="711" key="SettingsEditor" timestamp="1591915518878">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591814747260" />
+    <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1591915129554">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591915129554" />
     <state x="740" y="222" width="555" height="596" key="find.popup" timestamp="1590865577030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

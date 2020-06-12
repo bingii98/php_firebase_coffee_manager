@@ -20,7 +20,7 @@ $(document).ready(function () {
             $('#name-preview').html($pr_name.val())
             $('#error-name').html('')
         } else {
-            $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 50 ký tự')
+            $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 200 ký tự')
         }
     })
 
@@ -100,7 +100,7 @@ $(document).ready(function () {
         if (isValidName($pr_name.val())) {
             $('#error-name').html('')
         } else {
-            $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 50 ký tự')
+            $('#error-name').html('Tên là ký tự chữ số dài từ 2 - 200 ký tự')
             a = false
         }
 
@@ -148,7 +148,7 @@ $(document).ready(function () {
             data.append('rangeSale', $('#txt-range-sale').val());
 
             $.ajax({
-                url: 'check-add-product.php',
+                url: 'a-check-add-product.php',
                 data: data,
                 type: "POST",
                 contentType: false,
