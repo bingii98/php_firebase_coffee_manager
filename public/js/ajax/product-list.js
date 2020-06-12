@@ -193,8 +193,8 @@ $(document).on("click", "#btn-edit-product", function () {
             processData: false,
             success: function (data) {
                 if (data == 'true') {
+                    $("#editProductModal").modal('toggle')
                     alert("Chỉnh sửa sản phẩm thành công!");
-                    location.reload();
                 } else if (data == 'double') {
                     $('#error-name').html('Tên đã tồn tại')
                 } else {

@@ -4,6 +4,7 @@ class Lists {
     private $id;
     private $name;
     private $description;
+    private $isActive;
     private $foods = array();
 
     /**
@@ -11,13 +12,15 @@ class Lists {
      * @param $id
      * @param $name
      * @param $description
+     * @param $isActive
      * @param array $foods
      */
-    public function __construct($id, $name, $description, array $foods)
+    public function __construct($id, $name, $description, $isActive, array $foods)
     {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
+        $this->isActive = $isActive;
         $this->foods = $foods;
     }
 
@@ -93,5 +96,20 @@ class Lists {
         $this->description = $description;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
 
 }

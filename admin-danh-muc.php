@@ -1,10 +1,7 @@
 <?php
 include_once __DIR__ . '/model/User.php';
-include_once __DIR__ . '/controller/ListCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
-$listCtl = new ListCtl();
-$arr_list = $listCtl->getAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +14,9 @@ $arr_list = $listCtl->getAll();
     <title>CHB Coffee - Danh mục</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
     <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -29,24 +25,8 @@ $arr_list = $listCtl->getAll();
     <?php include 'component/admin-slidebar.php' ?>
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <!-- Topbar Navbar -->
-                <?php include 'component/admin-header.php' ?>
-            </nav>
+            <!-- Topbar Navbar -->
+            <?php include 'component/admin-header.php' ?>
             <div class="container-fluid">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -54,7 +34,8 @@ $arr_list = $listCtl->getAll();
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size: 14px;">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"
+                                   style="font-size: 14px;">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -63,72 +44,52 @@ $arr_list = $listCtl->getAll();
                                     <th>Hành động</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <?php foreach ($arr_list as $i => $item){ ?>
-                                    <tr>
-                                        <td><?php echo $i ?></td>
-                                        <th><?php echo $item->getName() ?></th>
-                                            <td><?php echo $item->getDescription() ?></td>
-                                        <td></td>
-                                    </tr>
-                                <?php } ?>
+                                <tbody id="data-list-table">
+                                    <td colspan="7"><img src="https://i.ya-webdesign.com/images/loading-png-gif.gif"
+                                                     width="50px" style="margin-left: 45%;"></td>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
     </div>
-    <!-- End of Content Wrapper -->
-
 </div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- Modal -->
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModal"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+            <div class="modal-header" style="border-bottom: none;">
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chỉnh
+                    sửa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+            <div class="modal-body">
+                <div class="card-body" id="model-edit-content">
+
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Bootstrap core JavaScript-->
+
 <script src="public/vendor/jquery/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
 <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="public/js/header.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+<script src="public/js/ajax/firebase-reload-data-event.js"></script>
+<script src="public/js/regex.js"></script>
+<script src="public/js/ajax/type-list.js"></script>
 </body>
 </html>

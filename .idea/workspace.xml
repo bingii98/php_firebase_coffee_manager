@@ -140,11 +140,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
@@ -212,7 +213,7 @@
       <workItem from="1591914737949" duration="69000" />
       <workItem from="1591915056805" duration="26000" />
       <workItem from="1591915129346" duration="8341000" />
-      <workItem from="1591961538189" duration="6718000" />
+      <workItem from="1591961538189" duration="11092000" />
     </task>
     <servers />
   </component>
@@ -240,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
-    <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1591918825605">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1591974162257">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591823673880" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591974162257" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591918825605" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
     <state x="960" y="435" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591915071700">
@@ -281,10 +282,10 @@
     <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591908529802" />
     <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591698414047" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591653634256" />
-    <state x="1067" y="413" width="1681" height="711" key="SettingsEditor" timestamp="1591915518878">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1591974312559">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591814747260" />
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591974312559" />
     <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
     <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1591915129554">
       <screen x="0" y="0" width="2560" height="1400" />
