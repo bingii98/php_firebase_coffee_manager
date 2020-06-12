@@ -13,8 +13,7 @@ $(document).ready(function () {
     })
 })
 
-$(document).on("click", ".btn-del-list", () => {
-    alert($(this).attr('name'))
+$(document).on("click", ".btn-del-list", function() {
     const r = confirm('Bạn có chắc chắn muốn ngừng ' + $(this).attr('name') + ' không ?');
     if (r == true) {
         $.ajax({
@@ -33,7 +32,7 @@ $(document).on("click", ".btn-del-list", () => {
     }
 })
 
-$(document).on("click", ".btn-reactive-list", () => {
+$(document).on("click", ".btn-reactive-list", function () {
     const r = confirm('Bạn có chắc chắn muốn mở lại ' + $(this).attr('name') + ' không ?');
     if (r == true) {
         $.ajax({
@@ -44,7 +43,7 @@ $(document).on("click", ".btn-reactive-list", () => {
             type: "POST",
             success: function (data) {
                 if (data == 'true')
-                    alert("danh sách đã mở lại thành công!")
+                    alert("Danh sách đã mở lại thành công!")
                 else
                     alert("Danh sách mở lại thất bại!")
             }
@@ -74,7 +73,7 @@ $(document).on("click", "#btn-edit-list", function () {
     const $pr_name = $('#txt-name')
 
     /*Event change value input name - check*/
-    $pr_name.on('input change', () => {
+    $pr_name.on('input change', function() {
         if (isValidName($pr_name.val())) {
             $('#name-preview').html($pr_name.val())
             $('#error-name').html('')

@@ -13,12 +13,12 @@ $(document).ready(function () {
     })
 
     /*Event change value input range*/
-    $(document).on('input change','#txt-range-sale', () => {
+    $(document).on('input change','#txt-range-sale', function() {
         $('#show-range-percent').html($('#txt-range-sale').val());
     })
 })
 
-$(document).on("click", ".btn-del-product", () => {
+$(document).on("click", ".btn-del-product", function() {
     const r = confirm('Bạn có chắc chắn muốn ngừng bán ' + $(this).attr('name') + ' không ?');
     if (r == true) {
         $.ajax({
@@ -37,7 +37,7 @@ $(document).on("click", ".btn-del-product", () => {
     }
 })
 
-$(document).on("click", ".btn-reactive-product", () => {
+$(document).on("click", ".btn-reactive-product", function() {
     const r = confirm('Bạn có chắc chắn muốn bán lại ' + $(this).attr('name') + ' không ?');
     if (r == true) {
         $.ajax({
@@ -81,7 +81,7 @@ $(document).on("click", "#btn-edit-product", function () {
     const $pr_sale = $('#txt-range-sale')
 
     /*Event change value input name - check*/
-    $pr_name.on('input change', () => {
+    $pr_name.on('input change', function() {
         if (isValidName($pr_name.val())) {
             $('#name-preview').html($pr_name.val())
             $('#error-name').html('')
@@ -91,7 +91,7 @@ $(document).on("click", "#btn-edit-product", function () {
     })
 
     /*Event change value input price - check*/
-    $pr_price.on('input change', () => {
+    $pr_price.on('input change', function() {
         if (isNaturalNumber($pr_price.val())) {
             if (Number($pr_price.val()) > 500000) {
                 $('#error-price').html('Tiền có giá trị 0 - 500.000')
@@ -105,12 +105,12 @@ $(document).on("click", "#btn-edit-product", function () {
     })
 
     /*Event change value input price - check*/
-    $pr_sale.on('input change', () => {
+    $pr_sale.on('input change', function() {
         changePrice()
     })
 
     /*Event change value input checkbox - check*/
-    $pr_isSale.on('input change', () => {
+    $pr_isSale.on('input change', function() {
         changePrice()
     })
 
