@@ -9,6 +9,9 @@ $(document).ready(function () {
     /*Change input range*/
     $valueSpan.html($value.val())
 
+    /* STORAGE SELECTED COMBOBOX */
+    $('#txt-list').val(localStorage.getItem("addProductCB"))
+
     /*Event change value input range*/
     $value.on('input change', () => {
         $valueSpan.html($value.val());
@@ -135,6 +138,7 @@ $(document).ready(function () {
 
     /*Ajax event submit*/
     $("#btn-add-product").click(function () {
+        localStorage.setItem("addProductCB",$('#txt-list').val());
         if (checkForm()) {
             const data = new FormData();
             const file = $('#txt-file')[0].files[0];

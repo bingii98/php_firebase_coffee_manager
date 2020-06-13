@@ -98,7 +98,6 @@
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
       <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
       <path value="$PROJECT_DIR$/vendor/google/crc32" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
@@ -122,6 +121,7 @@
       <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1blze1gqG55JQDHSERK4mp2UH83" />
@@ -143,19 +143,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
-      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
+      <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -214,6 +214,7 @@
       <workItem from="1591915056805" duration="26000" />
       <workItem from="1591915129346" duration="8341000" />
       <workItem from="1591961538189" duration="11512000" />
+      <workItem from="1592050849364" duration="9338000" />
     </task>
     <servers />
   </component>
@@ -233,6 +234,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="845" y="383" key="#Notifications" timestamp="1592055561515">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="383" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1592055561515" />
     <state x="763" y="309" key="#Web_Browsers" timestamp="1589353598871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -282,10 +287,10 @@
     <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591908529802" />
     <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591698414047" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591653634256" />
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1591974312559">
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1592052565623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591974312559" />
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592052565623" />
     <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
     <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1591915129554">
       <screen x="0" y="0" width="2560" height="1400" />

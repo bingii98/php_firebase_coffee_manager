@@ -61,6 +61,23 @@ loadChange("food", function () {
     })
 })
 
+//Load change list drinks
+loadChange("list", function () {
+    $.ajax({
+        url: "a-load-drink.php",
+        type: "POST",
+        beforeSend: function () {
+            $('#loaded').show();
+        },
+        success: function (data) {
+            $(document).ready(function () {
+                $('#loaded').hide();
+                $('#load-data-drinks').html(data);
+            });
+        }
+    })
+})
+
 //Load change list Table
 loadChange("table", function () {
     $.ajax({

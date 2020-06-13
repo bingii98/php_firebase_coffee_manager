@@ -9,27 +9,29 @@ foreach ($arr_list as $i => $item) { ?>
         <th><?php echo $item->getName() ?></th>
         <td><?php echo $item->getDescription() ?></td>
         <td>
-            <button class="btn-edit-list btn btn-secondary btn-icon-split btn-sm d-sm-block mb-1" data="<?php echo $item->getId() ?>">
+            <button class="btn-edit-list btn btn-primary btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                 <span class="icon text-white-50">
                     <i class="fa fa-info" aria-hidden="true"></i>
                 </span>
-                <span class="text"><small>chỉnh sửa</small></span>
             </button>
             <?php if ($item->getIsActive()) { ?>
-                <button class="btn-del-list btn btn-danger btn-icon-split btn-sm" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>">
+                <button class="btn-del-list btn btn-warning btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>" data-toggle="tooltip" data-placement="top" title="Đóng danh sách và sản phẩm">
                     <span class="icon text-white-50">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </span>
-                    <span class="text"><small>ngưng</small></span>
                 </button>
             <?php } else { ?>
-                <button class="btn-reactive-list btn btn-warning btn-icon-split btn-sm" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>">
+                <button class="btn-reactive-list btn btn-warning btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>" data-toggle="tooltip" data-placement="top" title="Mở lại">
                     <span class="icon text-white-50">
                         <i class="fa fa-undo" aria-hidden="true"></i>
                     </span>
-                    <span class="text"><small>mở lại</small></span>
                 </button>
             <?php } ?>
+            <button class="btn-del-empty-list btn btn-danger btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>" data-toggle="tooltip" data-placement="top" title="Xóa">
+                <span class="icon text-white-50">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+            </button>
         </td>
     </tr>
 <?php } ?>

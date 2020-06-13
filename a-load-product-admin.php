@@ -14,25 +14,22 @@ foreach ($arr_food as $i => $item) { ?>
         <td><?php echo number_format($item->getPrice(), 0, "", ".") ?> ₫</td>
         <td><?php if ($item->getIsSale()) echo $item->getSale() . "%"; else echo '0%'; ?></td>
         <td>
-            <button class="btn-edit-product btn btn-secondary btn-icon-split btn-sm d-sm-block mb-1" data="<?php echo $item->getId() ?>">
-                    <span class="icon text-white-50">
-                      <i class="fa fa-info" aria-hidden="true"></i>
-                    </span>
-                <span class="text"><small>chỉnh sửa</small></span>
+            <button class="btn-edit-product btn btn-primary btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                <span class="icon text-white-50">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                </span>
             </button>
             <?php if ($item->getIsActive()) { ?>
-                <button class="btn-del-product btn btn-danger btn-icon-split btn-sm" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>">
+                <button class="btn-del-product btn btn-danger btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>" data-toggle="tooltip" data-placement="top" title="Ngưng bán sản phẩm">
                     <span class="icon text-white-50">
                       <i class="fa fa-times" aria-hidden="true"></i>
                     </span>
-                    <span class="text"><small>ngưng bán</small></span>
                 </button>
             <?php } else { ?>
-                <button class="btn-reactive-product btn btn-warning btn-icon-split btn-sm" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>">
+                <button class="btn-reactive-product btn btn-warning btn-circle btn-sm m-1" data="<?php echo $item->getId() ?>" name="<?php echo $item->getName() ?>" data-toggle="tooltip" data-placement="top" title="Mở bán lại">
                     <span class="icon text-white-50">
                       <i class="fa fa-undo" aria-hidden="true"></i>
                     </span>
-                    <span class="text"><small>bán lại</small></span>
                 </button>
             <?php } ?>
         </td>

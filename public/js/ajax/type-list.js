@@ -32,6 +32,27 @@ $(document).on("click", ".btn-del-list", function() {
     }
 })
 
+$(document).on("click", ".btn-del-empty-list", function() {
+    const r = confirm('Bạn có chắc chắn muốn xóa vĩnh viễn ' + $(this).attr('name') + ' không ?');
+    if (r == true) {
+        $.ajax({
+            url: "a-delete-empty-list-admin.php",
+            data: {
+                'id': $(this).attr('data')
+            },
+            type: "POST",
+            success: function (data) {
+                if (data == 'double')
+                    alert("Danh sách không thể xóa do tồn tại sản phẩm!")
+                else if (data == 'true')
+                    alert("Xóa danh sách thành công!")
+                else
+                    alert("Xóa danh sách thất bại!")
+            }
+        })
+    }
+})
+
 $(document).on("click", ".btn-reactive-list", function () {
     const r = confirm('Bạn có chắc chắn muốn mở lại ' + $(this).attr('name') + ' không ?');
     if (r == true) {

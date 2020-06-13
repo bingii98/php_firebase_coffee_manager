@@ -44,7 +44,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
                 <h6 class="collapse-header">Tùy chọn:</h6>
-                <a class="collapse-item" href="admin-danh-muc.php">Danh sách</a>
+                <a class="collapse-item" href="admin-danh-muc.php">Danh mục</a>
+                <a class="collapse-item" href="admin-them-danh-muc.php">Thêm danh mục</a>
                 <a class="collapse-item" href="utilities-color.html">Colors</a>
                 <a class="collapse-item" href="utilities-border.html">Borders</a>
                 <a class="collapse-item" href="utilities-animation.html">Animations</a>

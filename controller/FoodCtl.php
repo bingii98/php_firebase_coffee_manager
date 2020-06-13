@@ -44,6 +44,18 @@ class FoodCtl
         return $arr;
     }
 
+    public function get_is_empty_food($idList)
+    {
+        $count = 0;
+        $list = $this->firebase->getReference('food')->orderByChild('list')->equalTo($idList)->getSnapshot()->getValue();
+        foreach ($list as $key => $item) {
+            $count++;
+        }
+        if($count == 0)
+            return 'true';
+        return 'false';
+    }
+
 
     public function get_by_name($name)
     {

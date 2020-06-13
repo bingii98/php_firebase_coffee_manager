@@ -6,7 +6,7 @@ if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 $foodCtl = new FoodCtl();
 $listCtl = new ListCtl();
-$arr_list = $listCtl->getAll();
+$arr_list = $listCtl->getAll_enable();
 ?>
 <!DOCTYPE html>
 <html lang="vn">

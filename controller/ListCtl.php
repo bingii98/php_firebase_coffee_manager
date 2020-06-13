@@ -40,9 +40,21 @@ class ListCtl{
 
     public function getAll(){
         $arr_list = array();
-        $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('list')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item){
             array_push($arr_list,new Lists($key,$item['name'],$item['description'],$item['isActive'],array()));
+        }
+        return $arr_list;
+    }
+
+
+    public function getAll_enable(){
+        $arr_list = array();
+        $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
+        foreach ($list as $key => $item){
+            if($item['isActive']){
+                array_push($arr_list,new Lists($key,$item['name'],$item['description'],$item['isActive'],array()));
+            }
         }
         return $arr_list;
     }
@@ -52,8 +64,14 @@ class ListCtl{
         $arr_list = array();
         $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
         foreach ($list as $key => $item){
-            $arr_food = $this->food_ctl->get_from_list_id($key);
-            array_push($arr_list,new Lists($key,$item['name'],$item['description'],$item['isActive'],$arr_food));
+            if($item['isActive'] == 1){
+                $arr_food = $this->food_ctl->get_from_list_id($key);
+                array_push($arr_list,new Lists($key,$item['name'],$item['description'],true,$arr_food));
+            }else{
+                $arr_food = $this->food_ctl->get_from_list_id($key);
+                array_push($arr_list,new Lists($key,$item['name'],$item['description'],false,$arr_food));
+            }
+
         }
         return $arr_list;
     }
@@ -80,6 +98,20 @@ class ListCtl{
         }
     }
 
+    public function disable($id)
+    {
+        try {
+            if($this->food_ctl->get_is_empty_food($id) == 'true'){
+                $this->firebase->getReference('list/'.$id)->set(null);
+                return 'true';
+            }else{
+                return 'double';
+            }
+        } catch (Exception $e) {
+            return 'false';
+        }
+    }
+
     public function reactive($id)
     {
         try {
@@ -97,7 +129,7 @@ class ListCtl{
         try {
             $this->firebase->getReference('list')->push([
                 'description' => $list->getDescription(),
-                'isActive' => true,
+                'isActive' => $list->getIsActive(),
                 'name' => $list->getName(),
             ]);
             return true;
@@ -117,5 +149,10 @@ class ListCtl{
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function countFood($id)
+    {
+        return $this->food_ctl->get_is_empty_food($id);
     }
 }
