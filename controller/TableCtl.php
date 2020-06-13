@@ -30,9 +30,9 @@ class TableCtl
 
     public function getAll(){
         $arr = array();
-        $list = $this->firebase->getReference('table')->orderByKey()->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr,new Table($key,$item['name'],null));
+            array_push($arr,new Table($key,$item['name'],$item['isActive'],null));
         }
         return $arr;
     }
@@ -47,34 +47,43 @@ class TableCtl
                     array_push($arr_orders,$this->order_ctl->get($item_or));
                 }
             }
-            return new Table($key,$item['name'],$arr_orders);
+            return new Table($key,$item['name'],$item['isActive'],$arr_orders);
+        }
+        return null;
+    }
+
+    public function get_by_name($name)
+    {
+        $list = $this->firebase->getReference('table')->orderByChild('name')->equalTo($name)->getSnapshot()->getValue();
+        foreach ($list as $key => $item) {
+            return new Table($key, $item['name'], $item['isActive'],array());
         }
         return null;
     }
 
     public function get_is_food(){
         $arr = array();
-        $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
                 array_push($arr_orders,new Order(null,null,null,null));
             }
-            array_push($arr,new Table($key,$item['name'],$arr_orders));
+            array_push($arr,new Table($key,$item['name'],$item['isActive'],$arr_orders));
         }
         return $arr;
     }
 
     public function get_empty_food(){
         $arr = array();
-        $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
                 array_push($arr_orders,new Order(null,null,null,null));
             }
             if($arr_orders == null || count($arr_orders) == 0) {
-                array_push($arr, new Table($key, $item['name'], $arr_orders));
+                array_push($arr, new Table($key, $item['name'],$item['isActive'], $arr_orders));
             }
         }
         return $arr;
@@ -82,14 +91,14 @@ class TableCtl
 
     public function get_not_empty_food(){
         $arr = array();
-        $list = $this->firebase->getReference('table')->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
                 array_push($arr_orders,new Order(null,null,null,null));
             }
             if($arr_orders != null && count($arr_orders) != 0) {
-                array_push($arr, new Table($key, $item['name'], $arr_orders));
+                array_push($arr, new Table($key, $item['name'],$item['isActive'], $arr_orders));
             }
         }
         return $arr;
@@ -102,5 +111,69 @@ class TableCtl
 
     public function clean($table_id){
         $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set(null);
+    }
+
+
+    public function delete($id)
+    {
+        try {
+            $this->firebase->getReference('table/' . $id)->update([
+                'isActive' => false
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function disable($id)
+    {
+        try {
+            if($this->get($id)->countFood() == 0){
+                $this->firebase->getReference('table/'.$id)->set(null);
+                return 'true';
+            }else{
+                return 'double';
+            }
+        } catch (Exception $e) {
+            return 'false';
+        }
+    }
+
+    public function reactive($id)
+    {
+        try {
+            $this->firebase->getReference('table/' . $id)->update([
+                'isActive' => true
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insert($list)
+    {
+        try {
+            $this->firebase->getReference('table')->push([
+                'isActive' => $list->getIsActive(),
+                'name' => $list->getName(),
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function update($list)
+    {
+        try {
+            $this->firebase->getReference('table/' . $list->getId())->update([
+                'name' => $list->getName(),
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 }

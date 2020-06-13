@@ -5,18 +5,21 @@ include_once './controller/OrderCtl.php';
 class Table {
     private $id;
     private $name;
+    private $isActive;
     private $orders = array();
 
     /**
      * Table constructor.
      * @param $id
      * @param $name
+     * @param $isActive
      * @param $orders
      */
-    public function __construct($id, $name, $orders)
+    public function __construct($id, $name, $isActive, $orders)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->isActive = $isActive;
         $this->orders = $orders;
     }
 
@@ -67,6 +70,23 @@ class Table {
     {
         $this->orders = $orders;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
 
     /**
      * @return mixed

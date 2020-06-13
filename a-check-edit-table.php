@@ -2,14 +2,13 @@
 
 use GuzzleHttp\Client;
 
-require_once __DIR__.'/controller/ListCtl.php';
-require_once __DIR__.'/model/List.php';
-$listCtl = new ListCtl();
+require_once __DIR__.'/controller/TableCtl.php';
+require_once __DIR__.'/model/Table.php';
+$tableCtl = new TableCtl();
 
 /* GET VALUE */
 $id = $_POST['id'];
 $name = $_POST['name'];
-$description = $_POST['description'];
 
 /*  CHECK DATA FORM */
 function isValidName($string)
@@ -27,10 +26,10 @@ if (!isValidName($name)) {
 /* IF FORM VALID */
 if ($a) {
     /*  CHECK EXIST NAME */
-    if ($listCtl->get_by_name($name) == null || $listCtl->get_by_name($name)->getName() == $name) {
+    if ($tableCtl->get_by_name($name) == null || $tableCtl->get_by_name($name)->getName() == $name) {
         /*  INSERT FOOD TO FIREBASE */
-        $list = new Lists($id, $name, $description, null,array());
-        if ($listCtl->update($list))
+        $table = new Table($id, $name, null,array());
+        if ($tableCtl->update($table))
             echo 'true';
         else
             echo 'false';

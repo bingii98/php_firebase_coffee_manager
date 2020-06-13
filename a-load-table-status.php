@@ -6,7 +6,7 @@ $arr_table = $tableCtl->get_is_food();
 $count_active = 0;
 $count_food = 0;
 foreach ($arr_table as $key => $item) {
-    if ($item->countOrder() > 0){
+    if ($item->countOrder() > 0) {
         $count_active++;
         $count_food += $item->countOrder();
     }
@@ -19,14 +19,16 @@ $_SESSION['food_active_status'] = $count_food;
 <?php
 $string_temp = '';
 foreach ($arr_table as $key => $item) {
-    if($item->countOrder() != 0){
-        $string_temp = $string_temp.'<li class="card-list active"><label>'.$item->getName().'</label><div class="status"><p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ</p></div> <div style="display: flex;"><button class="choose-table-cart" table-id="'.$item->getId().'"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Chọn</button></div> </li>';
-    } else {
-        $string_temp = $string_temp.'<li class="card-list"><label>'.$item->getName().'</label><div class="status"><p><i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;Bàn trống</p></div> <div style="display: flex;"><button class="choose-table-cart" table-id="'.$item->getId().'"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Chọn</button></div> </li>';
-    }
+    if ($item->getIsActive() == 1) {
+        if ($item->countOrder() != 0) {
+            $string_temp = $string_temp . '<li class="card-list active"><label>' . $item->getName() . '</label><div class="status"><p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ</p></div> <div style="display: flex;"><button class="choose-table-cart" table-id="' . $item->getId() . '"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Chọn</button></div> </li>';
+        } else {
+            $string_temp = $string_temp . '<li class="card-list"><label>' . $item->getName() . '</label><div class="status"><p><i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;Bàn trống</p></div> <div style="display: flex;"><button class="choose-table-cart" table-id="' . $item->getId() . '"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Chọn</button></div> </li>';
+        }
 
-    if ($item->countOrder() > 0)
-        $count_active++;
+        if ($item->countOrder() > 0)
+            $count_active++;
+    }
 }
 ?>
 

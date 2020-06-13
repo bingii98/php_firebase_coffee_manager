@@ -22,6 +22,7 @@ foreach ($arr_table as $key => $item) {
 }
 
 foreach ($arr_table_filter as $key => $item) { ?>
+<?php if ($item->getIsActive() == 1) { ?>
     <?php if ($item->countOrder() > 0) { ?>
         <li class="card-list active">
             <label><?php echo $item->getName() ?></label>
@@ -46,6 +47,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
             </div>
         </li>
     <?php }
+    }
 }
 $_SESSION['table_count_status'] = count($arr_table);
 $_SESSION['table_active_status'] = $count_active;

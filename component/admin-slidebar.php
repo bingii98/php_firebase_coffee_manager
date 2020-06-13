@@ -29,12 +29,9 @@
                 <h6 class="collapse-header">Tùy chọn:</h6>
                 <a class="collapse-item" href="admin-san-pham.php">Danh sách</a>
                 <a class="collapse-item" href="admin-them-san-pham.php">Thêm sản phẩm</a>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
             </div>
         </div>
     </li>
-    <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
@@ -46,46 +43,29 @@
                 <h6 class="collapse-header">Tùy chọn:</h6>
                 <a class="collapse-item" href="admin-danh-muc.php">Danh mục</a>
                 <a class="collapse-item" href="admin-them-danh-muc.php">Thêm danh mục</a>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
     </li>
-    <!-- Divider -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
+           aria-expanded="true" aria-controls="collapseTable">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <span>Bàn</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="collapseTable" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded" style="background-color: var(--bg-dark);">
+                <h6 class="collapse-header">Tùy chọn:</h6>
+                <a class="collapse-item" href="admin-ban.php">Danh sách</a>
+                <a class="collapse-item" href="admin-them-ban.php">Thêm bàn</a>
+            </div>
+        </div>
+    </li>
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
-        Addons
+        Hóa đơn
     </div>
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-           aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
-    </li>
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
-    <!-- Nav Item - Tables -->
+    <!-- Nav Item -->
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
