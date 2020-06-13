@@ -111,6 +111,17 @@ class Order{
        });
     }
 
+    /**
+     * @param mixed $staff
+     */
+    public function foodCount()
+    {
+        return array_reduce($this->getOrderDetails(), function ($carry, $value) {
+            return $carry + $value->getNum();
+            return $carry;
+        });
+    }
+
 
     public function pushFB(){
         $date = new DateTime();

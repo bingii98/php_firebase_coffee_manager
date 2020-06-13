@@ -15,7 +15,7 @@
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
-        Sản phẩm
+        Quản lý
     </div>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -49,7 +49,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
            aria-expanded="true" aria-controls="collapseTable">
-            <i class="fa fa-tags" aria-hidden="true"></i>
+            <i class="fa fa-square" aria-hidden="true"></i>
             <span>Bàn</span>
         </a>
         <div id="collapseTable" class="collapse" aria-labelledby="collapseTable" data-parent="#accordionSidebar">
@@ -63,13 +63,13 @@
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
-        Hóa đơn
+        Doanh thu
     </div>
     <!-- Nav Item -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+        <a class="nav-link" href="admin-hoa-don.php">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            <span>Hóa đơn</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

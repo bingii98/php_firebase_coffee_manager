@@ -19,6 +19,7 @@ class OrderCtl
     protected $firebase;
     protected $table_ctl;
     protected $food_ctl;
+    protected $auth;
 
     /**
      * UserCtl constructor.
@@ -27,8 +28,38 @@ class OrderCtl
     public function __construct()
     {
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
-        $firebase = $factory->createDatabase();
-        $this->firebase = $firebase;
+        $this->firebase = $factory->createDatabase();
+        $this->auth = $factory->createAuth();
+    }
+
+    public function getFirst10()
+    {
+        $this->food_ctl = new FoodCtl();
+        $list = $this->firebase->getReference('orders')->orderByKey()->limitToLast(10)->getSnapshot()->getValue();
+        $arr = array();
+        foreach ($list as $key => $item){
+            $arr_detail = array();
+            foreach ($item['detail'] as $value) {
+                array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
+            }
+            array_push($arr,new Order($key, $item['date'], $this->auth->getUser($item['staff'])->displayName, $arr_detail));
+        }
+        return array_reverse($arr);
+    }
+
+    public function getContinue10($idLast)
+    {
+        $this->food_ctl = new FoodCtl();
+        $list = $this->firebase->getReference('orders')->orderByKey()->limitToLast(10)->startAt($idLast)->getSnapshot()->getValue();
+        $arr = array();
+        foreach ($list as $key => $item){
+            $arr_detail = array();
+            foreach ($item['detail'] as $value) {
+                array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
+            }
+            array_push($arr,new Order($key, $item['date'], $this->auth->getUser($item['staff'])->displayName, $arr_detail));
+        }
+        return array_reverse($arr);
     }
 
     public function insert($table_id, $uid)
