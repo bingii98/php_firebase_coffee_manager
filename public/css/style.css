@@ -928,6 +928,10 @@ section {
     animation-delay: .6s;
 }
 
+#loaded{
+    display: none;
+}
+
 .loading-overlay {
     position: fixed;
     display: block;
@@ -941,7 +945,6 @@ section {
     background-color: var(--bg-dark);
     z-index: 2000;
     cursor: pointer;
-    margin-top: 70px;
 }
 
 @keyframes quadrado {

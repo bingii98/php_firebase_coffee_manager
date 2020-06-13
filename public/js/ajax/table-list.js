@@ -5,7 +5,7 @@ $(document).ready(function () {
             url: "a-load-table-admin.php",
             type: "POST",
             success: function (data) {
-                $('#data-list-table').html(data);
+                $('#data-list-table').html(data)
             }
         })
     })
@@ -20,11 +20,15 @@ $(document).on("click", ".btn-del-table", function () {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Ngưng hoạt động bàn thành công!")
+                    createAlert("success", "Ngưng hoạt động bàn thành công!");
                 else
-                    alert("Ngưng hoạt động bàn thất bại!")
+                    createAlert("warning", "Ngưng hoạt động bàn thất bại!");
             }
         })
     }
@@ -39,11 +43,15 @@ $(document).on("click", ".btn-reactive-table", function () {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Bàn đã được mở lại thành công!")
+                    createAlert("success", "Bàn mở hoạt động thành công!");
                 else
-                    alert("Bàn mở lại thất bại!")
+                    createAlert("warning", "Bàn mở hoạt động thất bại!");
             }
         })
     }
@@ -56,9 +64,13 @@ $(document).on("click", ".btn-edit-table", function () {
             'id': $(this).attr('data')
         },
         type: "POST",
+        beforeSend: function () {
+            $('#loaded').show();
+        },
         success: function (data) {
+            $('#loaded').hide();
             if (data == 'false')
-                alert("Lấy thông tin bàn phẩm thất bại!")
+                createAlert("warning", "Lấy thông tin bàn phẩm thất bại!");
             else {
                 $('#model-edit-content').html(data)
                 $("#editTableModal").modal('toggle')
@@ -76,13 +88,17 @@ $(document).on("click", ".btn-del-empty-table", function() {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'double')
-                    alert("Bàn không thể xóa do tồn tại hóa đơn!")
+                    createAlert("warning", "Bàn không thể xóa do tồn tại hóa đơn!");
                 else if (data == 'true')
-                    alert("Xóa bàn thành công!")
+                    createAlert("success", "Xóa bàn thành công!");
                 else
-                    alert("Xóa bàn thất bại!")
+                    createAlert("warning", "Xóa bàn thất bại!");
             }
         })
     }
@@ -122,14 +138,18 @@ $(document).on("click", "#btn-edit-table", function () {
             type: "POST",
             contentType: false,
             processData: false,
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true') {
                     $("#editTableModal").modal('toggle')
-                    alert("Chỉnh sửa bàn thành công!");
+                    createAlert("success", "Chỉnh sửa bàn thành công!");
                 } else if (data == 'double') {
                     $('#error-name').html('Tên đã tồn tại')
                 } else {
-                    alert("Xử lý lỗi!");
+                    createAlert("warning", "Xử lý lỗi!");
                     checkForm();
                 }
             }

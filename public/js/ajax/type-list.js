@@ -22,11 +22,15 @@ $(document).on("click", ".btn-del-list", function() {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Ngưng hoạt động danh sách thành công!")
+                    createAlert("success", "Ngưng hoạt động danh sách thành công!")
                 else
-                    alert("Ngưng hoạt động danh sách thất bại!")
+                    createAlert("warning", "Ngưng hoạt động danh sách thất bại!")
             }
         })
     }
@@ -41,13 +45,17 @@ $(document).on("click", ".btn-del-empty-list", function() {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'double')
-                    alert("Danh sách không thể xóa do tồn tại sản phẩm!")
+                    createAlert("warning", "Danh sách không thể xóa do tồn tại sản phẩm!")
                 else if (data == 'true')
-                    alert("Xóa danh sách thành công!")
+                    createAlert("success", "Xóa danh sách thành công!")
                 else
-                    alert("Xóa danh sách thất bại!")
+                    createAlert("warning", "Xóa danh sách thất bại!")
             }
         })
     }
@@ -62,11 +70,15 @@ $(document).on("click", ".btn-reactive-list", function () {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Danh sách đã mở lại thành công!")
+                    createAlert("success", "Danh sách đã mở lại thành công!")
                 else
-                    alert("Danh sách mở lại thất bại!")
+                    createAlert("warning", "Danh sách mở lại thất bại!")
             }
         })
     }
@@ -79,9 +91,13 @@ $(document).on("click", ".btn-edit-list", function () {
             'id': $(this).attr('data')
         },
         type: "POST",
+        beforeSend: function () {
+            $('#loaded').show();
+        },
         success: function (data) {
+            $('#loaded').hide();
             if (data == 'false')
-                alert("Lấy thông tin danh sách thất bại!")
+                createAlert("warning", "Lấy thông tin danh sách thất bại!")
             else {
                 $('#model-edit-content').html(data)
                 $("#editProductModal").modal('toggle')
@@ -137,14 +153,18 @@ $(document).on("click", "#btn-edit-list", function () {
             type: "POST",
             contentType: false,
             processData: false,
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true') {
                     $("#editProductModal").modal('toggle')
-                    alert("Chỉnh sửa danh sách thành công!");
+                    createAlert("success", "Chỉnh sửa danh sách thành công!")
                 } else if (data == 'double') {
                     $('#error-name').html('Tên đã tồn tại')
                 } else {
-                    alert("Xử lý lỗi!");
+                    createAlert("warning", "Xử lý lỗi!")
                     checkForm();
                 }
             }

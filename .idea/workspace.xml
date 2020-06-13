@@ -20,55 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/a-delete-product-admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a-load-drink.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a-load-product-admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a-reactive-product-admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/ajax/product-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/ajax/staff-drinks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/ajax/staff-manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a-load-detail-order-admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PushData.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/access-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-access-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/buttons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/change-user-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-change-user-info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check-add-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/admin-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/admin-header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/admin-slidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/admin-slidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.phar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/FoodCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FoodCtl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-danh-muc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drinks.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-drinks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forgot-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-handle-cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-clean-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-clean-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-drink.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-product-admin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-table-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-table-status.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Food.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Food.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/add-product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/firebase-reload-data-event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/firebase-reload-data-event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reset-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reset-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-san-pham.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/them-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-san-pham.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-user-info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities-animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-animation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-border.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities-color.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-color.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities-other.html" beforeDir="false" afterPath="$PROJECT_DIR$/utilities-other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-load-more-order-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-more-order-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-load-order-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-order-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-ban.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-ban.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-danh-muc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-hoa-don.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-hoa-don.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/OrderCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/order-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/product-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/table-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/table-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/type-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/type-list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,19 +108,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
       <recent name="E:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -219,19 +184,20 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" key="#Notifications" timestamp="1592055561515">

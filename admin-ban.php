@@ -17,9 +17,21 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
     <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/notification.css">
 </head>
 
 <body id="page-top">
+<div class="wrapper">
+</div>
+<div id="loaded">
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-overlay"></div>
+</div>
 <div id="wrapper">
     <!-- Sidebar -->
     <?php include 'component/admin-slidebar.php' ?>
@@ -85,6 +97,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="public/js/header.js"></script>
+<script src="public/js/notification.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 <script src="public/js/ajax/firebase-reload-data-event.js"></script>

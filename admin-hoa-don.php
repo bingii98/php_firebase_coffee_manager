@@ -18,8 +18,18 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
     <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
 </head>
-
 <body id="page-top">
+<div class="wrapper">
+</div>
+<div id="loaded">
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-overlay"></div>
+</div>
 <div id="wrapper">
     <?php include 'component/admin-slidebar.php' ?>
     <div id="content-wrapper" class="d-flex flex-column">
@@ -37,8 +47,8 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
                                 <thead>
                                 <tr>
                                     <th>STT</th>
+                                    <th>ID</th>
                                     <th>Ngày</th>
-                                    <th>Nhân viên</th>
                                     <th>Chi tiết</th>
                                     <th>Tổng giá</th>
                                     <th>Hành động</th>
@@ -46,8 +56,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
                                 </thead>
                                 <tbody id="data-order-table">
                                 <tr>
-                                    <td colspan="7"><img src="https://i.ya-webdesign.com/images/loading-png-gif.gif"
-                                                         width="50px" style="margin-left: 45%;"></td>
+                                    <td colspan="6" style="text-align: center"><img src="https://i.ya-webdesign.com/images/loading-png-gif.gif" width="50px"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -59,19 +68,17 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModal"
-     aria-hidden="true">
+<div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailModal"  aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: none;">
-                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chỉnh
-                    sửa</h4>
+                <h4 style="text-align: center;width: 100%;font-weight: bold;margin-top: 35px;margin-bottom: 17px;">Chi tiết hoá đơn</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="card-body" id="model-edit-content">
+                <div class="card-body" id="model-detail-content">
 
                 </div>
             </div>
@@ -92,7 +99,6 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 <script src="public/js/ajax/firebase-reload-data-event.js"></script>
 <script src="public/js/regex.js"></script>
 <script src="public/js/ajax/order-list.js"></script>
-
 </body>
 
 </html>

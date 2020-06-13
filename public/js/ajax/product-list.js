@@ -27,11 +27,15 @@ $(document).on("click", ".btn-del-product", function() {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Ngưng hoạt động sản phẩm thành công!")
+                    createAlert("success", "Ngưng hoạt đông sản phẩm thành công!")
                 else
-                    alert("Ngưng hoạt động sản phẩm thất bại!")
+                    createAlert("warning", "Ngưng hoạt đông sản phẩm thất bại!")
             }
         })
     }
@@ -46,11 +50,15 @@ $(document).on("click", ".btn-reactive-product", function() {
                 'id': $(this).attr('data')
             },
             type: "POST",
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true')
-                    alert("Sản phẩm đã được bán lại thành công!")
+                    createAlert("success", "Sản phẩm đã mở bán lại thành công!")
                 else
-                    alert("Sản phẩm đã được bán lại thất bại!")
+                    createAlert("warning", "Sản phẩm đã được bán lại thất bại!")
             }
         })
     }
@@ -63,9 +71,13 @@ $(document).on("click", ".btn-edit-product", function () {
             'id': $(this).attr('data')
         },
         type: "POST",
+        beforeSend: function () {
+            $('#loaded').show();
+        },
         success: function (data) {
+            $('#loaded').hide();
             if (data == 'false')
-                alert("Lấy thông tin sản phẩm thất bại!")
+                createAlert("warning", "Lấy thông tin sản phẩm thất bại!")
             else {
                 $('#model-edit-content').html(data)
                 $("#editProductModal").modal('toggle')
@@ -191,14 +203,18 @@ $(document).on("click", "#btn-edit-product", function () {
             type: "POST",
             contentType: false,
             processData: false,
+            beforeSend: function () {
+                $('#loaded').show();
+            },
             success: function (data) {
+                $('#loaded').hide();
                 if (data == 'true') {
                     $("#editProductModal").modal('toggle')
-                    alert("Chỉnh sửa sản phẩm thành công!");
+                    createAlert("success", "Chỉnh sửa sản phẩm thành công!")
                 } else if (data == 'double') {
-                    $('#error-name').html('Tên đã tồn tại')
+                    createAlert("warning", "Tên đã tồn tại!")
                 } else {
-                    alert("Xử lý lỗi!");
+                    createAlert("warning", "Xử lý lỗi!")
                     checkForm();
                 }
             }

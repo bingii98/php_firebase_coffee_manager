@@ -7,6 +7,7 @@ require './vendor/autoload.php';
 include_once './model/Table.php';
 include_once './model/Food.php';
 include_once './model/Order.php';
+include_once './model/User.php';
 include_once './model/OrderDetail.php';
 include_once './controller/TableCtl.php';
 include_once './controller/ListCtl.php';
@@ -34,30 +35,28 @@ class OrderCtl
 
     public function getFirst10()
     {
-        $this->food_ctl = new FoodCtl();
-        $list = $this->firebase->getReference('orders')->orderByChild('date')->limitToLast(30)->endAt('1592058509')->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('orders')->orderByKey()->limitToLast(10)->getSnapshot()->getValue();
         $arr = array();
         foreach ($list as $key => $item){
             $arr_detail = array();
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $this->auth->getUser($item['staff'])->displayName, $arr_detail));
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
         }
         return array_reverse($arr);
     }
 
     public function getContinue10($idLast)
     {
-        $this->food_ctl = new FoodCtl();
-        $list = $this->firebase->getReference('orders')->orderByKey()->limitToLast(10)->startAt($idLast)->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('orders')->orderByKey()->endAt($idLast)->limitToLast(11)->getSnapshot()->getValue();
         $arr = array();
         foreach ($list as $key => $item){
             $arr_detail = array();
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $this->auth->getUser($item['staff'])->displayName, $arr_detail));
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
         }
         return array_reverse($arr);
     }
@@ -83,10 +82,12 @@ class OrderCtl
         $this->food_ctl = new FoodCtl();
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
         $arr = array();
+        $a = $this->auth->getUser($list['staff']);
+        $user = new User($a->uid,$a->displayName,$a->email,null,null,null,null);
         foreach ($list['detail'] as $value) {
             array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
-        return new Order($id, $list['date'], $list['staff'], $arr);
+        return new Order($id, $list['date'], $user, $arr);
     }
 
     public function get_range_date($dstart,$dstop)
