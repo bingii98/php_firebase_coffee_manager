@@ -35,7 +35,7 @@ class OrderCtl
     public function getFirst10()
     {
         $this->food_ctl = new FoodCtl();
-        $list = $this->firebase->getReference('orders')->orderByKey()->limitToLast(10)->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('orders')->orderByChild('date')->limitToLast(30)->endAt('1592058509')->getSnapshot()->getValue();
         $arr = array();
         foreach ($list as $key => $item){
             $arr_detail = array();

@@ -1,7 +1,16 @@
 <?php
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
 
-require_once __DIR__ . '/controller/FoodCtl.php';
+require './vendor/autoload.php';
+date_default_timezone_set('UTC');
+$factory = (new Factory)->withServiceAccount('./secret/key.json');
+$firebase = $factory->createDatabase();
+$list = $firebase->getReference('orders')->orderByChild('date')->getSnapshot()->getValue();
 
-$ctl = new FoodCtl();
-
-echo print_r($ctl->get_by_name("BinGii Giang"));
+$index = 0;
+foreach ($list as $key => $item){
+    $index++;
+    echo $index.' - '.date('h:mA d-m-Y', $item['date']);;
+    echo "<br>";
+}
