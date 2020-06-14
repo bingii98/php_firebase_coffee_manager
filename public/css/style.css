@@ -329,6 +329,15 @@ section {
     padding: 0px 0px 0px 20px;
 }
 
+.datepicker-dropdown{
+    width: 162px;
+    background: var(--bg-dark-card);
+}
+
+.card .card-header .dropdown .dropdown-menu{
+    background: var(--bg-dark-card);
+}
+
 #switch-dark-mode .theme-switch {
     display: inline-block;
     height: 34px;

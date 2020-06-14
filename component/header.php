@@ -47,3 +47,26 @@
         </div>
     </div>
 </header>
+<script>
+    //DARK THEME
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', '__dark-mode');
+            localStorage.setItem('theme', '__dark-mode');
+        } else {
+            document.documentElement.setAttribute('data-theme', '__light-mode');
+            localStorage.setItem('theme', '__light-mode');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === '__light-mode') {
+        toggleSwitch.checked = false;
+    } else {
+        toggleSwitch.checked = true;
+    }
+</script>

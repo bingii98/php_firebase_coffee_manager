@@ -102,7 +102,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset/js" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -122,11 +122,11 @@
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\controller" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -186,7 +186,8 @@
       <workItem from="1591915129346" duration="8341000" />
       <workItem from="1591961538189" duration="11512000" />
       <workItem from="1592050849364" duration="23059000" />
-      <workItem from="1592127335290" duration="10090000" />
+      <workItem from="1592127335290" duration="13077000" />
+      <workItem from="1592145795560" duration="15460000" />
     </task>
     <servers />
   </component>
@@ -277,9 +278,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591819422127" />
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1589871421390">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="476" y="24" width="945" height="966" key="search.everywhere.popup" timestamp="1592151044842">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589871421390" />
+    <state x="476" y="24" width="945" height="966" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592151044842" />
   </component>
 </project>

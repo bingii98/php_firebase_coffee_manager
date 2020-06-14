@@ -20,55 +20,45 @@ foreach ($arr_table as $key => $item) {
 }
 $percent_active = round($count_active / count($arr_table) * 100, 2);
 
+$dateMY = (isset($_GET['date']) ? $_GET['date'] : date("m-yy"));
+
 //Statistics of the month
-$saDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '01-' . date("m-yy") . ' 00:00:00', new DateTimeZone('UTC'));
-$stDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date("t-m-yy") . ' 00:00:00', new DateTimeZone('UTC'));
+$saDateMonth = "01-" . $dateMY;
+$stDateMonth = "t-" . $dateMY;
+
+$saDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($saDateMonth) . ' 00:00:00', new DateTimeZone('UTC'));
+$stDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($stDateMonth) . ' 00:00:00', new DateTimeZone('UTC'));
+
+$sad = date('d', $saDateMonth->getTimestamp());
+$std = date('d', $stDateMonth->getTimestamp());
+
 $resultMonth = $orderCtl->get_range_date($saDateMonth->getTimestamp(), $stDateMonth->getTimestamp());
+
 $count_month = 0;
 foreach ($resultMonth as $order) {
     foreach ($order->getOrderDetails() as $orderD) {
         $count_month += $orderD->getNum() * $orderD->getPrice();
-    }
-}
-//Statistics of the year
-$saDateYear = $d = DateTime::createFromFormat('d-m-Y H:i:s', '01-01-' . date("yy") . ' 00:00:00', new DateTimeZone('UTC'));
-$stDateYear = $d = DateTime::createFromFormat('d-m-Y H:i:s', '31-12-' . date("yy") . ' 00:00:00', new DateTimeZone('UTC'));
-$resultYear = $orderCtl->get_range_date($saDateMonth->getTimestamp(), $stDateMonth->getTimestamp());
-$count_year = 0;
-foreach ($resultYear as $order) {
-    foreach ($order->getOrderDetails() as $orderD) {
-        $count_year += $orderD->getNum() * $orderD->getPrice();
         for ($i = 0; $i < $orderD->getNum(); $i++) {
             array_push($arr_food_id, $orderD->getFood());
         }
     }
 }
-//Statistics of the week
-$saDateWeek = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date("d-m-yy", strtotime('-11 days')) . ' 00:00:00', new DateTimeZone('UTC'));
-$stDateWeek = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date('d-m-yy') . ' 00:00:00', new DateTimeZone('UTC'));
-$resultWeek = $orderCtl->get_range_date($saDateMonth->getTimestamp(), $stDateMonth->getTimestamp());
+//Statistics of the year
+$saDateYear = $d = DateTime::createFromFormat('d-m-Y H:i:s', '01-01-' . date("yy") . ' 00:00:00', new DateTimeZone('UTC'));
+$stDateYear = $d = DateTime::createFromFormat('d-m-Y H:i:s', '31-12-' . date("yy") . ' 00:00:00', new DateTimeZone('UTC'));
 
-$m1 = $orderCtl->count_sales_week($resultWeek, 11);
-$m2 = $orderCtl->count_sales_week($resultWeek, 10);
-$m3 = $orderCtl->count_sales_week($resultWeek, 9);
-$m4 = $orderCtl->count_sales_week($resultWeek, 8);
-$m5 = $orderCtl->count_sales_week($resultWeek, 7);
-$m6 = $orderCtl->count_sales_week($resultWeek, 6);
-$m7 = $orderCtl->count_sales_week($resultWeek, 5);
-$m8 = $orderCtl->count_sales_week($resultWeek, 4);
-$m9 = $orderCtl->count_sales_week($resultWeek, 3);
-$m10 = $orderCtl->count_sales_week($resultWeek, 2);
-$m11 = $orderCtl->count_sales_week($resultWeek, 1);
-$m12 = $orderCtl->count_sales_week($resultWeek, 0);
+$resultYear = $orderCtl->get_range_date($saDateYear->getTimestamp(), $stDateYear->getTimestamp());
+$count_year = 0;
+foreach ($resultYear as $order) {
+    foreach ($order->getOrderDetails() as $orderD) {
+        $count_year += $orderD->getNum() * $orderD->getPrice();
+    }
+}
 
 //Handle food
 $arr_food_id = array_count_values($arr_food_id);
 arsort($arr_food_id);
 $arr_food_id = array_slice($arr_food_id, 0, 5);
-$f1 = $foodCtl->get(array_keys(array_slice($arr_food_id, 0, 1))[0]);
-$f2 = $foodCtl->get(array_keys(array_slice($arr_food_id, 1, 1))[0]);
-$f3 = $foodCtl->get(array_keys(array_slice($arr_food_id, 2, 1))[0]);
-$f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,22 +71,39 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
     <title>CHB Coffee - Administrator </title>
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet prefetch" href="public/asset/css/datepicker.css">
     <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/notification.css">
 </head>
 <body id="page-top">
+<div class="wrapper">
+</div>
+<div id="loaded" style="display: block">
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-overlay"></div>
+</div>
 <div id="wrapper">
     <!-- Sidebar -->
     <?php include 'component/admin-slidebar.php' ?>
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-                <!-- Topbar Navbar -->
-                <?php include 'component/admin-header.php' ?>
+            <!-- Topbar Navbar -->
+            <?php include 'component/admin-header.php' ?>
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800" style="font-size: 20px;font-weight: 600;">Thống kê</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <div id="datepicker" class="d-none d-sm-inline-block date" data-date-format="mm-yyyy">
+                        <div class="d-flex">
+                            <input class="form-control form-input mr-1" readonly="" type="text" id="date-pick" style="background: #00000050;height: 35px;">
+                            <button class="form-control btn btn-sm btn-primary shadow-sm" id="btn-filter-al">Tìm</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-md-6 mb-4">
@@ -105,7 +112,7 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Doanh thu
-                                            (Tháng <?php echo date('m') ?>)
+                                            (Tháng <?php echo $dateMY ?>)
                                         </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($count_month, 0, "", ".") ?>
                                             ₫
@@ -176,23 +183,7 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập 12 ngày qua
-                                    <qua></qua>
-                                </h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
+                                <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập tháng <?php echo $dateMY ?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -208,22 +199,7 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Top 4 bán chạy (<?php echo date('yy') ?>
-                                    )</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
+                                <h6 class="m-0 font-weight-bold text-primary">Top bán chạy tháng <?php echo $dateMY ?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -231,18 +207,16 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
                                     <canvas id="myPieChart"></canvas>
                                 </div>
                                 <div class="mt-4 text-center small">
-                                    <span class="mr-2">
-                                      <i class="fas fa-circle text-primary"></i> <?php echo $f1->getName() ?>
-                                    </span>
-                                    <span class="mr-2">
-                                      <i class="fas fa-circle text-success"></i> <?php echo $f2->getName() ?>
-                                    </span>
-                                    <span class="mr-2">
-                                      <i class="fas fa-circle text-info"></i> <?php echo $f3->getName() ?>
-                                    </span>
-                                    <span class="mr-2">
-                                      <i class="fas fa-circle text-default"></i> <?php echo $f4->getName() ?>
-                                    </span>
+                                    <?php for ($i0 = 0 ; $i0 < count($arr_food_id) ; $i0++ ){ ?>
+                                        <span class="mr-2">
+                                          <i class="fas fa-circle
+                                          <?php if($i0 == 0) echo 'text-primary';
+                                          else if($i0 == 1) echo 'text-success';
+                                          else if($i0 == 2) echo 'text-info';
+                                          else echo 'text-default';?>
+                                                "></i> <?php echo $foodCtl->get(array_keys(array_slice($arr_food_id, $i0, 1))[0])->getName() ?>
+                                        </span>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -256,11 +230,15 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
     <i class="fas fa-angle-up"></i>
 </a>
 <script src="public/vendor/jquery/jquery.min.js"></script>
+<script src="public/js/header.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/vendor/chart.js/Chart.min.js"></script>
-<script src="public/js/header.js"></script>
+<script src="public/asset/js/bootstrap.min.js"></script>
+<script src="public/asset/js/bootstrap-datepicker.js"></script>
+<script src="public/js/notification.js"></script>
+
 <script>
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = 'Poppins', 'sans-serif';
@@ -271,9 +249,26 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
     var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: [<?php echo "'" . $f1->getName() . "','" . $f2->getName() . "','" . $f3->getName() . "','" . $f4->getName() . "'" ?>],
+            labels: [
+                <?php $ghs = "";
+                for ($i1 = 0 ; $i1 < count($arr_food_id) ; $i1++ ){
+                    if ($i1 == 0)
+                        $ghs = $ghs . "'" . $foodCtl->get(array_keys(array_slice($arr_food_id, $i1, 1))[0])->getName() . "'";
+                    else
+                        $ghs = $ghs . ",'" . $foodCtl->get(array_keys(array_slice($arr_food_id, $i1, 1))[0])->getName() . "'";
+                }
+                echo $ghs; ?>
+            ],
             datasets: [{
-                data: [<?php echo array_values(array_slice($arr_food_id, 0, 1))[0] . ',' . array_values(array_slice($arr_food_id, 1, 1))[0] . ',' . array_values(array_slice($arr_food_id, 2, 1))[0] . ',' . array_values(array_slice($arr_food_id, 3, 1))[0]  ?>],
+                data: [
+                    <?php $ght = "";
+                    for ($i2 = 0 ; $i2 < count($arr_food_id) ; $i2++ ){
+                        if ($i2 == 0)
+                            $ght = $ght . '' . array_values(array_slice($arr_food_id, $i2, 1))[0];
+                        else
+                            $ght = $ght . ',' . array_values(array_slice($arr_food_id, $i2, 1))[0];
+                    }
+                    echo $ght; ?>],
                 backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
                 hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
                 hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -331,7 +326,16 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [<?php echo '"' . date("d-m-yy", strtotime('-11 days')) . '","'. date("d-m-yy", strtotime('-10 days')) . '","' . date("d-m-yy", strtotime('-9 days')) . '","' . date("d-m-yy", strtotime('-8 days')) . '","' . date("d-m-yy", strtotime('-7 days')) . '","' . date("d-m-yy", strtotime('-6 days')) . '","' . date("d-m-yy", strtotime('-5 days')) . '","' . date("d-m-yy", strtotime('-4 days')) . '","' . date("d-m-yy", strtotime('-3 days')) . '","' . date("d-m-yy", strtotime('-2 days')) . '","' . date("d-m-yy", strtotime('-1 days')) . '","' . date("d-m-yy", strtotime('-0 days')) . '"' ?>],
+            labels: [
+                <?php $str = "";
+                for ($i = $sad; $i <= $std; $i++) {
+                    if ($i == 1)
+                        $str = $str . "'" . $i . "-" . $dateMY . "'";
+                    else
+                        $str = $str . ",'" . $i . "-" . $dateMY . "'";
+                }
+                echo $str; ?>
+            ],
             datasets: [{
                 label: "Doanh thu",
                 lineTension: 0.3,
@@ -345,7 +349,15 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
                 pointHoverBorderColor: "#3d6ad6",
                 pointHitRadius: 10,
                 pointBorderWidth: 3,
-                data: [<?php echo $m1 . ',' . $m2 . ',' . $m3 . ',' . $m4 . ',' . $m5 . ',' . $m6 . ',' . $m7 . ',' . $m8 . ',' . $m9 . ',' . $m10 . ',' . $m11 . ',' . $m12 ?>],
+                data: [
+                    <?php $rs = "";
+                    for ($i = $sad; $i <= $std; $i++) {
+                        if ($i == 1)
+                            $rs = $rs . '' . $orderCtl->count_sales_week($resultMonth, $i.'-'.$dateMY);
+                        else
+                            $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, $i.'-'.$dateMY);
+                    }
+                    echo $rs; ?>],
             }],
         },
         options: {
@@ -415,7 +427,24 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
             }
         }
     });
+
+    /* DATE PICKED */
+    $(function () {
+        $("#datepicker").datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months",
+        })
+    });
+
+    $(document).on('click', '#btn-filter-al', function () {
+        window.location.href = "admin.php?date=" + $('#date-pick').val();
+    })
+
+    $(document).ready(function () {
+        $('#loaded').hide();
+        $("#date-pick").val("<?php echo $dateMY ?>");
+    })
 </script>
 </body>
-
 </html>

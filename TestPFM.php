@@ -1,16 +1,8 @@
 <?php
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
+$saDate = "01-".(isset($_GET['date']) ? isset($_GET['date']) : date("m-yy"));
+$stDate = "t-".(isset($_GET['date']) ? isset($_GET['date']) : date("m-yy"));
 
-require './vendor/autoload.php';
-date_default_timezone_set('UTC');
-$factory = (new Factory)->withServiceAccount('./secret/key.json');
-$firebase = $factory->createDatabase();
-$list = $firebase->getReference('orders')->orderByChild('date')->getSnapshot()->getValue();
+$saDate = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($stDate) . ' 00:00:00', new DateTimeZone('UTC'));
+$stDate = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($stDate) . ' 00:00:00', new DateTimeZone('UTC'));
 
-$index = 0;
-foreach ($list as $key => $item){
-    $index++;
-    echo $index.' - '.date('h:mA d-m-Y', $item['date']);;
-    echo "<br>";
-}
+echo date('d',$saDate->getTimestamp());
