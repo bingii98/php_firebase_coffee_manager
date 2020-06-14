@@ -47,7 +47,6 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
             </div>
             <div class="modal-body" style="padding-bottom: 50px;">
                 <ul class="card-box-desk" id="loaded-data-table">
-
                 </ul>
             </div>
         </div>

@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    $('#loaded').show();
+})
+
 $(document).on("click", ".table-clean", function () {
     var id = $(this).attr('data');
     $.ajax({

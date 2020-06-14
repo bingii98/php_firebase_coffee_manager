@@ -13,17 +13,21 @@ body {
   background: #f5f5f5;
   position: relative;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .loginWrapper .logincard {
   max-width: 970px;
-  width: 100%;
+  min-width: 400px;
   overflow: hidden;
   height: 545px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 0 60px rgba(93, 70, 232, 0.15);
+  border: 1px solid#ebe9e9;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 7px;
 }
 .loginWrapper .logincard .leftbox {
   position: relative;
@@ -177,6 +181,18 @@ body {
     width: 100%;
     padding: 40px 40px 0;
     text-align: center;
+  }
+
+  .loginWrapper .logincard .rightbox img:before {
+    position: absolute;
+    content: "";
+    height: calc(100% + 16px);
+    width: calc(100% + 16px);
+    top: -8px;
+    left: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(132, 132, 164, 0.35);
+    animation: 1.5s linear 0s normal none infinite focuse;
   }
 
   .loginWrapper .logincard .rightbox input[type="email"],

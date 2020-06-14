@@ -47,7 +47,7 @@ $listCtl = new ListCtl();
                     <td>' . $itemFood->getName() . '</td>
                     <td>' . $itemFood->getDiscription() . '</td>
                     <td>' . $itemFood->getPrice() . '</td>
-                    <td><img src="' . $itemFood->getImage() . '" alt="" width="200px"></td>
+                    <td><vector src="' . $itemFood->getImage() . '" alt="" width="200px"></td>
                     <td>' . $itemFood->getSale() . '</td>
                     <td>' . $itemFood->printIsSale() . '</td>
                  </tr>';

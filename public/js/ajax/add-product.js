@@ -122,7 +122,7 @@ $(document).ready(function () {
             var reader = new FileReader();
             var filename = $('#txt-file')[0].files[0]['name'];
             reader.onload = function (e) {
-                $('#img-preview').attr('src', e.target.result);
+                $('#vector-preview').attr('src', e.target.result);
                 $('#lb-txt-file').text('Đã chọn');
             }
             reader.readAsDataURL(input.files[0]);

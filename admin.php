@@ -263,7 +263,7 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
 <script src="public/js/header.js"></script>
 <script>
     // Set new default font family and font color to mimic Bootstrap's default styling
-    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontFamily = 'Poppins', 'sans-serif';
     Chart.defaults.global.defaultFontColor = '#858796';
 
     // Pie Chart Example
@@ -335,16 +335,16 @@ $f4 = $foodCtl->get(array_keys(array_slice($arr_food_id, 3, 1))[0]);
             datasets: [{
                 label: "Doanh thu",
                 lineTension: 0.3,
-                backgroundColor: "rgba(78, 115, 223, 0.05)",
-                borderColor: "rgba(78, 115, 223, 1)",
-                pointRadius: 3,
-                pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointBorderColor: "rgba(78, 115, 223, 1)",
-                pointHoverRadius: 3,
-                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                backgroundColor: "#3d6ad650",
+                borderColor: "#3d6ad6",
+                pointRadius: 1,
+                pointBackgroundColor: "#3d6ad6",
+                pointBorderColor: "#3d6ad6",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "#3d6ad6",
+                pointHoverBorderColor: "#3d6ad6",
                 pointHitRadius: 10,
-                pointBorderWidth: 2,
+                pointBorderWidth: 3,
                 data: [<?php echo $m1 . ',' . $m2 . ',' . $m3 . ',' . $m4 . ',' . $m5 . ',' . $m6 . ',' . $m7 . ',' . $m8 . ',' . $m9 . ',' . $m10 . ',' . $m11 . ',' . $m12 ?>],
             }],
         },
