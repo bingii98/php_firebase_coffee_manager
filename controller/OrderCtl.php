@@ -77,6 +77,20 @@ class OrderCtl
         }
     }
 
+    public function order_generation($uid,$date)
+    {
+        $this->food_ctl = new FoodCtl();
+        $this->table_ctl = new TableCtl();
+        $arr_order_detail = array();
+        foreach ($_SESSION["cart_item"] as $key => $item) {
+            array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
+        }
+        $order = new Order(null, $date, $uid, $arr_order_detail);
+        if (isset($_SESSION["cart_item"])) {
+            $result = $this->firebase->getReference('orders')->push($order->pushFB());
+        }
+    }
+
     public function get($id)
     {
         $this->food_ctl = new FoodCtl();

@@ -122,10 +122,8 @@ class Order{
         });
     }
 
-
     public function pushFB(){
-        $date = new DateTime();
-        $DATA['date'] = $date->getTimestamp();
+        $DATA['date'] = $this->date;
         $DATA['staff'] = $this->staff;
         $arr_order_detail = array();
         foreach ($this->order_details as $key => $item){
