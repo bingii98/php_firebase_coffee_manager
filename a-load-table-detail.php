@@ -35,11 +35,18 @@ $isFN = true;
                 $item_total += ($item1->getPrice() * $item1->getNum());
             }
             if (!$isFN_detail) { ?>
-                <td colspan="5" align=right>
-                    <button class="btn btn-primary btn-update-order"><i class="fa fa-paper-plane"
-                                                                        aria-hidden="true"></i> đã thực hiện
-                    </button>
-                </td>
+                <tr>
+                    <td colspan="5" align=right>
+                        <p style="font-size: 12px">Giờ vào <?php
+                            echo date('h:i m/d/Y', $item->getDate());
+                        ?></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" align=right>
+                        <button class="btn btn-primary btn-update-order" data="<?php echo $item->getId() ?>"><i class="fa fa-paper-plane" aria-hidden="true"></i> đã thực hiện</button>
+                    </td>
+                </tr>
             <?php }
         }
         ?>

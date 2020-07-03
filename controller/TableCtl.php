@@ -67,7 +67,7 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order(null,null,null,null,null));
+                array_push($arr_orders,new Order($item['orders'],null,null,null,null));
             }
             array_push($arr,new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),$arr_orders));
         }
@@ -80,7 +80,7 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order(null,null,null,null,null));
+                array_push($arr_orders,new Order($item['orders'],null,null,null,null));
             }
             if($arr_orders == null || count($arr_orders) == 0) {
                 array_push($arr, new Table($key, $item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null), $arr_orders));

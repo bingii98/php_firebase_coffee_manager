@@ -106,7 +106,7 @@ class OrderCtl
         foreach ($list['detail'] as $value) {
             array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
-        return new Order($id, $list['date'], $user, $arr,(isset($value['status']) ? $value['status'] : null));
+        return new Order($id, $list['date'], $user, $arr,(isset($list['status']) ? $list['status'] : null));
     }
 
     public function get_range_date($dstart,$dstop)

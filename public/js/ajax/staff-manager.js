@@ -67,7 +67,10 @@ loadChange("table", function () {
 
 $(document).on('click','.btn-update-order',function () {
     $.ajax({
-        url : 'a-update-order-detail'
+        url : 'a-update-order.php',
+        data : {
+            'id' : 
+        }
     })
 })
 
