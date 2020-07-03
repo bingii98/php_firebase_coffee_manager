@@ -2,21 +2,21 @@
 class Order{
     private $id;
     private $date;
-    private $staff;
+    private $user;
     private $order_details;
 
     /**
      * Order constructor.
      * @param $id
      * @param $date
-     * @param $staff
+     * @param $user
      * @param $order_details
      */
-    public function __construct($id, $date, $staff, $order_details)
+    public function __construct($id, $date, $user, $order_details)
     {
         $this->id = $id;
         $this->date = $date;
-        $this->staff = $staff;
+        $this->user = $user;
         $this->order_details = $order_details;
     }
 
@@ -87,21 +87,21 @@ class Order{
     /**
      * @return mixed
      */
-    public function getStaff()
+    public function getuser()
     {
-        return $this->staff;
+        return $this->user;
     }
 
     /**
-     * @param mixed $staff
+     * @param mixed $user
      */
-    public function setStaff($staff)
+    public function setuser($user)
     {
-        $this->staff = $staff;
+        $this->user = $user;
     }
 
     /**
-     * @param mixed $staff
+     * @param mixed $user
      */
     public function revenueCount()
     {
@@ -112,7 +112,7 @@ class Order{
     }
 
     /**
-     * @param mixed $staff
+     * @param mixed $user
      */
     public function foodCount()
     {
@@ -124,7 +124,7 @@ class Order{
 
     public function pushFB(){
         $DATA['date'] = $this->date;
-        $DATA['staff'] = $this->staff;
+        $DATA['user'] = $this->user;
         $arr_order_detail = array();
         foreach ($this->order_details as $key => $item){
             $arr_ordt = array($key => array('num' => $item->getNum(), 'price' => $item->getPrice(), 'food' => $item->getFood()->getId()));

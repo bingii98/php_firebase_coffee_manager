@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/order-generation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestPFM.php" beforeDir="false" afterPath="$PROJECT_DIR$/TestPFM.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/OrderCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderCtl.php" afterDir="false" />
@@ -93,7 +92,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -105,19 +104,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -182,6 +181,10 @@
       <workItem from="1592179949859" duration="5765000" />
       <workItem from="1592212408387" duration="5949000" />
       <workItem from="1592256717205" duration="1942000" />
+      <workItem from="1593057790197" duration="6691000" />
+      <workItem from="1593581261070" duration="2373000" />
+      <workItem from="1593641154801" duration="36000" />
+      <workItem from="1593645148706" duration="6210000" />
     </task>
     <servers />
   </component>
@@ -237,12 +240,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589361061458" />
-    <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1591886417717">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="526" y="193" key="FileChooserDialogImpl" timestamp="1593583037210">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589872572076" />
+    <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593583037210" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591825674420" />
-    <state x="987" y="370" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1591886417717" />
+    <state x="987" y="370" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1593057828977" />
     <state x="986" y="371" key="FileChooserDialogImpl/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1591649580740" />
     <state x="748" y="242" key="NewPhpClassDialog" timestamp="1591630489419">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -260,11 +263,11 @@
     </state>
     <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592137108988" />
     <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
-    <state x="976" y="521" key="com.intellij.ide.util.TipDialog" timestamp="1592256716648">
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1593057792753">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="521" y="271" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592212408665" />
-    <state x="976" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1592179966086" />
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1593057792753" />
     <state x="976" y="521" key="com.intellij.ide.util.TipDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1592256716648" />
     <state x="740" y="222" width="555" height="596" key="find.popup" timestamp="1590865577030">
       <screen x="0" y="0" width="1920" height="1040" />
