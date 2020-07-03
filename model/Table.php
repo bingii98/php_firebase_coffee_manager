@@ -6,6 +6,7 @@ class Table {
     private $id;
     private $name;
     private $isActive;
+    private $status;
     private $orders = array();
 
     /**
@@ -13,13 +14,15 @@ class Table {
      * @param $id
      * @param $name
      * @param $isActive
-     * @param $orders
+     * @param $status
+     * @param array $orders
      */
-    public function __construct($id, $name, $isActive, $orders)
+    public function __construct($id, $name, $isActive, $status, array $orders)
     {
         $this->id = $id;
         $this->name = $name;
         $this->isActive = $isActive;
+        $this->status = $status;
         $this->orders = $orders;
     }
 
@@ -58,22 +61,6 @@ class Table {
     /**
      * @return mixed
      */
-    public function getOrders()
-    {
-        return $this->orders;
-    }
-
-    /**
-     * @param mixed $foods
-     */
-    public function setFoods($orders)
-    {
-        $this->orders = $orders;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getIsActive()
     {
         return $this->isActive;
@@ -85,6 +72,38 @@ class Table {
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOrders(): array
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param array $orders
+     */
+    public function setOrders(array $orders)
+    {
+        $this->orders = $orders;
     }
 
 

@@ -65,6 +65,12 @@ loadChange("table", function () {
     })
 })
 
+$(document).on('click','.btn-update-order',function () {
+    $.ajax({
+        url : 'a-update-order-detail'
+    })
+})
+
 function PrintElem(elem) {
     var mywindow = window.open('', 'PRINT', 'height=400,width=600');
     mywindow.document.write('<html><head><title>CHB Coffe</title>');

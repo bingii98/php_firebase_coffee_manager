@@ -89,7 +89,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     $(document).on('input propertychange','#txt-email',function () {
         var email = $('#txt-email').val();
         $.ajax({
-            url : 'change-user-info.php',
+            url : 'a-change-user-info.php',
             data : {
                 'action' : 'check',
                 'email' : email
@@ -111,7 +111,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     $(document).on('click','#btn-change-email',function () {
         var email = $('#txt-email').val();
         $.ajax({
-            url : 'change-user-info.php',
+            url : 'a-change-user-info.php',
             data : {
                 'action' : 'change',
                 'email' : email
@@ -138,7 +138,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
     $(document).on('click','#btn-change-name',function () {
         var name = $('#txt-name').val();
         $.ajax({
-            url : 'change-user-info.php',
+            url : 'a-change-user-info.php',
             data : {
                 'action' : 'change',
                 'name' : name

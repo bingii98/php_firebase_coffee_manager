@@ -42,7 +42,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return array_reverse($arr);
     }
@@ -56,7 +56,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return array_reverse($arr);
     }
@@ -70,7 +70,7 @@ class OrderCtl
         foreach ($_SESSION["cart_item"] as $key => $item) {
             array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
         }
-        $order = new Order(null, $date->getTimestamp(), $uid, $arr_order_detail);
+        $order = new Order(null, $date->getTimestamp(), null, $arr_order_detail,(isset($value['status']) ? $value['status'] : null));
         if (isset($_SESSION["cart_item"])) {
             $result = $this->firebase->getReference('orders')->push($order->pushFB());
             $this->table_ctl->updateStatus($table_id, $result->getSnapshot()->getKey());
@@ -85,7 +85,7 @@ class OrderCtl
         foreach ($_SESSION["cart_item"] as $key => $item) {
             array_push($arr_order_detail, new OrderDetail($this->food_ctl->get($key), $item['quantity'], $item['price']));
         }
-        $order = new Order(null, $date, $uid, $arr_order_detail);
+        $order = new Order(null, $date, $uid, $arr_order_detail,(isset($value['status']) ? $value['status'] : null));
         if (isset($_SESSION["cart_item"])) {
             $result = $this->firebase->getReference('orders')->push($order->pushFB());
         }
@@ -96,12 +96,17 @@ class OrderCtl
         $this->food_ctl = new FoodCtl();
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
         $arr = array();
-        $a = $this->auth->getUser($list['staff']);
-        $user = new User($a->uid,$a->displayName,$a->email,null,null,null,null);
+        if(isset($list['staff'])){
+            $a = $this->auth->getUser($list['staff']);
+            $user = new User($a->uid,$a->displayName,$a->email,null,null,null,null);
+        }else{
+            $a = null;
+            $user = new User(null,null,null,null,null,null,null);
+        }
         foreach ($list['detail'] as $value) {
             array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
-        return new Order($id, $list['date'], $user, $arr);
+        return new Order($id, $list['date'], $user, $arr,(isset($value['status']) ? $value['status'] : null));
     }
 
     public function get_range_date($dstart,$dstop)
@@ -114,7 +119,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail));
+            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return $arr;
     }

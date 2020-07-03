@@ -93,7 +93,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -182,30 +182,30 @@
       <workItem from="1592179949859" duration="5765000" />
       <workItem from="1592212408387" duration="5949000" />
       <workItem from="1592256717205" duration="1942000" />
+      <workItem from="1593743336752" duration="8025000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="845" y="383" key="#Notifications" timestamp="1592055561515">
+    <state x="845" y="383" key="#Notifications" timestamp="1593750838379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="845" y="383" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1592055561515" />
+    <state x="845" y="383" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593750838379" />
     <state x="763" y="309" key="#Web_Browsers" timestamp="1589353598871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -214,10 +214,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591717949219" />
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1592065857100">
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1593752755807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592065857100" />
+    <state x="805" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593752755807" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591918825605" />
     <state x="1073" y="415" key="#com.intellij.ide.util.MemberChooser/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589305298612" />
     <state x="960" y="435" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591915071700">

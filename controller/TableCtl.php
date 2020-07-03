@@ -32,7 +32,7 @@ class TableCtl
         $arr = array();
         $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr,new Table($key,$item['name'],$item['isActive'],null));
+            array_push($arr,new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),null));
         }
         return $arr;
     }
@@ -47,7 +47,7 @@ class TableCtl
                     array_push($arr_orders,$this->order_ctl->get($item_or));
                 }
             }
-            return new Table($key,$item['name'],$item['isActive'],$arr_orders);
+            return new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),$arr_orders);
         }
         return null;
     }
@@ -56,7 +56,7 @@ class TableCtl
     {
         $list = $this->firebase->getReference('table')->orderByChild('name')->equalTo($name)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            return new Table($key, $item['name'], $item['isActive'],array());
+            return new Table($key, $item['name'], $item['isActive'],(isset($item['status']) ? $item['status'] : null),array());
         }
         return null;
     }
@@ -67,9 +67,9 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order(null,null,null,null));
+                array_push($arr_orders,new Order(null,null,null,null,null));
             }
-            array_push($arr,new Table($key,$item['name'],$item['isActive'],$arr_orders));
+            array_push($arr,new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),$arr_orders));
         }
         return $arr;
     }
@@ -80,10 +80,10 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order(null,null,null,null));
+                array_push($arr_orders,new Order(null,null,null,null,null));
             }
             if($arr_orders == null || count($arr_orders) == 0) {
-                array_push($arr, new Table($key, $item['name'],$item['isActive'], $arr_orders));
+                array_push($arr, new Table($key, $item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null), $arr_orders));
             }
         }
         return $arr;
@@ -95,10 +95,10 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order(null,null,null,null));
+                array_push($arr_orders,new Order(null,null,null,null,null));
             }
             if($arr_orders != null && count($arr_orders) != 0) {
-                array_push($arr, new Table($key, $item['name'],$item['isActive'], $arr_orders));
+                array_push($arr, new Table($key, $item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null), $arr_orders));
             }
         }
         return $arr;
@@ -107,6 +107,7 @@ class TableCtl
     public function  updateStatus($table_id,$order_id){
         unset($_SESSION["cart_item"]['code']);
         $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->push($order_id);
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("status")->set('pending');
     }
 
     public function clean($table_id){

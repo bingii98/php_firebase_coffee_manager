@@ -4,6 +4,7 @@ class Order{
     private $date;
     private $staff;
     private $order_details;
+    private $status;
 
     /**
      * Order constructor.
@@ -11,13 +12,15 @@ class Order{
      * @param $date
      * @param $staff
      * @param $order_details
+     * @param $status
      */
-    public function __construct($id, $date, $staff, $order_details)
+    public function __construct($id, $date, $staff, $order_details, $status)
     {
         $this->id = $id;
         $this->date = $date;
         $this->staff = $staff;
         $this->order_details = $order_details;
+        $this->status = $status;
     }
 
     /**
@@ -34,38 +37,6 @@ class Order{
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTableId()
-    {
-        return $this->table_id;
-    }
-
-    /**
-     * @param mixed $table_id
-     */
-    public function setTableId($table_id)
-    {
-        $this->table_id = $table_id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrderDetails()
-    {
-        return $this->order_details;
-    }
-
-    /**
-     * @param mixed $order_details
-     */
-    public function setOrderDetails($order_details)
-    {
-        $this->order_details = $order_details;
     }
 
     /**
@@ -101,6 +72,39 @@ class Order{
     }
 
     /**
+     * @return mixed
+     */
+    public function getOrderDetails()
+    {
+        return $this->order_details;
+    }
+
+    /**
+     * @param mixed $order_details
+     */
+    public function setOrderDetails($order_details)
+    {
+        $this->order_details = $order_details;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+    /**
      * @param mixed $staff
      */
     public function revenueCount()
@@ -125,6 +129,7 @@ class Order{
     public function pushFB(){
         $DATA['date'] = $this->date;
         $DATA['staff'] = $this->staff;
+        $DATA['status'] = 'pending';
         $arr_order_detail = array();
         foreach ($this->order_details as $key => $item){
             $arr_ordt = array($key => array('num' => $item->getNum(), 'price' => $item->getPrice(), 'food' => $item->getFood()->getId()));
