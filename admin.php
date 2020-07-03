@@ -357,7 +357,7 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                         else
                             $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, $i.'-'.$dateMY);
                     }
-                    echo $rs; ?>],
+                    echo $rs; echo $saDateMonth->getTimestamp(); ?>],
             }],
         },
         options: {
