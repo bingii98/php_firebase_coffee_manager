@@ -149,4 +149,16 @@ class OrderCtl
         $list = $this->firebase->getReference('orders')->set(null);
         return 0;
     }
+
+    public function updateStatusNull($id)
+    {
+        try {
+            $this->firebase->getReference('orders/' . $id)->update([
+                'status' => null
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

@@ -1,8 +1,11 @@
 <?php
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
+include_once __DIR__ . '/controller/OrderCtl.php';
 $tableCtl = new TableCtl();
-$table = $tableCtl->get($_POST['id']);
+$orderCtl = new OrderCtl();
+$orderCtl->updateStatusNull($_POST['id_order']);
+$table = $tableCtl->get($_POST['id_table']);
 $item_total = 0;
 $isFN = true;
 ?>

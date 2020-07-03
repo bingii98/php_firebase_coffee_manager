@@ -69,7 +69,18 @@ $(document).on('click','.btn-update-order',function () {
     $.ajax({
         url : 'a-update-order.php',
         data : {
-            'id' : 
+            'id_order' : $(this).attr('data_order'),
+            'id_table' : $(this).attr('data_table')
+        },
+        type : 'POST',
+        beforeSend: function () {
+            $('#loaded').show();
+        },
+        success: function (data) {
+            $(document).ready(function () {
+                $('#loaded').hide();
+                $('#cart-item').html(data);
+            });
         }
     })
 })
