@@ -353,11 +353,11 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                     <?php $rs = "";
                     for ($i = $sad; $i <= $std; $i++) {
                         if ($i == 1)
-                            $rs = $rs . '' . $orderCtl->count_sales_week($resultMonth, $i.'-'.$dateMY);
+                            $rs = $rs . '' . $orderCtl->count_sales_week($resultMonth, (($i<10 && strlen($i)==1) ? '0'.$i : $i).'-'.$dateMY);
                         else
-                            $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, $i.'-'.$dateMY);
+                            $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, (($i<10 && strlen($i)==1) ? '0'.$i : $i).'-'.$dateMY);
                     }
-                    echo $rs; echo $saDateMonth->getTimestamp(); ?>],
+                    echo $rs; ?>],
             }],
         },
         options: {

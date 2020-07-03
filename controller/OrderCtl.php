@@ -119,7 +119,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
+            array_push($arr,new Order($key, $item['date'], null, $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return $arr;
     }
