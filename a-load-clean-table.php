@@ -1,8 +1,9 @@
 <?php
+include_once __DIR__ . '/model/User.php';
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
-$tableCtl->clean($_POST['id']);
+$tableCtl->clean($_POST['id'],$_SESSION['_userSignedIn']->getId());
 
 $arr_table = $tableCtl->get_is_food();
 

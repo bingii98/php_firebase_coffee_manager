@@ -80,7 +80,7 @@ class TableCtl
         foreach ($list as $key => $item) {
             $arr_orders = array();
             if(isset($item['orders'])){
-                array_push($arr_orders,new Order($item['orders'],null,null,null,null));
+                array_push($arr_orders,new Order(null,null,null,null,null));
             }
             if($arr_orders == null || count($arr_orders) == 0) {
                 array_push($arr, new Table($key, $item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null), $arr_orders));
@@ -110,7 +110,15 @@ class TableCtl
         $this->firebase->getReference('table')->getChild($table_id)->getChild("status")->set('pending');
     }
 
-    public function clean($table_id){
+    public function clean($table_id, $uid){
+        $table = $this->get($table_id); echo print_r($table);
+        foreach ($table->getOrders() as $item){
+            $this->firebase->getReference('orders/'.$item->getId())->getChild('staff')->set($uid);
+        }
+        $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set(null);
+    }
+
+    public function update($table_id){
         $this->firebase->getReference('table')->getChild($table_id)->getChild("orders")->set(null);
     }
 
@@ -166,11 +174,11 @@ class TableCtl
         }
     }
 
-    public function update($list)
+    public function updateStatusNull($id)
     {
         try {
-            $this->firebase->getReference('table/' . $list->getId())->update([
-                'name' => $list->getName(),
+            $this->firebase->getReference('table/' . $id)->update([
+                'status' => null
             ]);
             return true;
         } catch (Exception $e) {

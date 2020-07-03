@@ -6,6 +6,15 @@ $tableCtl = new TableCtl();
 $orderCtl = new OrderCtl();
 $orderCtl->updateStatusNull($_POST['id_order']);
 $table = $tableCtl->get($_POST['id_table']);
+$isPendingTable = true;
+foreach ($table->getOrders() as $item){
+    if($item->getStatus() == 'pending'){
+        $isPendingTable = false;
+    }
+}
+if($isPendingTable){
+    $tableCtl->updateStatusNull($table->getId());
+}
 $item_total = 0;
 $isFN = true;
 ?>
@@ -62,7 +71,7 @@ $isFN = true;
         </tbody>
     </table>
 <?php if ($isFN) { ?>
-    <button type="button" class="btn btn-primary table-clean" data="<?php echo $_POST['id'] ?>"
+    <button type="button" class="btn btn-primary table-clean" data="<?php echo $_POST['id_table'] ?>"
             style="width: 100%; margin-top: 20px; margin-bottom: 30px;"> Thanh toán
     </button>
 <?php } else { ?>

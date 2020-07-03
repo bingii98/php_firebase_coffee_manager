@@ -105,19 +105,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
