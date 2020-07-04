@@ -35,11 +35,11 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
         <div class="slidebar col-3">
             <ul class="list-desk">
                 <li class="header">Loại bàn <i class="fa fa-cubes" aria-hidden="true"></i></li>
-                <li class="item redirect" dataHref="manager.php"><p>Tất cả</p><i class="fa fa-caret-right"
+                <li class="item redirect" dataHref="staff-manager.php"><p>Tất cả</p><i class="fa fa-caret-right"
                                                                                  aria-hidden="true"></i></li>
-                <li class="item redirect" dataHref="manager.php?is_empty=true"><p>Bàn trống</p><i
+                <li class="item redirect" dataHref="staff-manager.php?is_empty=true"><p>Bàn trống</p><i
                             class="fa fa-caret-right" aria-hidden="true"></i></li>
-                <li class="item redirect" dataHref="manager.php?is_empty=false"><p>Bàn có người</p><i
+                <li class="item redirect" dataHref="staff-manager.php?is_empty=false"><p>Bàn có người</p><i
                             class="fa fa-caret-right" aria-hidden="true"></i></li>
             </ul>
         </div>

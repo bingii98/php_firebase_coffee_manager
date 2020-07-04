@@ -1,7 +1,7 @@
 <ul class="navbar-nav sidebar accordion -bg-darkblue" id="accordionSidebar" style="border-right: 1px solid var(--bg-dark-hr);">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
-        <div class="sidebar-brand-text mx-3">Administrator</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="staff-manager.php">
+        <div class="sidebar-brand-text mx-3">Giao diện chính</div>
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">

@@ -728,6 +728,10 @@ section {
     background-color: var(--red);
 }
 
+.card-box-desk .card-list.pending::before {
+    background-color: orange;
+}
+
 .overlay-notify .box {
     margin: 0 auto;
     min-width: 200px;

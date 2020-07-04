@@ -32,7 +32,7 @@ class TableCtl
         $arr = array();
         $list = $this->firebase->getReference('table')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr,new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),null));
+            array_push($arr,new Table($key,$item['name'],$item['isActive'],(isset($item['status']) ? $item['status'] : null),array()));
         }
         return $arr;
     }
