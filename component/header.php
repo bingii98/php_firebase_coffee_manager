@@ -3,11 +3,11 @@
         <div class="panel-tab">
             <ul>
                 <li id="header-table">
-                    <a href="staff-manager.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Table
+                    <a href="staff-manager.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Quản lý
                         <div class="hr-panel-tab"></div>
                     </a>
                 <li id="header-drink">
-                    <a href="staff-drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Drink
+                    <a href="staff-drinks.php"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Đặt món
                         <div class="hr-panel-tab"></div>
                     </a>
                 </li>
@@ -16,7 +16,7 @@
         <div class="status-tab">
             <ul id="active-status">
                 <li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p>0</p> <span>/</span>
-                    <p>0</p><label>Active table</label>
+                    <p>0</p><label>Bàn hoạt động</label>
                 </li>
             </ul>
         </div>
