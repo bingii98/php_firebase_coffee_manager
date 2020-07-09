@@ -31,7 +31,7 @@ if ($a) {
     if ($tableCtl->get_by_name($name) == null) {
 
         /*  INSERT FOOD TO FIREBASE */
-        $table = new Table(null, $name, $isActive, array());
+        $table = new Table(null, $name, $isActive,null, array());
         if ($tableCtl->insert($table))
             echo 'true';
         else

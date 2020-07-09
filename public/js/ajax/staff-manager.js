@@ -1,5 +1,16 @@
+var first = true;
+
 $(document).ready(function () {
     $('#loaded').show();
+})
+
+loadChangeAdd("orders", function (data) {
+    if(first){
+        first = false
+    }else{
+        document.getElementById("sound-messenger").play()
+        createAlert('warning','Cảnh báo có khách hàng đặt món!')
+    }
 })
 
 $(document).on("click", ".table-clean", function () {

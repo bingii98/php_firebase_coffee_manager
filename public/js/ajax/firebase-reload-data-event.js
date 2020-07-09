@@ -14,3 +14,11 @@ function loadChange(node, callback){
         callback()
     })
 }
+
+
+function loadChangeAdd(node, callback){
+    var ref = database.ref(node).limitToLast(1);
+    ref.on('child_added',function (snapshot) {
+        callback(snapshot)
+    })
+}

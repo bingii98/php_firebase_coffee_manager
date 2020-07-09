@@ -68,6 +68,9 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php'); ?>
         </div>
     </div>
 </div>
+<audio id="sound-messenger">
+    <source src="public/sound.mp3" type="audio/mpeg">
+</audio>
 <script src="public/asset/js/jquery-3.5.1.min.js"></script>
 <script src="public/asset/js/bootstrap.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>

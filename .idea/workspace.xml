@@ -95,7 +95,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -107,19 +107,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -191,24 +191,24 @@
       <workItem from="1593833407892" duration="659000" />
       <workItem from="1593852702857" duration="571000" />
       <workItem from="1593867366871" duration="668000" />
+      <workItem from="1594309792693" duration="7777000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" key="#Notifications" timestamp="1593750838379">
