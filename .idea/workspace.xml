@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestPFM.php" beforeDir="false" afterPath="$PROJECT_DIR$/TestPFM.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-load-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/admin-slidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/admin-slidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-edit-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/TableCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/TableCtl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/staff-manager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,23 +188,26 @@
       <workItem from="1593852702857" duration="571000" />
       <workItem from="1593867366871" duration="668000" />
       <workItem from="1594309792693" duration="7983000" />
+      <workItem from="1594393580438" duration="1222000" />
+      <workItem from="1594395023521" duration="623000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" key="#Notifications" timestamp="1593750838379">
@@ -269,11 +268,11 @@
     </state>
     <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593753192951" />
     <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
-    <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1593867368568">
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1594395050938">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="521" y="271" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592212408665" />
-    <state x="976" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1593867368568" />
+    <state x="976" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594395050938" />
     <state x="976" y="521" key="com.intellij.ide.util.TipDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1593852702837" />
     <state x="740" y="222" width="555" height="596" key="find.popup" timestamp="1590865577030">
       <screen x="0" y="0" width="1920" height="1040" />

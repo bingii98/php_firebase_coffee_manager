@@ -28,8 +28,8 @@ if ($a) {
     /*  CHECK EXIST NAME */
     if ($tableCtl->get_by_name($name) == null || $tableCtl->get_by_name($name)->getName() == $name) {
         /*  INSERT FOOD TO FIREBASE */
-        $table = new Table($id, $name, null,array());
-        if ($tableCtl->update($table))
+        $table = new Table($id, $name, null,null,array());
+        if ($tableCtl->updateName($table))
             echo 'true';
         else
             echo 'false';

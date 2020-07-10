@@ -123,6 +123,17 @@ class TableCtl
     }
 
 
+    public function updateName($table){
+        try {
+            $this->firebase->getReference('table/' . $table->getId())->update([
+                'name' => $table->getName()
+            ]);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public function delete($id)
     {
         try {
