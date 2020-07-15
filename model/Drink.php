@@ -1,6 +1,6 @@
 <?php
 
-class Food {
+class Drink{
     private $id;
     private $name;
     private $discription;

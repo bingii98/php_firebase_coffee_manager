@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__ . '/controller/Authentication.php';
 include_once __DIR__ . '/model/User.php';
-$account = new MyService();
+$account = new Authentication();
 
 if (!isset($_SESSION)) session_start();
 

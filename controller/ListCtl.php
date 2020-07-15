@@ -6,9 +6,9 @@ use Kreait\Firebase\ServiceAccount;
 require './vendor/autoload.php';
 
 //Module
-include_once './model/List.php';
-include_once './model/Food.php';
-include_once './controller/FoodCtl.php';
+include_once './model/Lists.php';
+include_once './model/Drink.php';
+include_once './controller/DrinkCtl.php';
 
 class ListCtl{
 
@@ -24,7 +24,7 @@ class ListCtl{
         $factory = (new Factory)->withServiceAccount('./secret/key.json');
         $firebase = $factory->createDatabase();
         $this->firebase = $firebase;
-        $this->food_ctl = new FoodCtl();
+        $this->food_ctl = new DrinkCtl();
     }
 
 

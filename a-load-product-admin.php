@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . '/controller/FoodCtl.php';
-$foodCtl = new FoodCtl();
+include_once __DIR__ . '/controller/DrinkCtl.php';
+$foodCtl = new DrinkCtl();
 $arr_food = $foodCtl->getAll();
 
 foreach ($arr_food as $i => $item) { ?>

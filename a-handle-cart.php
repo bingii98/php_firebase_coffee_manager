@@ -1,10 +1,10 @@
 <?php
-include_once './controller/FoodCtl.php';
+include_once './controller/DrinkCtl.php';
 include_once './controller/ListCtl.php';
 include_once './controller/OrderCtl.php';
 include_once __DIR__ . '/model/User.php';
 if (!isset($_SESSION)) session_start();
-$foodCtl = new FoodCtl();
+$foodCtl = new DrinkCtl();
 $listCtl = new ListCtl();
 $orderCtl = new OrderCtl();
 

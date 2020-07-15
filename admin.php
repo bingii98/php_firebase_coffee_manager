@@ -1,14 +1,14 @@
 <?php
 include_once __DIR__ . '/model/User.php';
 include_once __DIR__ . '/controller/OrderCtl.php';
-include_once __DIR__ . '/controller/FoodCtl.php';
+include_once __DIR__ . '/controller/DrinkCtl.php';
 include_once __DIR__ . '/controller/TableCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 
 $orderCtl = new OrderCtl();
 $tableCtl = new TableCtl();
-$foodCtl = new FoodCtl();
+$foodCtl = new DrinkCtl();
 //Get table status
 $arr_table = $tableCtl->get_is_food();
 $arr_food_id = array();

@@ -3,13 +3,13 @@
 use GuzzleHttp\Client;
 
 require_once __DIR__.'/controller/FileCtl.php';
-require_once __DIR__.'/controller/FoodCtl.php';
-require_once __DIR__.'/model/Food.php';
+require_once __DIR__ . '/controller/DrinkCtl.php';
+require_once __DIR__ . '/model/Drink.php';
 $client = new Client([
     'base_uri' => 'https://api-ssl.bitly.com/',
 ]);
 $fileCtl = new FileCtl();
-$foodCtl = new FoodCtl();
+$foodCtl = new DrinkCtl();
 
 /* GET VALUE */
 $description = $_POST['description'];

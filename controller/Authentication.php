@@ -7,7 +7,7 @@ use Kreait\Firebase\ServiceAccount;
 require './vendor/autoload.php';
 include './config/Query.php';
 
-class MyService
+class Authentication
 {
     protected $auth;
 

@@ -5,10 +5,10 @@ use Kreait\Firebase\ServiceAccount;
 
 require_once './vendor/autoload.php';
 require_once './config/Query.php';
-require_once './model/Food.php';
+require_once './model/Drink.php';
 
 
-class FoodCtl
+class DrinkCtl
 {
 
     protected $firebase;

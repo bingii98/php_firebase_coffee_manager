@@ -5,7 +5,7 @@ use Kreait\Firebase\ServiceAccount;
 
 require './vendor/autoload.php';
 include_once './model/Table.php';
-include_once './model/Food.php';
+include_once './model/Drink.php';
 include_once './model/Order.php';
 include_once './model/OrderDetail.php';
 include_once './controller/OrderCtl.php';

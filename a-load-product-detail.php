@@ -1,8 +1,8 @@
 <?php
-include_once __DIR__ . '/controller/FoodCtl.php';
+include_once __DIR__ . '/controller/DrinkCtl.php';
 require_once __DIR__ . '/controller/ListCtl.php';
 
-$foodCtl = new FoodCtl();
+$foodCtl = new DrinkCtl();
 $food = $foodCtl->get($_POST['id']);
 
 if($food != null){ ?>

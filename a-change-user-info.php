@@ -3,7 +3,7 @@ include_once './controller/Authentication.php';
 include_once __DIR__ . '/model/User.php';
 if (!isset($_SESSION)) session_start();
 
-$account = new MyService();
+$account = new Authentication();
 if ($_POST['action'] == 'check') {
     if ($account->check_email_exist($_POST['email'])) {
         echo 'true';

@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) session_start();
 include_once __DIR__ . '/controller/Authentication.php';
 include_once __DIR__ . '/model/User.php';
-$controller = new MyService();
+$controller = new Authentication();
 
 $result = $controller->login($_POST['username'], $_POST['password']);
 

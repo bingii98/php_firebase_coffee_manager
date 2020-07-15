@@ -91,7 +91,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -190,24 +190,24 @@
       <workItem from="1594309792693" duration="7983000" />
       <workItem from="1594393580438" duration="1222000" />
       <workItem from="1594395023521" duration="623000" />
+      <workItem from="1594833396526" duration="2314000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" key="#Notifications" timestamp="1593750838379">
@@ -232,6 +232,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="960" y="435" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591915071700" />
+    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594837255313">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594837255313" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592065065457">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -279,15 +283,26 @@
     </state>
     <state x="740" y="222" width="555" height="596" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590865577030" />
     <state x="987" y="299" width="585" height="801" key="find.popup/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1589303017839" />
-    <state x="438" y="168" key="run.anything.popup" timestamp="1592212462745">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594837242060">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="438" y="168" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1592212462745" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591819422127" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594837242060" />
     <state x="476" y="24" width="945" height="966" key="search.everywhere.popup" timestamp="1592151044842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589871421390" />
     <state x="476" y="24" width="945" height="966" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592151044842" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/config/dbConnection.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

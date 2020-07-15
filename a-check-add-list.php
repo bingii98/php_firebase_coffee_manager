@@ -3,7 +3,7 @@
 use GuzzleHttp\Client;
 
 require_once __DIR__.'/controller/ListCtl.php';
-require_once __DIR__.'/model/List.php';
+require_once __DIR__ . '/model/Lists.php';
 $listCtl = new ListCtl();
 
 /* GET VALUE */

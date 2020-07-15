@@ -5,13 +5,13 @@ use Kreait\Firebase\ServiceAccount;
 
 require './vendor/autoload.php';
 include_once './model/Table.php';
-include_once './model/Food.php';
+include_once './model/Drink.php';
 include_once './model/Order.php';
 include_once './model/User.php';
 include_once './model/OrderDetail.php';
 include_once './controller/TableCtl.php';
 include_once './controller/ListCtl.php';
-include_once './controller/FoodCtl.php';
+include_once './controller/DrinkCtl.php';
 
 
 class OrderCtl
@@ -63,7 +63,7 @@ class OrderCtl
 
     public function insert($table_id, $uid)
     {
-        $this->food_ctl = new FoodCtl();
+        $this->food_ctl = new DrinkCtl();
         $this->table_ctl = new TableCtl();
         $arr_order_detail = array();
         $date = new DateTime();
@@ -79,7 +79,7 @@ class OrderCtl
 
     public function order_generation($uid,$date)
     {
-        $this->food_ctl = new FoodCtl();
+        $this->food_ctl = new DrinkCtl();
         $this->table_ctl = new TableCtl();
         $arr_order_detail = array();
         foreach ($_SESSION["cart_item"] as $key => $item) {
@@ -93,7 +93,7 @@ class OrderCtl
 
     public function get($id)
     {
-        $this->food_ctl = new FoodCtl();
+        $this->food_ctl = new DrinkCtl();
         $list = $this->firebase->getReference('orders')->getChild($id)->getSnapshot()->getValue();
         $arr = array();
         if(isset($list['staff'])){
@@ -111,7 +111,7 @@ class OrderCtl
 
     public function get_range_date($dstart,$dstop)
     {
-        $this->food_ctl = new FoodCtl();
+        $this->food_ctl = new DrinkCtl();
         $list = $this->firebase->getReference('orders')->orderByChild('date')->startAt($dstart)->endAt($dstop)->getSnapshot()->getValue();
         $arr = array();
         foreach ($list as $key => $item){
