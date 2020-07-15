@@ -4,7 +4,6 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 require_once './vendor/autoload.php';
-require_once './config/Query.php';
 require_once './model/Drink.php';
 
 
@@ -29,7 +28,7 @@ class DrinkCtl
         $arr = array();
         $list = $this->firebase->getReference('food')->orderByChild('list')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
+            array_push($arr, new Drink($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
         }
         return $arr;
     }
@@ -39,7 +38,7 @@ class DrinkCtl
         $arr = array();
         $list = $this->firebase->getReference('food')->orderByChild('list')->equalTo($id)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-                array_push($arr, new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
+                array_push($arr, new Drink($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
         }
         return $arr;
     }
@@ -61,7 +60,7 @@ class DrinkCtl
     {
         $list = $this->firebase->getReference('food')->orderByChild('name')->equalTo($name)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
+            return new Drink($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
         }
         return null;
     }
@@ -71,7 +70,7 @@ class DrinkCtl
     {
         $list = $this->firebase->getReference('food')->orderByKey()->equalTo($id)->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
-            return new Food($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
+            return new Drink($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']);
         }
         return null;
     }

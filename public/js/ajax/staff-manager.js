@@ -5,11 +5,11 @@ $(document).ready(function () {
 })
 
 loadChangeAdd("orders", function (data) {
-    if(first){
+    if (first) {
         first = false
-    }else{
+    } else {
         document.getElementById("sound-messenger").play()
-        createAlert('warning','Cảnh báo có khách hàng đặt món!')
+        createAlert('warning', 'Cảnh báo có khách hàng đặt món!')
     }
 })
 
@@ -31,6 +31,32 @@ $(document).on("click", ".table-clean", function () {
                 $('#cart-item').html("");
                 $("#table-detail-modal").modal('toggle');
             });
+        }
+    })
+})
+
+$(document).on('click', '.swap-table', function () {
+    $("#table-swap-modal").modal('toggle');
+    $("[data-receive=" + $(this).attr('data-send')).html('Bàn hiện tại')
+    $("#table-swap-modal .choose-table-swap").attr("data-send", $(this).attr('data-send'));
+})
+
+$(document).on('click', '.choose-table-swap', function () {
+    var idSend = $(this).attr('data-send');
+    var idReceive = $(this).attr('data-receive');
+    $.ajax({
+        url: "a-swap-table.php",
+        data: {
+            "idSend": idSend,
+            "idReceive": idReceive
+        },
+        type: "POST",
+        beforeSend: function () {
+            $('#loaded').show();
+        },
+        success: function (data) {
+            $('#loaded').hide();
+            $("#table-swap-modal").modal('toggle');
         }
     })
 })
@@ -76,14 +102,14 @@ loadChange("table", function () {
     })
 })
 
-$(document).on('click','.btn-update-order',function () {
+$(document).on('click', '.btn-update-order', function () {
     $.ajax({
-        url : 'a-update-order.php',
-        data : {
-            'id_order' : $(this).attr('data_order'),
-            'id_table' : $(this).attr('data_table')
+        url: 'a-update-order.php',
+        data: {
+            'id_order': $(this).attr('data_order'),
+            'id_table': $(this).attr('data_table')
         },
-        type : 'POST',
+        type: 'POST',
         beforeSend: function () {
             $('#loaded').show();
         },

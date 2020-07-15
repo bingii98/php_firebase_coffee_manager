@@ -196,4 +196,17 @@ class TableCtl
             return false;
         }
     }
+
+    public function swapTable($idSend, $idReceive)
+    {
+        $this->order_ctl = new OrderCtl();
+        $table = $this->get($idSend);
+        foreach ($table->getOrders() as $item){
+            $this->firebase->getReference('table')->getChild($idReceive)->getChild("orders")->push($item->getId());
+        }
+        $this->firebase->getReference('table')->getChild($idSend)->getChild("orders")->set(null);
+        echo print_r($table);
+        if($table->getStatus() == 'pending')
+            $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set('pending');
+    }
 }

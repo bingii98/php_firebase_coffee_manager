@@ -190,7 +190,7 @@
       <workItem from="1594309792693" duration="7983000" />
       <workItem from="1594393580438" duration="1222000" />
       <workItem from="1594395023521" duration="623000" />
-      <workItem from="1594833396526" duration="2314000" />
+      <workItem from="1594833396526" duration="8345000" />
     </task>
     <servers />
   </component>
@@ -260,17 +260,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="748" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591630489419" />
-    <state x="1114" y="623" key="NewPhpFileDialog" timestamp="1592256747790">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="595" y="324" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589869043388" />
-    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591908529802" />
-    <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1592181331864" />
-    <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1592256747790" />
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1593753192951">
+    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1594845866515">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593753192951" />
+    <state x="595" y="324" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589869043388" />
+    <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594845866515" />
+    <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1592181331864" />
+    <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1592256747790" />
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1594843013517">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="123" y="159" width="1681" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594843013517" />
     <state x="1067" y="413" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591915518878" />
     <state x="976" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1594395050938">
       <screen x="0" y="0" width="2560" height="1400" />
