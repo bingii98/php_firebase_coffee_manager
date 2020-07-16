@@ -205,8 +205,9 @@ class TableCtl
             $this->firebase->getReference('table')->getChild($idReceive)->getChild("orders")->push($item->getId());
         }
         $this->firebase->getReference('table')->getChild($idSend)->getChild("orders")->set(null);
-        echo print_r($table);
         if($table->getStatus() == 'pending')
             $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set('pending');
+        else
+            $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set(null);
     }
 }

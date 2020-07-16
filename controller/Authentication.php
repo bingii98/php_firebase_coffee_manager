@@ -5,7 +5,6 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 require './vendor/autoload.php';
-include './config/Query.php';
 
 class Authentication
 {

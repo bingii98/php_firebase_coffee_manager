@@ -56,7 +56,7 @@ $(document).on('click', '.choose-table-swap', function () {
         },
         success: function (data) {
             $('#loaded').hide();
-            $("#table-swap-modal").modal('toggle');
+            $(".modal-backdrop").remove();
         }
     })
 })
