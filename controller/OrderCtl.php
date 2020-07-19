@@ -42,7 +42,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
+            array_push($arr,new Order($key, $item['date'], (isset($item['staff']) != null) ? $item['staff'] : null, $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return array_reverse($arr);
     }
@@ -56,7 +56,7 @@ class OrderCtl
             foreach ($item['detail'] as $value) {
                 array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
             }
-            array_push($arr,new Order($key, $item['date'], $item['staff'], $arr_detail,(isset($value['status']) ? $value['status'] : null)));
+            array_push($arr,new Order($key, $item['date'], (isset($item['staff']) != null) ? $item['staff'] : null, $arr_detail,(isset($value['status']) ? $value['status'] : null)));
         }
         return array_reverse($arr);
     }
@@ -107,6 +107,22 @@ class OrderCtl
             array_push($arr, new OrderDetail($this->food_ctl->get($value['food']), $value['num'], $value['price']));
         }
         return new Order($id, $list['date'], $user, $arr,(isset($list['status']) ? $list['status'] : null));
+    }
+
+
+    public function get_date($date)
+    {
+        $this->food_ctl = new DrinkCtl();
+        $list = $this->firebase->getReference('orders')->orderByChild('date')->equalTo($date)->getSnapshot()->getValue();
+        $arr = array();
+        foreach ($list as $key => $item){
+            $arr_detail = array();
+            foreach ($item['detail'] as $value) {
+                array_push($arr_detail, new OrderDetail($value['food'], $value['num'], $value['price']));
+            }
+            array_push($arr,new Order($key, $item['date'], null, $arr_detail,(isset($value['status']) ? $value['status'] : null)));
+        }
+        return $arr;
     }
 
     public function get_range_date($dstart,$dstop)

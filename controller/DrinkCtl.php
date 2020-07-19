@@ -26,7 +26,7 @@ class DrinkCtl
     public function getAll()
     {
         $arr = array();
-        $list = $this->firebase->getReference('food')->orderByChild('list')->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('food')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item) {
             array_push($arr, new Drink($key, $item['name'], $item['description'], $item['price'], $item['image'], $item['sale'], $item['isSale'], $item['isActive']));
         }

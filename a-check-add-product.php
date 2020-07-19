@@ -78,7 +78,7 @@ if ($a) {
         }
 
         /*  INSERT FOOD TO FIREBASE */
-        $food = new Food(null, $name, $description, $price, $image, $sale, $isSale, true);
+        $food = new Drink(null, $name, $description, $price, $image, $sale, $isSale, true);
         if ($foodCtl->insert($food, $_POST['list']))
             echo 'true';
         else

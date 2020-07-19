@@ -37,7 +37,7 @@ $(document).on("click", ".table-clean", function () {
 
 $(document).on('click', '.swap-table', function () {
     $("#table-swap-modal").modal('toggle');
-    $("[data-receive=" + $(this).attr('data-send')).html('Bàn hiện tại')
+    $("[data-receive=" + $(this).attr('data-send')).html('Bàn hiện tại').prop('disabled', true).css('cursor','not-allowed');
     $("#table-swap-modal .choose-table-swap").attr("data-send", $(this).attr('data-send'));
 })
 
@@ -55,8 +55,9 @@ $(document).on('click', '.choose-table-swap', function () {
             $('#loaded').show();
         },
         success: function (data) {
-            $('#loaded').hide();
+            $("#table-swap-modal").modal('toggle');
             $(".modal-backdrop").remove();
+            $('#loaded').hide();
         }
     })
 })

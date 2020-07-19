@@ -5,6 +5,7 @@ if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
     header('Location: 403.html');
 }
+$dateMY = (isset($_GET['date']) ? $_GET['date'] : date("d-m-Y"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +18,16 @@ if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
     <title>CHB Coffee - Sản phẩm</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://bingii901.com/images/icons/favicon.ico">
     <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet prefetch" href="public/asset/css/datepicker.css">
     <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
+    <style>
+        .datepicker-dropdown {
+            width: 274px;
+            background: var(--bg-dark-card);
+        }
+    </style>
 </head>
 <body id="page-top">
 <div class="wrapper">
@@ -39,9 +47,17 @@ if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
         <div id="content">
             <?php include 'component/admin-header.php' ?>
             <div class="container-fluid">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh sách hóa đơn</h6>
+                <div class="card shadow">
+                    <div class="d-sm-flex align-items-center justify-content-between" style="margin: 20px 20px 10px;">
+                        <h1 class="h3 mb-0 text-gray-800" style="font-size: 20px;font-weight: 600;">Danh sách hoá đơn</h1>
+                        <div id="datepicker" class="d-none d-sm-inline-block date" data-date-format="mm-yyyy">
+                            <div class="d-flex">
+                                <input class="form-control form-input mr-1" readonly="" type="text" id="date-pick"
+                                       style="background: #00000050;height: 35px;">
+                                <button class="form-control btn btn-sm btn-primary shadow-sm" id="btn-filter-al">Tìm
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -57,6 +73,13 @@ if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
                                     <th>Hành động</th>
                                 </tr>
                                 </thead>
+                                <?php
+                                    if(!isset($_GET['date'])){
+                                        echo '<small><p><i>Đang hiển thị theo danh sách tổng</i></p></small>';
+                                    }else{
+                                        echo '<small><p><i>Đang hiển thị theo danh sách theo ngày '.$_GET['date'].'</i></p></small>';
+                                    }
+                                ?>
                                 <tbody id="data-order-table">
                                 <tr>
                                     <td colspan="6" style="text-align: center">
@@ -111,10 +134,13 @@ if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+<input type="hidden" value="<?php echo (!isset($_GET['date'])) ? '' : $_GET['date']?>" id="param_date">
 <script src="public/vendor/jquery/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="public/js/sb-admin-2.min.js"></script>
+<script src="public/asset/js/bootstrap.min.js"></script>
+<script src="public/asset/js/bootstrap-datepicker.js"></script>
 <script src="public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="public/js/header.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
@@ -122,6 +148,24 @@ if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
 <script src="public/js/ajax/firebase-reload-data-event.js"></script>
 <script src="public/js/regex.js"></script>
 <script src="public/js/ajax/order-list.js"></script>
+<script>
+    /* DATE PICKED */
+    $(function () {
+        $("#datepicker").datepicker({
+            format: "dd-mm-yyyy",
+            endDate: new Date(new Date().setDate(new Date().getDate()))
+        })
+    });
+
+    $(document).on('click', '#btn-filter-al', function () {
+        window.location.href = "admin-hoa-don.php?date=" + $('#date-pick').val();
+    })
+
+    $(document).ready(function () {
+        $('#loaded').hide();
+        $("#date-pick").val("<?php echo $dateMY ?>");
+    })
+</script>
 </body>
 
 </html>

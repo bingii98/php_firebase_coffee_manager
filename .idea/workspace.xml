@@ -20,32 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check-admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/style403.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/script403.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a-load-filter-order-admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-check-add-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a-check-add-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-check-add-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-check-edit-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a-check-edit-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-check-edit-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-delete-empty-list-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-delete-empty-list-admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a-load-table-status.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-reactive-list-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-list-admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-reactive-product-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-product-admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-reactive-table-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-table-admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-ban.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-ban.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-danh-muc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-load-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-hoa-don.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-hoa-don.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-san-pham.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-them-ban.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-ban.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-them-danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-danh-muc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-them-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-san-pham.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-generation.php" beforeDir="false" afterPath="$PROJECT_DIR$/order-generation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/DrinkCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/DrinkCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/FileCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FileCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ListCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ListCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/OrderCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/TableCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/TableCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/order-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax/staff-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ajax/staff-manager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +103,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -126,19 +115,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -218,6 +207,9 @@
       <workItem from="1594952510297" duration="621000" />
       <workItem from="1595157659379" duration="2079000" />
       <workItem from="1595159954055" duration="2610000" />
+      <workItem from="1595164936178" duration="12000" />
+      <workItem from="1595166287243" duration="465000" />
+      <workItem from="1595176627702" duration="7887000" />
     </task>
     <servers />
   </component>

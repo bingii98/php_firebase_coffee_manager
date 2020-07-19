@@ -201,11 +201,14 @@ class TableCtl
     {
         $this->order_ctl = new OrderCtl();
         $table = $this->get($idSend);
+        $tableReceive = $this->get($idReceive);
         foreach ($table->getOrders() as $item){
             $this->firebase->getReference('table')->getChild($idReceive)->getChild("orders")->push($item->getId());
         }
         $this->firebase->getReference('table')->getChild($idSend)->getChild("orders")->set(null);
         if($table->getStatus() == 'pending')
+            $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set('pending');
+        else if($tableReceive->getStatus() == 'pending')
             $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set('pending');
         else
             $this->firebase->getReference('table')->getChild($idReceive)->getChild("status")->set(null);

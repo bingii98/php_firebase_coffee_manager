@@ -62,7 +62,7 @@ class ListCtl{
 
     public function getAll_food(){
         $arr_list = array();
-        $list = $this->firebase->getReference('list')->orderByKey()->getSnapshot()->getValue();
+        $list = $this->firebase->getReference('list')->orderByChild('name')->getSnapshot()->getValue();
         foreach ($list as $key => $item){
             if($item['isActive'] == 1){
                 $arr_food = $this->food_ctl->get_from_list_id($key);

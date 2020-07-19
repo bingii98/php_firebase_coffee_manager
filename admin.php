@@ -441,6 +441,7 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
             format: "mm-yyyy",
             viewMode: "months",
             minViewMode: "months",
+            endDate: new Date(new Date().setDate(new Date().getDate()))
         })
     });
 

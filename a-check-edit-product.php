@@ -54,7 +54,7 @@ if ($a) {
     /*  CHECK EXIST NAME */
     if ($foodCtl->get_by_name($name) == null || $foodCtl->get_by_name($name)->getName() == $name) {
         /*  INSERT FOOD TO FIREBASE */
-        $food = new Food($id, $name, $description, $price, null, $sale, $isSale, null);
+        $food = new Drink($id, $name, $description, $price, null, $sale, $isSale, null);
         if ($foodCtl->update($food))
             echo 'true';
         else

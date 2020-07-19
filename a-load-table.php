@@ -28,7 +28,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
                 <li class="card-list pending">
                     <label><?php echo $item->getName() ?></label>
                     <div class="status">
-                        <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ lên nước</p>
+                        <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ xử lý</p>
                     </div>
                     <div style="display: flex;">
                         <button class="load-table-detail" type="button" data="<?php echo $item->getId() ?>"><i class="fa fa-eye" aria-hidden="true"></i></button>
@@ -39,7 +39,7 @@ foreach ($arr_table_filter as $key => $item) { ?>
                 <li class="card-list active">
                     <label><?php echo $item->getName() ?></label>
                     <div class="status">
-                        <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ thanh toán</p>
+                        <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Đã xử lý</p>
                     </div>
                     <div style="display: flex;">
                         <button class="load-table-detail" type="button" data="<?php echo $item->getId() ?>"><i class="fa fa-eye" aria-hidden="true"></i></button>
@@ -86,7 +86,7 @@ $_SESSION['food_active_status'] = $count_food;
                                     <li class="card-list pending">
                                         <label><?php echo $item->getName() ?></label>
                                         <div class="status">
-                                            <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ lên nước</p>
+                                            <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ xử lý</p>
                                         </div>
                                         <div style="display: flex;">
                                             <button class="choose-table-swap" type="button" data-receive="<?php echo $item->getId() ?>">Chọn</button>
@@ -96,7 +96,7 @@ $_SESSION['food_active_status'] = $count_food;
                                     <li class="card-list active">
                                         <label><?php echo $item->getName() ?></label>
                                         <div class="status">
-                                            <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Chờ thanh toán</p>
+                                            <p><i class="fa fa-cc-paypal" aria-hidden="true"></i>&nbsp;&nbsp;Đã xử lý</p>
                                         </div>
                                         <div style="display: flex;">
                                             <button class="choose-table-swap" type="button" data-receive="<?php echo $item->getId() ?>">Chọn</button>
@@ -125,6 +125,6 @@ $_SESSION['food_active_status'] = $count_food;
 
 <script>
     <?php if(isset($_SESSION['table_active_status']) && isset($_SESSION['table_count_status'])){ ?>
-    $("#active-status").html('<li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Active table</label></li>');
+    $("#active-status").html('<li><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;<p><?php echo $_SESSION['table_active_status'] ?></p> <span>/</span><p><?php echo $_SESSION['table_count_status'] ?></p><label>Bàn hoạt động</label></li>');
     <?php } ?>
 </script>
