@@ -5,6 +5,9 @@ include_once __DIR__ . '/controller/DrinkCtl.php';
 include_once __DIR__ . '/controller/TableCtl.php';
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
+if (!$_SESSION['_userSignedIn']->getIsAdmin()) {
+    header('Location: 403.html');
+}
 
 $orderCtl = new OrderCtl();
 $tableCtl = new TableCtl();
@@ -24,10 +27,10 @@ $dateMY = (isset($_GET['date']) ? $_GET['date'] : date("m-yy"));
 
 //Statistics of the month
 $saDateMonth = "01-" . $dateMY;
+$lastday = date('t',strtotime($saDateMonth));
 $stDateMonth = "t-" . $dateMY;
-
-$saDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($saDateMonth) . ' 00:00:00', new DateTimeZone('UTC'));
-$stDateMonth = $d = DateTime::createFromFormat('d-m-Y H:i:s', '' . date($stDateMonth) . ' 00:00:00', new DateTimeZone('UTC'));
+$saDateMonth = $d = DateTime::createFromFormat('d-m-Y', date($saDateMonth), new DateTimeZone('UTC'));
+$stDateMonth = $d = DateTime::createFromFormat('d-m-Y', date($stDateMonth), new DateTimeZone('UTC'));
 
 $sad = date('d', $saDateMonth->getTimestamp());
 $std = date('d', $stDateMonth->getTimestamp());
@@ -100,8 +103,10 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                     <h1 class="h3 mb-0 text-gray-800" style="font-size: 20px;font-weight: 600;">Thống kê</h1>
                     <div id="datepicker" class="d-none d-sm-inline-block date" data-date-format="mm-yyyy">
                         <div class="d-flex">
-                            <input class="form-control form-input mr-1" readonly="" type="text" id="date-pick" style="background: #00000050;height: 35px;">
-                            <button class="form-control btn btn-sm btn-primary shadow-sm" id="btn-filter-al">Tìm</button>
+                            <input class="form-control form-input mr-1" readonly="" type="text" id="date-pick"
+                                   style="background: #00000050;height: 35px;">
+                            <button class="form-control btn btn-sm btn-primary shadow-sm" id="btn-filter-al">Tìm
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -183,7 +188,8 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập tháng <?php echo $dateMY ?></h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập
+                                    tháng <?php echo $dateMY ?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -199,7 +205,8 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Top bán chạy tháng <?php echo $dateMY ?></h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Top bán chạy
+                                    tháng <?php echo $dateMY ?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -207,13 +214,13 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                                     <canvas id="myPieChart"></canvas>
                                 </div>
                                 <div class="mt-4 text-center small">
-                                    <?php for ($i0 = 0 ; $i0 < count($arr_food_id) ; $i0++ ){ ?>
+                                    <?php for ($i0 = 0; $i0 < count($arr_food_id); $i0++) { ?>
                                         <span class="mr-2">
                                           <i class="fas fa-circle
-                                          <?php if($i0 == 0) echo 'text-primary';
-                                          else if($i0 == 1) echo 'text-success';
-                                          else if($i0 == 2) echo 'text-info';
-                                          else echo 'text-default';?>
+                                          <?php if ($i0 == 0) echo 'text-primary';
+                                          else if ($i0 == 1) echo 'text-success';
+                                          else if ($i0 == 2) echo 'text-info';
+                                          else echo 'text-default'; ?>
                                                 "></i> <?php echo $foodCtl->get(array_keys(array_slice($arr_food_id, $i0, 1))[0])->getName() ?>
                                         </span>
                                     <?php } ?>
@@ -251,7 +258,7 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
         data: {
             labels: [
                 <?php $ghs = "";
-                for ($i1 = 0 ; $i1 < count($arr_food_id) ; $i1++ ){
+                for ($i1 = 0; $i1 < count($arr_food_id); $i1++) {
                     if ($i1 == 0)
                         $ghs = $ghs . "'" . $foodCtl->get(array_keys(array_slice($arr_food_id, $i1, 1))[0])->getName() . "'";
                     else
@@ -262,7 +269,7 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
             datasets: [{
                 data: [
                     <?php $ght = "";
-                    for ($i2 = 0 ; $i2 < count($arr_food_id) ; $i2++ ){
+                    for ($i2 = 0; $i2 < count($arr_food_id); $i2++) {
                         if ($i2 == 0)
                             $ght = $ght . '' . array_values(array_slice($arr_food_id, $i2, 1))[0];
                         else
@@ -328,7 +335,7 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
         data: {
             labels: [
                 <?php $str = "";
-                for ($i = $sad; $i <= $std; $i++) {
+                for ($i = $sad; $i <= $lastday; $i++) {
                     if ($i == 1)
                         $str = $str . "'" . $i . "-" . $dateMY . "'";
                     else
@@ -351,11 +358,11 @@ $arr_food_id = array_slice($arr_food_id, 0, 5);
                 pointBorderWidth: 3,
                 data: [
                     <?php $rs = "";
-                    for ($i = $sad; $i <= $std; $i++) {
+                    for ($i = $sad; $i <= $lastday; $i++) {
                         if ($i == 1)
-                            $rs = $rs . '' . $orderCtl->count_sales_week($resultMonth, (($i<10 && strlen($i)==1) ? '0'.$i : $i).'-'.$dateMY);
+                            $rs = $rs . '' . $orderCtl->count_sales_week($resultMonth, (($i < 10 && strlen($i) == 1) ? '0' . $i : $i) . '-' . $dateMY);
                         else
-                            $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, (($i<10 && strlen($i)==1) ? '0'.$i : $i).'-'.$dateMY);
+                            $rs = $rs . ',' . $orderCtl->count_sales_week($resultMonth, (($i < 10 && strlen($i) == 1) ? '0' . $i : $i) . '-' . $dateMY);
                     }
                     echo $rs; ?>],
             }],

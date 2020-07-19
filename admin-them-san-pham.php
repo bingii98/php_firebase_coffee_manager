@@ -1,9 +1,7 @@
 <?php
-require_once __DIR__ . '/model/User.php';
+include 'check-admin.php';
 require_once __DIR__ . '/controller/DrinkCtl.php';
 require_once __DIR__ . '/controller/ListCtl.php';
-if (!isset($_SESSION)) session_start();
-if (!isset($_SESSION['_userSignedIn'])) header('Location: login.php');
 $foodCtl = new DrinkCtl();
 $listCtl = new ListCtl();
 $arr_list = $listCtl->getAll_enable();

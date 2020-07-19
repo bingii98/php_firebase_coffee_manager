@@ -2,6 +2,8 @@
 
 use GuzzleHttp\Client;
 
+include 'check-admin.php';
+
 require_once __DIR__.'/controller/TableCtl.php';
 require_once __DIR__.'/model/Table.php';
 $tableCtl = new TableCtl();

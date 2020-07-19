@@ -1,4 +1,7 @@
 <?php
+
+include 'check-admin.php';
+
 include_once __DIR__ . '/controller/ListCtl.php';
 $listCtl = new ListCtl();
 $result = $arr_food = $listCtl->disable($_POST['id']);

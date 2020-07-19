@@ -2,6 +2,8 @@
 
 use GuzzleHttp\Client;
 
+include 'check-admin.php';
+
 require_once __DIR__.'/controller/FileCtl.php';
 require_once __DIR__ . '/controller/DrinkCtl.php';
 require_once __DIR__ . '/model/Drink.php';

@@ -11,13 +11,13 @@ $orderCtl = new OrderCtl();
 
 $arr = $foodCtl->getAll();
 
-for ($i1 = 0; $i1 < 10000; $i1++) {
+do {
     for ($i = 0; $i < 5; $i++) {
         if ($i == 4) {
             if(!isset($_SESSION['order_generation_date']))
-                $_SESSION['order_generation_date'] = 1577839582;
+                $_SESSION['order_generation_date'] = 1588337413;
             else
-                $_SESSION['order_generation_date'] += 2000;
+                $_SESSION['order_generation_date'] += 20000;
             $orderCtl->order_generation($_SESSION['_userSignedIn']->getId(),$_SESSION['order_generation_date']);
             unset($_SESSION["cart_item"]);
         } else {
@@ -27,7 +27,7 @@ for ($i1 = 0; $i1 < 10000; $i1++) {
             } else {
                 $price = $productByCode->getPrice();
             }
-            $itemArray = array($productByCode->getId() => array('name' => $productByCode->getName(), 'quantity' => rand(19,20), 'price' => $price));
+            $itemArray = array($productByCode->getId() => array('name' => $productByCode->getName(), 'quantity' => rand(1,3), 'price' => $price));
 
             if (!empty($_SESSION["cart_item"])) {
                 if (array_key_exists($productByCode->getId(), $_SESSION["cart_item"])) {
@@ -44,4 +44,4 @@ for ($i1 = 0; $i1 < 10000; $i1++) {
             }
         }
     }
-}
+} while ($_SESSION['order_generation_date'] <= 1595163442);

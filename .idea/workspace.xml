@@ -20,9 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da26efc-7e01-4dbf-94d4-81569f7bbba5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/403.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/check-admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style403.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/script403.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-add-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-add-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-add-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-add-table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-edit-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-check-edit-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a-check-edit-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-check-edit-table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/TableCtl.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/TableCtl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-delete-empty-list-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-delete-empty-list-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-load-table-status.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-load-table-status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-reactive-list-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-list-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-reactive-product-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-product-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-reactive-table-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-reactive-table-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-ban.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-ban.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-danh-muc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-hoa-don.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-hoa-don.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-them-ban.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-ban.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-them-danh-muc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-danh-muc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-them-san-pham.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin-them-san-pham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-generation.php" beforeDir="false" afterPath="$PROJECT_DIR$/order-generation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +114,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
     <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -103,19 +126,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
+      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js\ajax" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\css" />
       <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\js" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\asset\css" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web\public\img" />
-      <recent name="C:\xampp\htdocs\CHB_Coffee_Web" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -192,6 +215,9 @@
       <workItem from="1594395023521" duration="623000" />
       <workItem from="1594833396526" duration="8345000" />
       <workItem from="1594867011985" duration="2423000" />
+      <workItem from="1594952510297" duration="621000" />
+      <workItem from="1595157659379" duration="2079000" />
+      <workItem from="1595159954055" duration="2610000" />
     </task>
     <servers />
   </component>
@@ -261,12 +287,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="748" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591630489419" />
-    <state x="836" y="463" key="NewPhpFileDialog" timestamp="1594845866515">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1114" y="623" key="NewPhpFileDialog" timestamp="1595158914288">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="595" y="324" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589869043388" />
     <state x="836" y="463" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594845866515" />
-    <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1592181331864" />
+    <state x="1114" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1595158914288" />
     <state x="1114" y="623" key="NewPhpFileDialog/2560.683.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1592256747790" />
     <state x="123" y="159" width="1681" height="711" key="SettingsEditor" timestamp="1594843013517">
       <screen x="0" y="0" width="1920" height="1040" />

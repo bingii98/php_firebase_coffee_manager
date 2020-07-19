@@ -1,4 +1,5 @@
 <?php
+include 'check-admin.php';
 include_once __DIR__ . '/controller/TableCtl.php';
 $tableCtl = new TableCtl();
 $arr_table = $tableCtl->get_is_food();

@@ -2,6 +2,8 @@
 
 use GuzzleHttp\Client;
 
+include 'check-admin.php';
+
 require_once __DIR__.'/controller/ListCtl.php';
 require_once __DIR__ . '/model/Lists.php';
 $listCtl = new ListCtl();
